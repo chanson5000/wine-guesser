@@ -7,7 +7,7 @@ include(SHARED_PATH . '/header.php');
 
 <div class="center">
     <h2>Select Red Wine Characteristics</h2>
-    <form class="wine-form" action="guess.php" method="get">
+    <form class="wine-form wine-table" action="guess.php" method="get">
         <table class="wine-char max-width">
             <tr>
                 <th colspan="3">Color</th>
@@ -45,10 +45,10 @@ include(SHARED_PATH . '/header.php');
                 <th colspan="4">Fruit Condition - Nose (Select up to two)</th>
             </tr>
             <tr>
-                <td>Tart <input type="checkbox" name="fruit-nose" value="tart"></td>
-                <td>Ripe <input type="checkbox" name="fruit-nose" value="ripe"></td>
-                <td>Overripe, Jammy, Stewed <input type="checkbox" name="fruit-nose" value="overripe"></td>
-                <td>Baked, Dried, Oxidative <input type="checkbox" name="fruit-nose" value="baked"></td>
+                <td class="con-choice">Tart<br><input type="checkbox" name="fruit-nose" value="tart"></td>
+                <td class="con-choice">Ripe<br><input type="checkbox" name="fruit-nose" value="ripe"></td>
+                <td class="con-choice">Overripe, Jammy, Stewed<br><input type="checkbox" name="fruit-nose" value="overripe"></td>
+                <td class="con-choice">Baked, Dried, Oxidative<br><input type="checkbox" name="fruit-nose" value="baked"></td>
             </tr>
         </table>
         <table class="wine-char max-width">
@@ -56,10 +56,10 @@ include(SHARED_PATH . '/header.php');
                 <th colspan="4">Fruit Condition - Palate (Select up to two)</th>
             </tr>
             <tr>
-                <td>Tart <input type="checkbox" name="fruit-palate" value="tart"></td>
-                <td>Ripe <input type="checkbox" name="fruit-palate" value="ripe"></td>
-                <td>Overripe, Jammy, Stewed <input type="checkbox" name="fruit-palate" value="overripe"></td>
-                <td>Baked, Dried, Oxidative <input type="checkbox" name="fruit-palate" value="baked"></td>
+                <td class="con-choice">Tart<br><input type="checkbox" name="fruit-palate" value="tart"></td>
+                <td class="con-choice">Ripe<br><input type="checkbox" name="fruit-palate" value="ripe"></td>
+                <td class="con-choice">Overripe, Jammy, Stewed<br><input type="checkbox" name="fruit-palate" value="overripe"></td>
+                <td class="con-choice">Baked, Dried, Oxidative<br><input type="checkbox" name="fruit-palate" value="baked"></td>
             </tr>
         </table>
         <table class="wine-char max-width">
@@ -156,4 +156,12 @@ include(SHARED_PATH . '/header.php');
         </table>
         <input class="center submit-btn" type="submit" value="Submit">
     </form>
+
+<p>Did you mean to guess a <a href="white-wine.php">white wine?</a></p>
 </div>
+
+<?php
+
+include(SHARED_PATH . '/footer.php');
+
+?>

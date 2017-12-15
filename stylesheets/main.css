@@ -3,10 +3,32 @@ body {
     margin: 0;
     padding: 0;
     background: firebrick;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1, h2 {
     text-align: center;
+    font-family: Georgia, serif;
+}
+
+a:link {
+    color: purple;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+    text-decoration: none;
+}
+
+a:hover {
+    color: mediumpurple;
+    text-decoration: none;
+}
+
+a:active {
+    color: peachpuff;
+    text-decoration: none;
 }
 
 a.wine-select:link {
@@ -20,7 +42,7 @@ a.wine-select:visited {
 }
 
 a.wine-select:hover {
-    color: rebeccapurple;
+    color: purple;
     text-decoration: none;
     border: rebeccapurple 1px dashed;
 }
@@ -45,18 +67,9 @@ a.wine-select:active {
 
 .wine-form {
     background: darkred;
-    /*padding: 0;*/
-    /*margin: 0;*/
     border-style: solid;
     border-color: black;
     border-width: 1px 2px;
-
-    /* The preceding 3 lines replaced the following 5 lines */
-    /*border: 1px 2px 1px 2px solid black;*/
-    /*border-right: 2px solid black;*/
-    /*border-left: 2px solid black;*/
-    /*border-top: 1px solid black;*/
-    /*border-bottom: 1px solid black;*/
     display: inline-block;
 }
 
@@ -66,7 +79,11 @@ a.wine-select:active {
 
 .wine-form th {
     border-bottom: 1px dashed black;
-    padding: 2px 0px 4px 0px;
+    padding: 2px 0 4px 0;
+}
+
+.bottom-border {
+    border-bottom: 1px solid black;
 }
 
 .center {
@@ -85,11 +102,46 @@ a.wine-select:active {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding: 5px 2px;
-    /*padding: 0;*/
-    /*margin: 0;*/
 }
 
 .submit-btn {
     padding: 2px;
     margin: 4px 0;
+}
+
+.con-choice {
+    border-style: dotted;
+    border-color: black;
+    border-width: 0 1px;
+}
+
+.white-bb {
+    border-bottom: 1px solid black;
+}
+
+.wine-table {
+
+}
+
+.index-title {
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+footer {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: small;
+    margin-bottom: 2px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0)
+}
+
+.relative-pos {
+    position: relative;
+    text-align: center;
 }
