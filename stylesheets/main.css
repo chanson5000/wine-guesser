@@ -1,0 +1,95 @@
+body {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: firebrick;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+a.wine-select:link {
+    color: darkred;
+    text-decoration: none;
+}
+
+a.wine-select:visited {
+    color: darkred;
+    text-decoration: none;
+}
+
+a.wine-select:hover {
+    color: rebeccapurple;
+    text-decoration: none;
+    border: rebeccapurple 1px dashed;
+}
+
+a.wine-select:active {
+    color: darkred;
+    text-decoration: none;
+}
+
+.wine-select {
+    display: inline-block;
+    text-align: center;
+    border: black 1px solid;
+    padding: 4px;
+    margin: 4px 10px;
+    font-size: 3em;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.wine-form {
+    background: darkred;
+    /*padding: 0;*/
+    /*margin: 0;*/
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 2px;
+
+    /* The preceding 3 lines replaced the following 5 lines */
+    /*border: 1px 2px 1px 2px solid black;*/
+    /*border-right: 2px solid black;*/
+    /*border-left: 2px solid black;*/
+    /*border-top: 1px solid black;*/
+    /*border-bottom: 1px solid black;*/
+    display: inline-block;
+}
+
+.wine-form td {
+    padding: 2px 5px;
+}
+
+.wine-form th {
+    border-bottom: 1px dashed black;
+    padding: 2px 0px 4px 0px;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.max-width {
+    width: 100%;
+}
+
+.wine-char {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px 2px;
+    /*padding: 0;*/
+    /*margin: 0;*/
+}
+
+.submit-btn {
+    padding: 2px;
+    margin: 4px 0;
+}
