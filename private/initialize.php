@@ -6,8 +6,8 @@
     define("PROJECT_PATH", dirname(PRIVATE_PATH));
     define("ADMIN_PATH", PROJECT_PATH . '/admin');
     define("SHARED_PATH", PROJECT_PATH . '/shared');
-    $doc_root = $_SERVER['SCRIPT_NAME'];
-    define("WWW_ROOT", $_SERVER['SERVER_NAME']);
+
+    define("WWW_ROOT", '/wine_guesser');
 
     require_once('functions.php');
     require_once('database.php');

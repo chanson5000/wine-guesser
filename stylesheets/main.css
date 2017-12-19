@@ -1,14 +1,56 @@
-body {
-    border: none;
-    margin: 0;
-    padding: 0;
-    background: firebrick;
-    font-family: Arial, Helvetica, sans-serif;
+/* BEGIN MY CSS */
+
+html {
+    height: 100%;
+    box-sizing: border-box;
 }
 
-h1, h2 {
+body {
+    box-sizing: border-box;
+    height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: firebrick;
+}
+
+header {
+    /*height: 7em;*/
+    background: blue;
+    padding: 1em;
+    border: 2px solid yellow;
+}
+
+footer {
+    font-size: 1em;
+    height: 20px;
+    padding: 5px;
+    background-color: blue;
     text-align: center;
-    font-family: Georgia, serif;
+}
+
+.wine-area {
+    margin: 20px;
+    padding: 20px;
+    border: 4px solid yellow;
+    text-align: center;
+}
+
+form.wine-form table {
+    max-width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px 2px;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 8em;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 2em;
+    padding: 1em;
 }
 
 a:link {
@@ -52,18 +94,38 @@ a.wine-select:active {
     text-decoration: none;
 }
 
+.index-title {
+    text-align: center;
+    /*display: block;*/
+    /*margin: 0;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.index-title h2 {
+    display: inline-block;
+    text-align: center;
+    font-size: 5em;
+    padding: 10px;
+    margin: 10px 10px 20px 10px;
+    border: 2px solid green;
+}
+
 .wine-select {
     display: inline-block;
     text-align: center;
     border: black 1px solid;
-    padding: 4px;
-    margin: 4px 10px;
-    font-size: 3em;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 5em;
 }
 
-.inline-block {
-    display: inline-block;
-}
+/*.inline-block {*/
+    /*display: inline-block;*/
+/*}*/
 
 .wine-form {
     background: darkred;
@@ -78,6 +140,7 @@ a.wine-select:active {
 }
 
 .wine-form th {
+    /*font-size: 2em;*/
     border-bottom: 1px dashed black;
     padding: 2px 0 4px 0;
 }
@@ -87,8 +150,10 @@ a.wine-select:active {
 }
 
 .center {
+    position: relative;
     text-align: center;
 }
+
 
 .left {
     text-align: left;
@@ -117,31 +182,4 @@ a.wine-select:active {
 
 .white-bb {
     border-bottom: 1px solid black;
-}
-
-.wine-table {
-
-}
-
-.index-title {
-    margin: 0;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-footer {
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: small;
-    margin-bottom: 2px;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0)
-}
-
-.relative-pos {
-    position: relative;
-    text-align: center;
 }
