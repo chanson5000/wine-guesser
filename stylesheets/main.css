@@ -14,43 +14,78 @@ body {
 
 header {
     /*height: 7em;*/
-    background: blue;
-    padding: 1em;
-    border: 2px solid yellow;
+    background: darkslategrey;
+    display: block;
+    /*padding: .5em;*/
+    /*border: 2px solid yellow;*/
 }
 
 footer {
-    font-size: 1em;
-    height: 20px;
+    display: block;
+    /*height: 20px;*/
     padding: 5px;
-    background-color: blue;
+    /*background-color: darkorchid;*/
     text-align: center;
 }
 
 .wine-area {
-    margin: 20px;
-    padding: 20px;
-    border: 4px solid yellow;
     text-align: center;
+    margin: 10px;
+}
+
+.wine-form {
+    background: darkred;
+    width: 100%;
+    max-width: 800px;
+    border: solid black 2px;
+    display: inline-block;
+    margin: 10px;
 }
 
 form.wine-form table {
     max-width: 100%;
+    font-size: 1em;
+    /*position: relative;*/
+    /*width: 90%;*/
+    /*border-top: 1px solid black;*/
+    border-bottom: 1px solid black;
+    padding: 5px 2px;
+}
+
+.wine-form td {
+    padding: 5px;
+    /*margin: 20px;*/
+    /*font-size: 1.3em;*/
+}
+
+.wine-form th {
+    font-size: 1.3em;
+    font-weight: bold;
+    border-bottom: 1px dashed black;
+    padding: 5px;
+}
+
+.wine-form table {
+    width: 100%;
+    /*position: relative;*/
+}
+
+.wine-char {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding: 5px 2px;
 }
 
-
 h1 {
     text-align: center;
-    font-size: 8em;
-    padding: 10px;
+    font-size: 7em;
+    padding: 5px;
 }
 
-h2 {
-    font-size: 2em;
-    padding: 1em;
+.wine-area h2 {
+    font-size: 2.5em;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 a:link {
@@ -116,7 +151,7 @@ a.wine-select:active {
 .wine-select {
     display: inline-block;
     text-align: center;
-    border: black 1px solid;
+    /*border: black 1px solid;*/
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -127,22 +162,9 @@ a.wine-select:active {
     /*display: inline-block;*/
 /*}*/
 
-.wine-form {
-    background: darkred;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px 2px;
-    display: inline-block;
-}
 
-.wine-form td {
-    padding: 2px 5px;
-}
-
-.wine-form th {
-    /*font-size: 2em;*/
+.dashed-border {
     border-bottom: 1px dashed black;
-    padding: 2px 0 4px 0;
 }
 
 .bottom-border {
@@ -163,22 +185,16 @@ a.wine-select:active {
     width: 100%;
 }
 
-.wine-char {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 5px 2px;
-}
-
 .submit-btn {
     padding: 2px;
     margin: 4px 0;
 }
 
-.con-choice {
-    border-style: dotted;
-    border-color: black;
-    border-width: 0 1px;
-}
+/*.con-choice {*/
+    /*border-style: dotted;*/
+    /*border-color: black;*/
+    /*border-width: 0 1px;*/
+/*}*/
 
 .white-bb {
     border-bottom: 1px solid black;
