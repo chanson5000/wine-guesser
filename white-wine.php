@@ -7,127 +7,123 @@ include(SHARED_PATH . '/header.php');
     <div class="wine-area">
         <h2>Select White Wine Characteristics</h2>
         <form class="wine-form" action="guess.php" method="get">
-            <table class="wine-char max-width">
+            <table>
                 <tr>
                     <th colspan="3">Color</th>
                 </tr>
                 <tr>
-                    <td>Straw <input type="radio" name="wine-color" value="straw"></td>
-                    <td>Yellow <input type="radio" name="wine-color" value="yellow"></td>
-                    <td>Gold <input type="radio" name="wine-color" value="gold"></td>
+                    <td><label for="straw">Straw </label><input type="radio" name="wine-color" id="straw" value="straw"></td>
+                    <td><label for="yellow">Yellow </label><input type="radio" name="wine-color" id="yellow" value="yellow"></td>
+                    <td><label for="gold">Gold </label><input type="radio" name="wine-color" id="gold" value="gold"></td>
                 </tr>
             </table>
-            <table class="wine-char max-width">
+            <table>
                 <tr>
                     <th class="left">Fruit</th>
                     <th>Yes</th>
                     <th>No</th>
                 </tr>
                 <tr>
-                    <td class="left">Apple/Pear:</td>
-                    <td><input type="radio" name="apple-pear" value="yes"></td>
-                    <td><input type="radio" name="apple-pear" value="no"></td>
+                    <td class="left"><label for="apple-pear">Apple/Pear:</label></td>
+                    <td><input type="radio" name="apple-pear" id="apple-pear" value="yes"></td>
+                    <td><input type="radio" name="apple-pear" id="apple-pear" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Citrus:</td>
-                    <td><input type="radio" name="citrus" value="yes"></td>
-                    <td><input type="radio" name="citrus" value="no"></td>
+                    <td class="left"><label for="citrus">Citrus:</label></td>
+                    <td><input type="radio" name="citrus" id="citrus" value="yes"></td>
+                    <td><input type="radio" name="citrus" id="citrus" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Stone Fruit:</td>
-                    <td><input type="radio" name="stone-fruit" value="yes"></td>
-                    <td><input type="radio" name="stone-fruit" value="no"></td>
+                    <td class="left"><label for="stone-fruit">Stone Fruit:</label></td>
+                    <td><input type="radio" name="stone-fruit" id="stone-fruit" value="yes"></td>
+                    <td><input type="radio" name="stone-fruit" id="stone-fruit" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Tropical:</td>
-                    <td><input type="radio" name="tropical" value="yes"></td>
-                    <td><input type="radio" name="tropical" value="no"></td>
+                    <td class="left"><label for="tropical">Tropical:</label></td>
+                    <td><input type="radio" name="tropical" id="tropical" value="yes"></td>
+                    <td><input type="radio" name="tropical" id="tropical" value="no"></td>
                 </tr>
             </table>
-            <table class="wine-char max-width">
+            <table>
                 <tr>
                     <th colspan="4">Fruit Condition - Nose (Select up to two)</th>
                 </tr>
                 <tr>
-                    <td class="con-choice">Tart<br><input type="checkbox" name="fruit-nose" value="tart"></td>
-                    <td class="con-choice">Ripe<br><input type="checkbox" name="fruit-nose" value="ripe"></td>
-                    <td class="con-choice">Overripe, Jammy, Stewed<br><input type="checkbox" name="fruit-nose"
-                                                                             value="overripe"></td>
-                    <td class="con-choice">Baked, Dried, Bruised<br><input type="checkbox" name="fruit-nose"
-                                                                           value="baked"></td>
+                    <td class="con-choice"><label for="nose-tart">Tart</label><br><input type="checkbox" name="fruit-nose" id="nose-tart" value="tart"></td>
+                    <td class="con-choice"><label for="nose-ripe">Ripe</label><br><input type="checkbox" name="fruit-nose" id="nose-ripe" value="ripe"></td>
+                    <td class="con-choice"><label for="nose-overripe">Overripe, Jammy, Stewed</label><br><input type="checkbox" id="nose-overripe" name="fruit-nose" value="overripe"></td>
+                    <td class="con-choice"><label for="nose-baked">Baked, Dried, Bruised</label><br><input type="checkbox" name="fruit-nose" id="nose-baked" value="baked"></td>
                 </tr>
             </table>
-            <table class="wine-char max-width">
+            <table>
                 <tr>
                     <th colspan="4">Fruit Condition - Palate (Select up to two)</th>
                 </tr>
                 <tr>
-                    <td class="con-choice">Tart<br><input type="checkbox" name="fruit-palate" value="tart"></td>
-                    <td class="con-choice">Ripe<br><input type="checkbox" name="fruit-palate" value="ripe"></td>
-                    <td class="con-choice">Overripe, Jammy, Stewed<br><input type="checkbox" name="fruit-palate"
-                                                                             value="overripe"></td>
-                    <td class="con-choice">Baked, Dried, Bruised<br><input type="checkbox" name="fruit-palate"
-                                                                           value="baked"></td>
+                    <td class="con-choice"><label for="palate-tart">Tart</label><br><input type="checkbox" name="fruit-palate" id="palate-tart" value="tart"></td>
+                    <td class="con-choice"><label for="palate-ripe">Ripe</label><br><input type="checkbox" name="fruit-palate" id="palate-tart" value="ripe"></td>
+                    <td class="con-choice"><label for="palate-overripe">Overripe, Jammy, Stewed</label><br><input type="checkbox" name="fruit-palate" id="palate-overripe" value="overripe"></td>
+                    <td class="con-choice"><label for="palate-baked">Baked, Dried, Bruised</label><br><input type="checkbox" name="fruit-palate" id="palate-baked" value="baked"></td>
                 </tr>
             </table>
-            <table class="wine-char max-width">
+            <table>
                 <tr>
                     <th class="left">Non-Fruit Characteristic</th>
                     <th>Yes</th>
                     <th>No</th>
                 </tr>
                 <tr>
-                    <td class="left">Floral</td>
-                    <td><input type="radio" name="nf-floral" value="yes"></td>
-                    <td><input type="radio" name="nf-floral" value="no"></td>
+                    <td class="left"><label for="nf-floral">Floral</label></td>
+                    <td><input type="radio" name="nf-floral" id="nf-floral" value="yes"></td>
+                    <td><input type="radio" name="nf-floral" id="nf-floral" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Herbal</td>
-                    <td><input type="radio" name="nf-herbal" value="yes"></td>
-                    <td><input type="radio" name="nf-herbal" value="no"></td>
+                    <td class="left"><label for="nf-herbal">Herbal</label></td>
+                    <td><input type="radio" name="nf-herbal" id="nf-herbal" value="yes"></td>
+                    <td><input type="radio" name="nf-herbal" id="nf-herbal" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Vegetal</td>
-                    <td><input type="radio" name="nf-vegetal" value="yes"></td>
-                    <td><input type="radio" name="nf-vegetal" value="no"></td>
+                    <td class="left"><label for="nf-vegetal">Vegetal</label></td>
+                    <td><input type="radio" name="nf-vegetal" id="nf-vegetal" value="yes"></td>
+                    <td><input type="radio" name="nf-vegetal" id="nf-vegetal" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Botrytis: Gingered, Honeyed, Waxy</td>
-                    <td><input type="radio" name="nf-botrytis" value="yes"></td>
-                    <td><input type="radio" name="nf-botrytis" value="no"></td>
+                    <td class="left"><label for="nf-botrytis">Botrytis: Gingered, Honeyed, Waxy</label></td>
+                    <td><input type="radio" name="nf-botrytis" id="nf-botrytis" value="yes"></td>
+                    <td><input type="radio" name="nf-botrytis" id="nf-botrytis" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Oxidative, Nutty</td>
-                    <td><input type="radio" name="nf-oxidative" value="yes"></td>
-                    <td><input type="radio" name="nf-oxidative" value="no"></td>
+                    <td class="left"><label for="nf-oxidative">Oxidative, Nutty</label></td>
+                    <td><input type="radio" name="nf-oxidative" id="nf-oxidative" value="yes"></td>
+                    <td><input type="radio" name="nf-oxidative" id="nf-oxidative" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Lees: Doughy, Baked Bread, Yeasty</td>
-                    <td><input type="radio" name="nf-lees" value="yes"></td>
-                    <td><input type="radio" name="nf-lees" value="no"></td>
+                    <td class="left"><label for="nf-lees">Lees: Doughy, Baked Bread, Yeasty</label></td>
+                    <td><input type="radio" name="nf-lees" id="nf-lees" value="yes"></td>
+                    <td><input type="radio" name="nf-lees" id="nf-lees" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Buttery, Creamy</td>
-                    <td><input type="radio" name="nf-buttery" value="yes"></td>
-                    <td><input type="radio" name="nf-buttery" value="no"></td>
+                    <td class="left"><label for="nf-buttery">Buttery, Creamy</label></td>
+                    <td><input type="radio" name="nf-buttery" id="nf-buttery" value="yes"></td>
+                    <td><input type="radio" name="nf-buttery" id="nf-buttery" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Organic Earth: Wet Leaves, Mushrooms</td>
-                    <td><input type="radio" name="nf-organic" value="yes"></td>
-                    <td><input type="radio" name="nf-organic" value="no"></td>
+                    <td class="left"><label for="">Organic Earth: Wet Leaves, Mushrooms</label></td>
+                    <td><input type="radio" name="nf-organic" id="" value="yes"></td>
+                    <td><input type="radio" name="nf-organic" id="" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">Inorganic Earth: Stone, Rock, Mineral, Sulfur</td>
-                    <td><input type="radio" name="nf-inorganic" value="yes"></td>
-                    <td><input type="radio" name="nf-inorganic" value="no"></td>
+                    <td class="left"><label for="nf-inorganic">Inorganic Earth: Stone, Rock, Mineral, Sulfur</label></td>
+                    <td><input type="radio" name="nf-inorganic" id="nf-inorganic" value="yes"></td>
+                    <td><input type="radio" name="nf-inorganic" id="nf-inorganic" value="no"></td>
                 </tr>
                 <tr>
-                    <td class="left">New Oak: Vanilla, Brown Baking Spices, Smoke</td>
-                    <td><input type="radio" name="nf-oak" value="yes"></td>
-                    <td><input type="radio" name="nf-oak" value="no"></td>
+                    <td class="left"><label for="nf-oak">New Oak: Vanilla, Brown Baking Spices, Smoke</label></td>
+                    <td><input type="radio" name="nf-oak" id="nf-oak" value="yes"></td>
+                    <td><input type="radio" name="nf-oak" id="nf-oak" value="no"></td>
                 </tr>
             </table>
-            <table class="wine-char max-width">
+            <table>
                 <tr>
                     <th class="left">Structure</th>
                     <th>Yes</th>
@@ -136,9 +132,9 @@ include(SHARED_PATH . '/header.php');
                     <th>&nbsp;</th>
                 </tr>
                 <tr>
-                    <td class="left white-bb">Bitter, Phenolic:</td>
-                    <td class="white-bb"><input type="radio" name="st-bitter" value="yes"></td>
-                    <td class="white-bb"><input type="radio" name="st-bitter" value="no"</td>
+                    <td class="left white-bb"><label for="st-bitter">Bitter, Phenolic:</label></td>
+                    <td class="white-bb"><input type="radio" name="st-bitter" id="st-bitter" value="yes"></td>
+                    <td class="white-bb"><input type="radio" name="st-bitter" id="st-bitter" value="no"</td>
                     <td class="white-bb">&nbsp;</td>
                     <td class="white-bb">&nbsp;</td>
                 </tr>
@@ -150,10 +146,10 @@ include(SHARED_PATH . '/header.php');
                     <th>&nbsp;</th>
                 </tr>
                 <tr>
-                    <td class="left white-bb">Sweetness:</td>
-                    <td class="white-bb"><input type="radio" name="st-sweetness" value="dry"></td>
-                    <td class="white-bb"><input type="radio" name="st-sweetness" value="off-dry"</td>
-                    <td class="white-bb"><input type="radio" name="st-sweetness" value="med-sweet"</td>
+                    <td class="left white-bb"><label for="st-sweetness">Sweetness:</label></td>
+                    <td class="white-bb"><input type="radio" name="st-sweetness" id="st-sweetness" value="dry"></td>
+                    <td class="white-bb"><input type="radio" name="st-sweetness" id="st-sweetness" value="off-dry"</td>
+                    <td class="white-bb"><input type="radio" name="st-sweetness" id="st-sweetness" value="med-sweet"</td>
                     <td class="white-bb">&nbsp;</td>
                 </tr>
                 <tr>
@@ -164,18 +160,18 @@ include(SHARED_PATH . '/header.php');
                     <th>High</th>
                 </tr>
                 <tr>
-                    <td class="left">Acid:</td>
-                    <td><input type="radio" name="st-acid" value="low"></td>
-                    <td><input type="radio" name="st-acid" value="mod"></td>
-                    <td><input type="radio" name="st-acid" value="mod-plus"></td>
-                    <td><input type="radio" name="st-acid" value="high"></td>
+                    <td class="left"><label for="st-acid">Acid:</label></td>
+                    <td><input type="radio" name="st-acid" id="st-acid" value="low"></td>
+                    <td><input type="radio" name="st-acid" id="st-acid" value="mod"></td>
+                    <td><input type="radio" name="st-acid" id="st-acid" value="mod-plus"></td>
+                    <td><input type="radio" name="st-acid" id="st-acid" value="high"></td>
                 </tr>
                 <tr>
-                    <td class="left">Alcohol:</td>
-                    <td><input type="radio" name="st-alcohol" value="low"></td>
-                    <td><input type="radio" name="st-alcohol" value="mod"></td>
-                    <td><input type="radio" name="st-alcohol" value="mod-plus"></td>
-                    <td><input type="radio" name="st-alcohol" value="high"></td>
+                    <td class="left"><label for="st-alcohol">Alcohol:</label></td>
+                    <td><input type="radio" name="st-alcohol" id="st-alcohol" value="low"></td>
+                    <td><input type="radio" name="st-alcohol" id="st-alcohol" value="mod"></td>
+                    <td><input type="radio" name="st-alcohol" id="st-alcohol" value="mod-plus"></td>
+                    <td><input type="radio" name="st-alcohol" id="st-alcohol" value="high"></td>
                 </tr>
             </table>
             <input class="center submit-btn" type="submit" value="Submit">

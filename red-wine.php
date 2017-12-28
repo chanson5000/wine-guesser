@@ -7,7 +7,7 @@ include(SHARED_PATH . '/header.php');
     <div class="wine-area">
         <h2>Select Red Wine Characteristics</h2>
         <form class="wine-form" action="guess.php" method="get">
-            <table class="">
+            <table>
                 <tr>
                     <th colspan="3">Color</th>
                 </tr>
@@ -17,7 +17,7 @@ include(SHARED_PATH . '/header.php');
                     <td><label for="purple">Purple </label><input type="radio" name="wine-color" id="purple" value="purple"></td>
                 </tr>
             </table>
-            <table class="">
+            <table>
                 <tr>
                     <th class="left">Fruit</th>
                     <th>Yes</th>
@@ -40,7 +40,7 @@ include(SHARED_PATH . '/header.php');
                     <td><input type="radio" name="blue-fruit" id="blue-fruit-select" value="no"></td>
                 </tr>
             </table>
-            <table class="">
+            <table>
                 <tr>
                     <th colspan="4">Fruit Condition - Nose (Select up to two)</th>
                 </tr>
@@ -62,7 +62,7 @@ include(SHARED_PATH . '/header.php');
                     <td><label for="palate-baked">Baked, Dried, Oxidative</label><br><input type="checkbox" name="fruit-palate" id="palate-baked" value="baked"></td>
                 </tr>
             </table>
-            <table class="">
+            <table>
                 <tr>
                     <th class="left">Non-Fruit Characteristic</th>
                     <th>Yes</th>
@@ -124,7 +124,7 @@ include(SHARED_PATH . '/header.php');
                     <td><input type="radio" name="nf-oak" id="nf-oak" value="no"></td>
                 </tr>
             </table>
-            <table class="">
+            <table>
                 <tr>
                     <th class="left">Structure</th>
                     <th>Low to Mod. Minus</th>
