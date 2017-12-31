@@ -7,7 +7,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo url_for('stylesheets/main.css'); ?>">
 </head>
 <body>
+
     <header>
+        <a href="<?php echo url_for('index.php'); ?>">
         <h1>Wine Guesser</h1>
+        </a>
     </header>
-<!--    <div class="body">-->
+

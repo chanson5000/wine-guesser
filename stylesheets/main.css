@@ -1,4 +1,4 @@
-/* BEGIN MY CSS */
+/*** General Styles ***/
 
 html {
     height: 100%;
@@ -22,58 +22,10 @@ header {
 
 footer {
     display: block;
-    /*height: 20px;*/
-    padding: 5px;
+    padding: 10px;
+    margin: 10px;
     /*background-color: darkorchid;*/
     text-align: center;
-}
-
-.wine-area {
-    text-align: center;
-    margin: 10px;
-}
-
-.wine-form {
-    background: darkred;
-    width: 100%;
-    max-width: 800px;
-    border: solid black 2px;
-    display: inline-block;
-    margin: 10px;
-}
-
-form.wine-form table {
-    max-width: 100%;
-    font-size: 1em;
-    /*position: relative;*/
-    /*width: 90%;*/
-    /*border-top: 1px solid black;*/
-    border-bottom: 1px solid black;
-    padding: 5px 2px;
-}
-
-.wine-form td {
-    padding: 5px;
-    /*margin: 20px;*/
-    /*font-size: 1.3em;*/
-}
-
-.wine-form th {
-    font-size: 1.3em;
-    font-weight: bold;
-    border-bottom: 1px dashed black;
-    padding: 5px;
-}
-
-.wine-form table {
-    width: 100%;
-    /*position: relative;*/
-}
-
-.wine-char {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 5px 2px;
 }
 
 h1 {
@@ -82,7 +34,7 @@ h1 {
     padding: 5px;
 }
 
-.wine-area h2 {
+h2 {
     font-size: 2.5em;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -108,77 +60,178 @@ a:active {
     text-decoration: none;
 }
 
-a.wine-select:link {
-    color: darkred;
+/*** Header Link ***/
+
+header a:link {
+    color: black;
     text-decoration: none;
 }
 
-a.wine-select:visited {
-    color: darkred;
+header a:visited {
+    color: black;
     text-decoration: none;
 }
 
-a.wine-select:hover {
-    color: purple;
-    text-decoration: none;
-    border: rebeccapurple 1px dashed;
-}
-
-a.wine-select:active {
-    color: darkred;
-    text-decoration: none;
-}
+/*** Index Styles ***/
 
 .index-title {
     text-align: center;
-    /*display: block;*/
-    /*margin: 0;*/
+    max-width: 620px;
+    display: inline-block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.index-title h2 {
+.index-title table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.index-title th {
+    font-size: 2em;
+    padding-bottom: 20px;
+}
+
+.index-title td {
+    font-size: 4em;
+    /*border: 1px solid green;*/
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+}
+
+.index-title a:link {
+    color: darkred;
+    text-decoration: none;
+}
+
+.index-title a {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.index-title a:visited {
+    color: darkred;
+    text-decoration: none;
+}
+
+.index-title a:hover {
+    color: purple;
+    text-decoration: none;
+    border: rebeccapurple 1px dashed;
+}
+
+.index-title a:active {
+    color: darkred;
+    text-decoration: none;
+}
+
+/*** Wine Input Page Styles ***/
+
+.wine-form {
+    background: darkred;
+    width: 100%;
+    max-width: 820px;
+    border: solid black 2px;
     display: inline-block;
-    text-align: center;
-    font-size: 5em;
-    padding: 10px;
-    margin: 10px 10px 20px 10px;
-    border: 2px solid green;
+    margin: 10px;
 }
 
-.wine-select {
-    display: inline-block;
-    text-align: center;
-    /*border: black 1px solid;*/
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 5em;
-}
-
-/*.inline-block {*/
-    /*display: inline-block;*/
-/*}*/
-
-
-.dashed-border {
-    border-bottom: 1px dashed black;
-}
-
-.bottom-border {
+.wine-form table {
+    width: 100%;
+    /*max-width: 100%;*/
     border-bottom: 1px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    table-layout: fixed;
 }
+
+.wine-form td {
+    padding: 5px 10px 5px 10px;
+    /*border: 1px solid yellow;*/
+}
+
+.wine-form th {
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px dashed black;
+    padding: 5px;
+}
+
+/*** Admin Styles ***/
+
+.admin-index {
+    text-align: center;
+    max-width: 700px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.admin-index table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.admin-index th {
+    font-size: 2em;
+    padding-bottom: 20px;
+}
+
+.admin-index td {
+    font-size: 4em;
+    /*border: 1px solid green;*/
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+}
+
+.admin-index a:link {
+    color: darkred;
+    text-decoration: none;
+}
+
+.admin-index a {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.admin-index a:visited {
+    color: darkred;
+    text-decoration: none;
+}
+
+.admin-index a:hover {
+    color: purple;
+    text-decoration: none;
+    border: rebeccapurple 1px dashed;
+}
+
+.admin-index a:active {
+    color: darkred;
+    text-decoration: none;
+}
+
+/*** Misc Styles ***/
 
 .center {
-    position: relative;
     text-align: center;
 }
-
 
 .left {
     text-align: left;
+}
+
+.right-padded {
+    text-align: right;
+}
+
+.right-padded input {
+    margin-right: 10px;
 }
 
 .max-width {
@@ -188,14 +241,4 @@ a.wine-select:active {
 .submit-btn {
     padding: 2px;
     margin: 4px 0;
-}
-
-/*.con-choice {*/
-    /*border-style: dotted;*/
-    /*border-color: black;*/
-    /*border-width: 0 1px;*/
-/*}*/
-
-.white-bb {
-    border-bottom: 1px solid black;
 }
