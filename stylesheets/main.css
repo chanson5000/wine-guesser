@@ -216,7 +216,31 @@ header a:visited {
     text-decoration: none;
 }
 
+.admin-wine {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    display: inline-block;
+    border: solid yellow 1px;
+}
+
+.admin-wine table {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+textarea {
+    resize: none;
+}
+
 /*** Misc Styles ***/
+
+.max-width {
+    width: 100%;
+}
 
 .center {
     text-align: center;

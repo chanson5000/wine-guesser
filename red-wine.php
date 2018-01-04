@@ -4,7 +4,7 @@ require_once('private/initialize.php');
 $page_title = 'Wine Guesser - Red Wine';
 include(SHARED_PATH . '/header.php');
 ?>
-    <div class="wine-area center">
+    <div class="center">
         <h2>Select Red Wine Characteristics</h2>
         <form class="wine-form" action="guess.php" method="get">
             <table>
