@@ -14,3 +14,4 @@
         </a>
     </header>
 
+<?php echo display_session_message(); ?>

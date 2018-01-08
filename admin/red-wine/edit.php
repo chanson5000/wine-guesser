@@ -59,7 +59,7 @@ if (is_post_request()) {
     $result = update_red_wine($wine);
     if($result === true) {
         $_SESSION['message'] = 'Wine updated.';
-        redirect_to(url_for('admin/red-wine/edit.php?id=' . $id));
+        redirect_to(url_for('admin/red-wine/view.php?id=' . $id));
     } else {
         $errors = $result;
     }
@@ -74,8 +74,7 @@ if (is_post_request()) {
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div class="center">
-    <h2>Edit Red Wine<?php if(isset($_SESSION['message'])) { echo ' - ' . $_SESSION['message']; } ?></h2>
-
+    <h2>Edit Red Wine</h2>
     <form class="wine-form" action="<?php echo url_for('/admin/red-wine/edit.php?id=' . h(u($id))); ?>" id="wine-form" method="post">
         <table>
             <tr>

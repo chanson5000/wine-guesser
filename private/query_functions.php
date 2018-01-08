@@ -78,11 +78,99 @@ function update_red_wine($wine)
     $sql .= "LIMIT 1";
 
     $result = mysqli_query($db, $sql);
-    // For UPDATE statments, $result is true/false
+    // For UPDATE statements, $result is true/false
     if ($result) {
         return true;
     } else {
         // UPDATE failed
+        echo mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+}
+
+function create_red_wine($wine) {
+    global $db;
+
+    $sql = "INSERT INTO red_wine ";
+    $sql .= "(varietal, new_world, garnet, ruby, purple, red_fruit, black_fruit, blue_fruit, ";
+    $sql .= "nose_tart, nose_ripe, nose_overripe, nose_baked, palate_tart, palate_ripe, ";
+    $sql .= "palate_overripe, palate_baked, floral, vegetal, herbs, mint, peppercorn, coffee, ";
+    $sql .= "game, balsamic, organic, inorganic, oak, tannin_low, tannin_mod, tannin_mod_plus, ";
+    $sql .= "tannin_high, acid_low, acid_mod, acid_mod_plus, acid_high, alcohol_low, alcohol_mod, ";
+    $sql .= "alcohol_mod_plus, alcohol_high, climate_cool, climate_moderate, climate_warm, description, ";
+    $sql .= "notes, confusion) VALUES (";
+    $sql .= "'" . db_escape($db, $wine['varietal']) . "',";
+    $sql .= "'" . db_escape($db, $wine['new_world']) . "',";
+    $sql .= "'" . db_escape($db, $wine['garnet']) . "',";
+    $sql .= "'" . db_escape($db, $wine['ruby']) . "',";
+    $sql .= "'" . db_escape($db, $wine['purple']) . "',";
+    $sql .= "'" . db_escape($db, $wine['red_fruit']) . "',";
+    $sql .= "'" . db_escape($db, $wine['black_fruit']) . "',";
+    $sql .= "'" . db_escape($db, $wine['blue_fruit']) . "',";
+    $sql .= "'" . db_escape($db, $wine['nose_tart']) . "',";
+    $sql .= "'" . db_escape($db, $wine['nose_ripe']) . "',";
+    $sql .= "'" . db_escape($db, $wine['nose_overripe']) . "',";
+    $sql .= "'" . db_escape($db, $wine['nose_baked']) . "',";
+    $sql .= "'" . db_escape($db, $wine['palate_tart']) . "',";
+    $sql .= "'" . db_escape($db, $wine['palate_ripe']) . "',";
+    $sql .= "'" . db_escape($db, $wine['palate_overripe']) . "',";
+    $sql .= "'" . db_escape($db, $wine['palate_baked']) . "',";
+    $sql .= "'" . db_escape($db, $wine['floral']) . "',";
+    $sql .= "'" . db_escape($db, $wine['vegetal']) . "',";
+    $sql .= "'" . db_escape($db, $wine['herbs']) . "',";
+    $sql .= "'" . db_escape($db, $wine['mint']) . "',";
+    $sql .= "'" . db_escape($db, $wine['peppercorn']) . "',";
+    $sql .= "'" . db_escape($db, $wine['coffee']) . "',";
+    $sql .= "'" . db_escape($db, $wine['game']) . "',";
+    $sql .= "'" . db_escape($db, $wine['balsamic']) . "',";
+    $sql .= "'" . db_escape($db, $wine['organic']) . "',";
+    $sql .= "'" . db_escape($db, $wine['inorganic']) . "',";
+    $sql .= "'" . db_escape($db, $wine['oak']) . "',";
+    $sql .= "'" . db_escape($db, $wine['tannin_low']) . "',";
+    $sql .= "'" . db_escape($db, $wine['tannin_mod']) . "',";
+    $sql .= "'" . db_escape($db, $wine['tannin_mod_plus']) . "',";
+    $sql .= "'" . db_escape($db, $wine['tannin_high']) . "',";
+    $sql .= "'" . db_escape($db, $wine['acid_low']) . "',";
+    $sql .= "'" . db_escape($db, $wine['acid_mod']) . "',";
+    $sql .= "'" . db_escape($db, $wine['acid_mod_plus']) . "',";
+    $sql .= "'" . db_escape($db, $wine['acid_high']) . "',";
+    $sql .= "'" . db_escape($db, $wine['alcohol_low']) . "',";
+    $sql .= "'" . db_escape($db, $wine['alcohol_mod']) . "',";
+    $sql .= "'" . db_escape($db, $wine['alcohol_mod_plus']) . "',";
+    $sql .= "'" . db_escape($db, $wine['alcohol_high']) . "',";
+    $sql .= "'" . db_escape($db, $wine['climate_cool']) . "',";
+    $sql .= "'" . db_escape($db, $wine['climate_moderate']) . "',";
+    $sql .= "'" . db_escape($db, $wine['climate_warm']) . "',";
+    $sql .= "'" . db_escape($db, $wine['description']) . "',";
+    $sql .= "'" . db_escape($db, $wine['notes']) . "',";
+    $sql .= "'" . db_escape($db, $wine['confusion']) . "' ";
+    $sql .= ")";
+    $result = mysqli_query($db, $sql);
+    // For INSERT statements, $result is true/false
+    if ($result) {
+        return true;
+    } else {
+        // INSERT failed
+        echo mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+}
+
+function delete_red_wine($id) {
+    global $db;
+
+    $sql = "DELETE FROM red_wine ";
+    $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+    $sql .= "LIMIT 1;";
+    $result = mysqli_query($db, $sql);
+
+    // For DELETE statements, $result is true/false
+    if ($result) {
+        return true;
+    } else {
+        // DELETE failed
         echo mysqli_error($db);
         db_disconnect($db);
         exit;
