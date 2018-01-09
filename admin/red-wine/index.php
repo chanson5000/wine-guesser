@@ -33,4 +33,7 @@ include(SHARED_PATH . '/header.php');
             </table>
         </div>
     </div>
+
+    <div class="btm-return-link center"><a href="<?php echo url_for('admin/index.php'); ?>">Return to administration index.</a></div>
+
 <?php include(SHARED_PATH . '/footer.php'); ?>

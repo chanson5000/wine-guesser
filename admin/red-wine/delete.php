@@ -6,7 +6,7 @@ if (!isset($_GET['id'])) {
 }
 $id = $_GET['id'];
 
-if(is_post_request()) {
+if (is_post_request()) {
     $result = delete_red_wine($id);
     $_SESSION['message'] = 'Wine deleted.';
     redirect_to(url_for('admin/red-wine/index.php'));
@@ -19,11 +19,20 @@ if(is_post_request()) {
 <?php $page_title = 'Delete Varietal'; ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
-<h1>Delete Varietal</h1>
-<p>Are you sure you want to delete this wine varietal from the database?</p>
+    <div class="center delete-page">
+        <h2>Delete Varietal</h2>
 
-<form action="<?php echo url_for('admin/red-wine/delete?id=' . h(u($wine['id']))); ?>" method="post">
-    <div id="operations">
-        <input type="submit" name="commit" value="Delete Varietal">
+        <p>Are you sure you want to delete this wine varietal from the database?</p>
+
+        <form action="<?php echo url_for('admin/red-wine/delete?id=' . h(u($wine['id']))); ?>" method="post">
+                <input type="submit" name="commit" value="Delete Varietal">
+        </form>
+
+        <div class="btm-return-link"><a href="<?php echo url_for('admin/red-wine/index.php'); ?>">Return to red wines
+                administration.</a></div>
     </div>
-</form>
+<?php
+
+include(SHARED_PATH . '/footer.php');
+
+?>

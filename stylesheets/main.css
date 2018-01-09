@@ -8,13 +8,13 @@ html {
 body {
     box-sizing: border-box;
     height: 100%;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background: firebrick;
+    font-family: 'Oswald', sans-serif;
+    background: #983351;
 }
 
 header {
     /*height: 7em;*/
-    background: darkslategrey;
+    background: #721330;
     display: block;
     /*padding: .5em;*/
     /*border: 2px solid yellow;*/
@@ -41,22 +41,22 @@ h2 {
 }
 
 a:link {
-    color: purple;
+    color: #4c0017;
     text-decoration: none;
 }
 
 a:visited {
-    color: purple;
+    color: #4c0017;
     text-decoration: none;
 }
 
 a:hover {
-    color: mediumpurple;
+    color: #be5f7c;
     text-decoration: none;
 }
 
 a:active {
-    color: peachpuff;
+    color: #e498af;
     text-decoration: none;
 }
 
@@ -102,7 +102,7 @@ header a:visited {
 }
 
 .index-title a:link {
-    color: darkred;
+    color: #4c0017;
     text-decoration: none;
 }
 
@@ -113,25 +113,25 @@ header a:visited {
 }
 
 .index-title a:visited {
-    color: darkred;
+    color: #4c0017;
     text-decoration: none;
 }
 
 .index-title a:hover {
-    color: purple;
+    color: #721330;
     text-decoration: none;
-    border: rebeccapurple 1px dashed;
+    border: #721330 1px dashed;
 }
 
 .index-title a:active {
-    color: darkred;
+    color: #be5f7c;
     text-decoration: none;
 }
 
 /*** Wine Input Page Styles ***/
 
 .wine-form {
-    background: darkred;
+    background: #721330;
     width: 100%;
     max-width: 820px;
     border: solid black 2px;
@@ -237,6 +237,20 @@ textarea {
 }
 
 /*** Misc Styles ***/
+
+.delete-page p {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.delete-page form {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.btm-return-link {
+    padding: 10px;
+}
 
 #message {
     color: #0055DD;

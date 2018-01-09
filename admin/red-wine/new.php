@@ -63,18 +63,18 @@ if (is_post_request()) {
 
 ?>
 
-<?php $page_title = 'Wine Administration - Edit Red Wine'; ?>
+<?php $page_title = 'Wine Administration - Add Wine Varietal'; ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div class="center">
-    <h2>Edit Red Wine</h2>
+    <h2>Add New Wine Varietal</h2>
     <form class="wine-form" action="<?php echo url_for('/admin/red-wine/new.php') ?>" id="wine-form" method="post">
         <table>
             <tr>
                 <th colspan="2">Varietal</th>
             </tr>
             <tr>
-                <td><label for="varietal">Name: </label><input type="text" id="varietal" name="varietal" value=""></td>
+                <td><label for="varietal">Name:&nbsp;&nbsp;</label><input type="text" id="varietal" name="varietal" value=""></td>
                 <td><label for="new-world">New World: </label><input type="checkbox" name="new_world" id="new-world" value="1"></td>
             </tr>
         </table>
@@ -236,4 +236,7 @@ if (is_post_request()) {
         </table>
         <input class="submit-btn" type="submit" value="Submit">
     </form>
+    <div class="btm-return-link"><a href="<?php echo url_for('admin/red-wine/index.php'); ?>">Return to red wines administration.</a></div>
 </div>
+
+<?php include(SHARED_PATH . '/footer.php'); ?>

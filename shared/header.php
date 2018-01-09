@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo $page_title ?></title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo url_for('stylesheets/reset.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo url_for('stylesheets/main.css'); ?>">
 </head>

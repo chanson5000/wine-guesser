@@ -176,3 +176,9 @@ function delete_red_wine($id) {
         exit;
     }
 }
+
+//function validate_wine_admin($wine, $options =[]) {
+//    if (is_blank($wine['varietal'])) {
+//        $errors[] =
+//    }
+//}

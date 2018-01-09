@@ -151,6 +151,8 @@ $wine = find_red_wine_by_id($id);
                 <td colspan="3"><?php echo $wine['confusion']; ?></td>
             </tr>
         </table>
-        <a href="<?php echo url_for('admin/red-wine/index.php'); ?>">Return to Red Wines.</a>
+        <div class="btm-return-link">
+        <a href="<?php echo url_for('admin/red-wine/index.php'); ?>">Return to red wines administration.</a>
+    </div>
     </div>
 </div>
