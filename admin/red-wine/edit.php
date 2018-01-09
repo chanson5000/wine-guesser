@@ -10,7 +10,7 @@ $id = $_GET['id'];
 if (is_post_request()) {
     $wine = [];
     $wine['id'] = $id;
-    $wine['varietal'] = isset($_POST['varietal']) ? $_POST['varietal'] : '0';
+    $wine['varietal'] = isset($_POST['varietal']) ? $_POST['varietal'] : '';
     $wine['new_world'] = isset($_POST['new_world']) ? $_POST['new_world'] : '0';
     $wine['garnet'] = isset($_POST['garnet']) ? $_POST['garnet'] : '0';
     $wine['ruby'] = isset($_POST['ruby']) ? $_POST['ruby'] : '0';

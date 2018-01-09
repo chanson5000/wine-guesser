@@ -28,6 +28,11 @@ function update_red_wine($wine)
 {
     global $db;
 
+    $errors = validate_wine_admin($wine);
+    if (!empty($errors)) {
+        return $errors;
+    }
+
     $sql = "UPDATE red_wine SET ";
     $sql .= "varietal='" . db_escape($db, $wine['varietal']) . "', ";
     $sql .= "new_world='" . db_escape($db, $wine['new_world']) . "', ";
@@ -91,6 +96,12 @@ function update_red_wine($wine)
 
 function create_red_wine($wine) {
     global $db;
+
+    $errors = validate_wine_admin($wine);
+    if (!empty($errors)) {
+        return $errors;
+    }
+
 
     $sql = "INSERT INTO red_wine ";
     $sql .= "(varietal, new_world, garnet, ruby, purple, red_fruit, black_fruit, blue_fruit, ";
@@ -177,8 +188,65 @@ function delete_red_wine($id) {
     }
 }
 
-//function validate_wine_admin($wine, $options =[]) {
-//    if (is_blank($wine['varietal'])) {
-//        $errors[] =
+function validate_wine_admin($wine) {
+
+    $errors = [];
+
+    if (is_blank($wine['varietal'])) {
+        $errors[] = "Varietal field cannot be blank.";
+    } elseif (!has_length($wine['varietal'], array('min' => 2, 'max' => 25))) {
+        $errors[] = "Varietal must be between 2 and  25 characters.";
+    }
+
+    return $errors;
+}
+
+function find_total_red_wines() {
+
+    global $db;
+
+    $sql = "SELECT COUNT(*) FROM red_wine;";
+
+    $result = mysqli_query($db, $sql);
+    $num = mysqli_fetch_row($result);
+    return $num[0];
+
+}
+
+//function testing_function() {
+//
+//    global $db;
+//
+//    $sql = "SELECT FROM red_wine ORDER BY id ASC;";
+//
+//    $result = mysqli_query($db, $sql);
+////    $num_rows = count(mysqli_fetch_all($result));
+//    for ($num_rows = count(mysqli_fetch_all($result)); $num_rows > 0; $num_rows--) {
+//
 //    }
+//    $wine_data = mysqli_fetch_assoc($result);
+//
+//    return $wine_data;
+//
+//}
+
+//function populate_red_wine_search_array() {
+//
+//    global $db;
+//
+//    $wine_data = [];
+//    $sql = "SELECT COUNT(*) FROM red_wine;";
+//
+//
+//    for $wine_record in
+//}
+//
+//function find_red_wine_match($guess_wine) {
+//
+//    global $db;
+//
+//    $sql = "SELECT * FROM red_wine ORDER BY id ASC;";
+//
+//
+//
 //}

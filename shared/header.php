@@ -14,5 +14,7 @@
         <h1>Wine Guesser</h1>
         </a>
     </header>
-
+<div class="center">
 <?php echo display_session_message(); ?>
+<?php echo display_errors($errors); ?>
+</div>

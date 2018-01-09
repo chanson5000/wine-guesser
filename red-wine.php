@@ -6,7 +6,7 @@ include(SHARED_PATH . '/header.php');
 ?>
     <div class="center">
         <h2>Select Red Wine Characteristics</h2>
-        <form class="wine-form" action="guess.php" method="get">
+        <form class="wine-form" action="guess.php" method="post">
             <table>
                 <tr>
                     <th colspan="3">Color</th>
@@ -136,8 +136,4 @@ include(SHARED_PATH . '/header.php');
         <p>Did you mean to guess a <a href="white-wine.php">white wine?</a></p>
     </div>
 
-<?php
-
-include(SHARED_PATH . '/footer.php');
-
-?>
+<?php include(SHARED_PATH . '/footer.php'); ?>

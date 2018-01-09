@@ -133,7 +133,7 @@ header a:visited {
 .wine-form {
     background: #721330;
     width: 100%;
-    max-width: 820px;
+    max-width: 700px;
     border: solid black 2px;
     display: inline-block;
     margin: 10px;
@@ -190,7 +190,7 @@ header a:visited {
 }
 
 .admin-index a:link {
-    color: darkred;
+    color: #4c0017;
     text-decoration: none;
 }
 
@@ -201,18 +201,18 @@ header a:visited {
 }
 
 .admin-index a:visited {
-    color: darkred;
+    color: #4c0017;
     text-decoration: none;
 }
 
 .admin-index a:hover {
-    color: purple;
+    color: #721330;
     text-decoration: none;
     border: rebeccapurple 1px dashed;
 }
 
 .admin-index a:active {
-    color: darkred;
+    color: #be5f7c;
     text-decoration: none;
 }
 
@@ -239,8 +239,13 @@ textarea {
 /*** Misc Styles ***/
 
 .delete-page p {
+    font-size: 1.5em;
     padding: 10px;
     margin-top: 20px;
+}
+
+.delete-page input {
+    font-size: 1.2em;
 }
 
 .delete-page form {
@@ -253,12 +258,36 @@ textarea {
 }
 
 #message {
-    color: #0055DD;
-    background: white;
-    border: 2px solid #0055DD;
-    padding: 1em 15px;
-    margin: 1em 30px;
-    width: 890px;
+    text-align: center;
+    color: black;
+    font-size: 2em;
+    background: #721330;
+    border: 2px solid black;
+    padding: 10px 10px 15px 10px;
+    margin: 10px;
+    width: 680px;
+    display: inline-block;
+}
+
+#errors {
+    text-align: center;
+    color: black;
+    font-size: 1.5em;
+    background: #721330;
+    border: 2px solid black;
+    padding: 10px 10px 15px 10px;
+    margin: 10px;
+    width: 680px;
+    display: inline-block;
+}
+
+#errors p {
+    margin-bottom: 10px;
+}
+
+#errors ul {
+    color: #370037;
+    font-size: .9em;
 }
 
 .max-width {
