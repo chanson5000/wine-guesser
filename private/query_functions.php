@@ -213,22 +213,24 @@ function find_total_red_wines() {
 
 }
 
-//function testing_function() {
-//
-//    global $db;
-//
-//    $sql = "SELECT FROM red_wine ORDER BY id ASC;";
-//
-//    $result = mysqli_query($db, $sql);
-////    $num_rows = count(mysqli_fetch_all($result));
-//    for ($num_rows = count(mysqli_fetch_all($result)); $num_rows > 0; $num_rows--) {
-//
-//    }
-//    $wine_data = mysqli_fetch_assoc($result);
-//
-//    return $wine_data;
-//
-//}
+function testing_function() {
+
+    global $db;
+    $wines = [];
+
+    for ($num_records = (find_total_red_wines() - 1); $num_records >= 0; $num_records--) {
+
+        $sql = "SELECT * FROM red_wine LIMIT " . $num_records . ",1;";
+        $result = mysqli_query($db, $sql);
+        $wine = mysqli_fetch_assoc($result);
+
+        $wines[] = $wine;
+
+    }
+
+    return $wines;
+
+}
 
 //function populate_red_wine_search_array() {
 //
@@ -241,12 +243,43 @@ function find_total_red_wines() {
 //    for $wine_record in
 //}
 //
-//function find_red_wine_match($guess_wine) {
-//
-//    global $db;
-//
-//    $sql = "SELECT * FROM red_wine ORDER BY id ASC;";
-//
-//
-//
-//}
+function find_red_wine_match($guess_wine)
+{
+    global $db;
+    $wines = [];
+
+    for ($num_records = (find_total_red_wines() - 1); $num_records >= 0; $num_records--) {
+
+        $sql = "SELECT * FROM red_wine LIMIT " . $num_records . ",1;";
+        $result = mysqli_query($db, $sql);
+        $wine = mysqli_fetch_assoc($result);
+
+        $wines[] = $wine;
+        mysqli_free_result($result);
+    }
+
+    $match_values = [];
+
+    foreach ($guess_wine as $key => $value) {
+        if ($value === 1) {
+            $match_values[] = $key;
+        }
+    }
+
+    $match_frequency = [];
+
+    foreach ($wines as $wine) {
+        $match_frequency[$wine['id']] = 0;
+        foreach ($match_values as $match) {
+            if (array_key_exists($match, $wine)) {
+                $match_frequency[$wine['id']]++;
+            }
+        }
+    }
+
+    print_r($match_frequency)
+
+    $most_matched_wine_id = array_search(max($match_frequency), $match_frequency);
+
+    return find_red_wine_by_id($most_matched_wine_id);
+}

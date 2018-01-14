@@ -5,59 +5,62 @@ $page_title = 'Wine Guesser - Your Wine Varietal';
 include(SHARED_PATH . '/header.php');
 
 if (is_post_request()) {
-$guess_wine = [];
-$guess_wine['varietal'] = isset($_POST['varietal']) ? $_POST['varietal'] : '0';
-$guess_wine['new_world'] = isset($_POST['new_world']) ? $_POST['new_world'] : '0';
-$guess_wine['garnet'] = isset($_POST['garnet']) ? $_POST['garnet'] : '0';
-$guess_wine['ruby'] = isset($_POST['ruby']) ? $_POST['ruby'] : '0';
-$guess_wine['purple'] = isset($_POST['purple']) ? $_POST['purple'] : '0';
-$guess_wine['red_fruit'] = isset($_POST['red_fruit']) ? $_POST['red_fruit'] : '0';
-$guess_wine['black_fruit'] = isset($_POST['black_fruit']) ? $_POST['black_fruit'] : '0';
-$guess_wine['blue_fruit'] = isset($_POST['blue_fruit']) ? $_POST['blue_fruit'] : '0';
-$guess_wine['nose_tart'] = isset($_POST['nose_tart']) ? $_POST['nose_tart'] : '0';
-$guess_wine['nose_ripe'] = isset($_POST['nose_ripe']) ? $_POST['nose_ripe'] : '0';
-$guess_wine['nose_overripe'] = isset($_POST['nose_overripe']) ? $_POST['nose_overripe'] : '0';
-$guess_wine['nose_baked'] = isset($_POST['nose_baked']) ? $_POST['nose_baked'] : '0';
-$guess_wine['palate_tart'] = isset($_POST['palate_tart']) ? $_POST['palate_tart'] : '0';
-$guess_wine['palate_ripe'] = isset($_POST['palate_ripe']) ? $_POST['palate_ripe'] : '0';
-$guess_wine['palate_overripe'] = isset($_POST['palate_overripe']) ? $_POST['palate_overripe'] : '0';
-$guess_wine['palate_baked'] = isset($_POST['palate_baked']) ? $_POST['palate_baked'] : '0';
-$guess_wine['floral'] = isset($_POST['floral']) ? $_POST['floral'] : '0';
-$guess_wine['vegetal'] = isset($_POST['vegetal']) ? $_POST['vegetal'] : '0';
-$guess_wine['herbs'] = isset($_POST['herbs']) ? $_POST['herbs'] : '0';
-$guess_wine['mint'] = isset($_POST['mint']) ? $_POST['mint'] : '0';
-$guess_wine['peppercorn'] = isset($_POST['peppercorn']) ? $_POST['peppercorn'] : '0';
-$guess_wine['coffee'] = isset($_POST['coffee']) ? $_POST['coffee'] : '0';
-$guess_wine['game'] = isset($_POST['game']) ? $_POST['game'] : '0';
-$guess_wine['balsamic'] = isset($_POST['balsamic']) ? $_POST['balsamic'] : '0';
-$guess_wine['organic'] = isset($_POST['organic']) ? $_POST['organic'] : '0';
-$guess_wine['inorganic'] = isset($_POST['inorganic']) ? $_POST['inorganic'] : '0';
-$guess_wine['oak'] = isset($_POST['oak']) ? $_POST['oak'] : '0';
-$guess_wine['tannin_low'] = isset($_POST['tannin_low']) ? $_POST['tannin_low'] : '0';
-$guess_wine['tannin_mod'] = isset($_POST['tannin_mod']) ? $_POST['tannin_mod'] : '0';
-$guess_wine['tannin_mod_plus'] = isset($_POST['tannin_mod_plus']) ? $_POST['tannin_mod_plus'] : '0';
-$guess_wine['tannin_high'] = isset($_POST['tannin_high']) ? $_POST['tannin_high'] : '0';
-$guess_wine['acid_low'] = isset($_POST['acid_low']) ? $_POST['acid_low'] : '0';
-$guess_wine['acid_mod'] = isset($_POST['acid_mod']) ? $_POST['acid_mod'] : '0';
-$guess_wine['acid_mod_plus'] = isset($_POST['acid_mod_plus']) ? $_POST['acid_mod_plus'] : '0';
-$guess_wine['acid_high'] = isset($_POST['acid_high']) ? $_POST['acid_high'] : '0';
-$guess_wine['alcohol_low'] = isset($_POST['alcohol_low']) ? $_POST['alcohol_low'] : '0';
-$guess_wine['alcohol_mod'] = isset($_POST['alcohol_mod']) ? $_POST['alcohol_mod'] : '0';
-$guess_wine['alcohol_mod_plus'] = isset($_POST['alcohol_mod_plus']) ? $_POST['alcohol_mod_plus'] : '0';
-$guess_wine['alcohol_high'] = isset($_POST['alcohol_high']) ? $_POST['alcohol_high'] : '0';
-$guess_wine['climate_cool'] = isset($_POST['climate_cool']) ? $_POST['climate_cool'] : '0';
-$guess_wine['climate_moderate'] = isset($_POST['climate_moderate']) ? $_POST['climate_moderate'] : '0';
-$guess_wine['climate_warm'] = isset($_POST['climate_warm']) ? $_POST['climate_warm'] : '0';
-$guess_wine['description'] = isset($_POST['description']) ? $_POST['description'] : '';
-$guess_wine['notes'] = isset($_POST['notes']) ? $_POST['notes'] : '';
-$guess_wine['confusion'] = isset($_POST['confusion']) ? $_POST['confusion'] : '';
+    $guess_wine = [];
+    $guess_wine['varietal'] = isset($_POST['varietal']) ? $_POST['varietal'] : '0';
+    $guess_wine['new_world'] = isset($_POST['new_world']) ? $_POST['new_world'] : '0';
+    $guess_wine['garnet'] = isset($_POST['garnet']) ? $_POST['garnet'] : '0';
+    $guess_wine['ruby'] = isset($_POST['ruby']) ? $_POST['ruby'] : '0';
+    $guess_wine['purple'] = isset($_POST['purple']) ? $_POST['purple'] : '0';
+    $guess_wine['red_fruit'] = isset($_POST['red_fruit']) ? $_POST['red_fruit'] : '0';
+    $guess_wine['black_fruit'] = isset($_POST['black_fruit']) ? $_POST['black_fruit'] : '0';
+    $guess_wine['blue_fruit'] = isset($_POST['blue_fruit']) ? $_POST['blue_fruit'] : '0';
+    $guess_wine['nose_tart'] = isset($_POST['nose_tart']) ? $_POST['nose_tart'] : '0';
+    $guess_wine['nose_ripe'] = isset($_POST['nose_ripe']) ? $_POST['nose_ripe'] : '0';
+    $guess_wine['nose_overripe'] = isset($_POST['nose_overripe']) ? $_POST['nose_overripe'] : '0';
+    $guess_wine['nose_baked'] = isset($_POST['nose_baked']) ? $_POST['nose_baked'] : '0';
+    $guess_wine['palate_tart'] = isset($_POST['palate_tart']) ? $_POST['palate_tart'] : '0';
+    $guess_wine['palate_ripe'] = isset($_POST['palate_ripe']) ? $_POST['palate_ripe'] : '0';
+    $guess_wine['palate_overripe'] = isset($_POST['palate_overripe']) ? $_POST['palate_overripe'] : '0';
+    $guess_wine['palate_baked'] = isset($_POST['palate_baked']) ? $_POST['palate_baked'] : '0';
+    $guess_wine['floral'] = isset($_POST['floral']) ? $_POST['floral'] : '0';
+    $guess_wine['vegetal'] = isset($_POST['vegetal']) ? $_POST['vegetal'] : '0';
+    $guess_wine['herbs'] = isset($_POST['herbs']) ? $_POST['herbs'] : '0';
+    $guess_wine['mint'] = isset($_POST['mint']) ? $_POST['mint'] : '0';
+    $guess_wine['peppercorn'] = isset($_POST['peppercorn']) ? $_POST['peppercorn'] : '0';
+    $guess_wine['coffee'] = isset($_POST['coffee']) ? $_POST['coffee'] : '0';
+    $guess_wine['game'] = isset($_POST['game']) ? $_POST['game'] : '0';
+    $guess_wine['balsamic'] = isset($_POST['balsamic']) ? $_POST['balsamic'] : '0';
+    $guess_wine['organic'] = isset($_POST['organic']) ? $_POST['organic'] : '0';
+    $guess_wine['inorganic'] = isset($_POST['inorganic']) ? $_POST['inorganic'] : '0';
+    $guess_wine['oak'] = isset($_POST['oak']) ? $_POST['oak'] : '0';
+    $guess_wine['tannin_low'] = isset($_POST['tannin_low']) ? $_POST['tannin_low'] : '0';
+    $guess_wine['tannin_mod'] = isset($_POST['tannin_mod']) ? $_POST['tannin_mod'] : '0';
+    $guess_wine['tannin_mod_plus'] = isset($_POST['tannin_mod_plus']) ? $_POST['tannin_mod_plus'] : '0';
+    $guess_wine['tannin_high'] = isset($_POST['tannin_high']) ? $_POST['tannin_high'] : '0';
+    $guess_wine['acid_low'] = isset($_POST['acid_low']) ? $_POST['acid_low'] : '0';
+    $guess_wine['acid_mod'] = isset($_POST['acid_mod']) ? $_POST['acid_mod'] : '0';
+    $guess_wine['acid_mod_plus'] = isset($_POST['acid_mod_plus']) ? $_POST['acid_mod_plus'] : '0';
+    $guess_wine['acid_high'] = isset($_POST['acid_high']) ? $_POST['acid_high'] : '0';
+    $guess_wine['alcohol_low'] = isset($_POST['alcohol_low']) ? $_POST['alcohol_low'] : '0';
+    $guess_wine['alcohol_mod'] = isset($_POST['alcohol_mod']) ? $_POST['alcohol_mod'] : '0';
+    $guess_wine['alcohol_mod_plus'] = isset($_POST['alcohol_mod_plus']) ? $_POST['alcohol_mod_plus'] : '0';
+    $guess_wine['alcohol_high'] = isset($_POST['alcohol_high']) ? $_POST['alcohol_high'] : '0';
+    $guess_wine['climate_cool'] = isset($_POST['climate_cool']) ? $_POST['climate_cool'] : '0';
+    $guess_wine['climate_moderate'] = isset($_POST['climate_moderate']) ? $_POST['climate_moderate'] : '0';
+    $guess_wine['climate_warm'] = isset($_POST['climate_warm']) ? $_POST['climate_warm'] : '0';
+    $guess_wine['description'] = isset($_POST['description']) ? $_POST['description'] : '';
+    $guess_wine['notes'] = isset($_POST['notes']) ? $_POST['notes'] : '';
+    $guess_wine['confusion'] = isset($_POST['confusion']) ? $_POST['confusion'] : '';
 
-$result = find_red_wine_match($guess_wine);
+    $wine = find_red_wine_match($guess_wine);
 
+} else {
+    url_for('red-wine/index.php');
+}
 
 ?>
 
-<div class="center">
+    <div class="center">
     <h2>Closest Varietal Match</h2>
 
     <div class="wine-form">
@@ -187,7 +190,6 @@ $result = find_red_wine_match($guess_wine);
                 <th>High</th>
             </tr>
             <tr>
-                <!-- TODO: Add more label switching. -->
                 <td class="left"><label for="st-tannin">Tannin:</label></td>
                 <td><?php if ($wine['tannin_low'] == "1") {
                         echo "X";
@@ -277,3 +279,5 @@ $result = find_red_wine_match($guess_wine);
             <a href="<?php echo url_for('red-wine/index.php'); ?>">Return to red wine guesser.</a>
         </div>
     </div>
+
+<?php include(SHARED_PATH . '/footer.php'); ?>
