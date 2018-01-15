@@ -94,7 +94,8 @@ function update_red_wine($wine)
     }
 }
 
-function create_red_wine($wine) {
+function create_red_wine($wine)
+{
     global $db;
 
     $errors = validate_wine_admin($wine);
@@ -169,7 +170,8 @@ function create_red_wine($wine) {
     }
 }
 
-function delete_red_wine($id) {
+function delete_red_wine($id)
+{
     global $db;
 
     $sql = "DELETE FROM red_wine ";
@@ -188,7 +190,8 @@ function delete_red_wine($id) {
     }
 }
 
-function validate_wine_admin($wine) {
+function validate_wine_admin($wine)
+{
 
     $errors = [];
 
@@ -201,7 +204,8 @@ function validate_wine_admin($wine) {
     return $errors;
 }
 
-function find_total_red_wines() {
+function find_total_red_wines()
+{
 
     global $db;
 
@@ -213,7 +217,8 @@ function find_total_red_wines() {
 
 }
 
-function testing_function() {
+function testing_function()
+{
 
     global $db;
     $wines = [];
@@ -255,29 +260,34 @@ function find_red_wine_match($guess_wine)
         $wine = mysqli_fetch_assoc($result);
 
         $wines[] = $wine;
-        mysqli_free_result($result);
+//        mysqli_free_result($result);
     }
 
     $match_values = [];
 
+
+
     foreach ($guess_wine as $key => $value) {
-        if ($value === 1) {
+        if ($value == 1) {
             $match_values[] = $key;
         }
     }
 
     $match_frequency = [];
 
+    echo "Match values: ";
+    print_r($match_values);
+    echo "<br>";
+
     foreach ($wines as $wine) {
         $match_frequency[$wine['id']] = 0;
-        foreach ($match_values as $match) {
-            if (array_key_exists($match, $wine)) {
+        foreach ($wine as $property => $status)
+            if (in_array($property, $match_values) && ($status === '1')) {
                 $match_frequency[$wine['id']]++;
             }
-        }
     }
 
-    print_r($match_frequency)
+    print_r($match_frequency);
 
     $most_matched_wine_id = array_search(max($match_frequency), $match_frequency);
 

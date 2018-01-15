@@ -55,7 +55,7 @@ if (is_post_request()) {
     $wine = find_red_wine_match($guess_wine);
 
 } else {
-    url_for('red-wine/index.php');
+    redirect_to(url_for('index.php'));
 }
 
 ?>
@@ -66,7 +66,8 @@ if (is_post_request()) {
     <div class="wine-form">
         <table>
             <tr>
-                <th colspan="2">Varietal</th>
+                <th>Varietal</th>
+                <th>Origin</th>
             </tr>
             <tr>
                 <td>Name: <?php echo h($wine['varietal']); ?></td>
@@ -276,7 +277,7 @@ if (is_post_request()) {
             </tr>
         </table>
         <div class="btm-return-link">
-            <a href="<?php echo url_for('red-wine/index.php'); ?>">Return to red wine guesser.</a>
+            <a href="<?php echo url_for('red-wine.php'); ?>">Return to red wine guesser.</a>
         </div>
     </div>
 
