@@ -236,7 +236,9 @@ if (is_post_request()) {
         </table>
         <input class="submit-btn" type="submit" value="Submit">
     </form>
-    <div class="btm-return-link"><a href="<?php echo url_for('admin/red-wine/index.php'); ?>">Return to red wines administration.</a></div>
+    <div class="btm-return-link">
+        <a href="<?php echo url_for('admin/red-wine/index.php'); ?>">Return to red wines administration.</a>
+    </div>
 </div>
 
 <?php include(SHARED_PATH . '/footer.php'); ?>

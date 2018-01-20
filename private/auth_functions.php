@@ -1,7 +1,7 @@
 <?php
 
 // Performs all actions necessary to log in an admin
-function log_in_admin($admin) {
+function log_in_user($admin) {
     // Regenerating the ID protects the admin from session fixation.
     session_regenerate_id();
     $_SESSION['admin_id'] = $admin['id'];
@@ -11,8 +11,8 @@ function log_in_admin($admin) {
 }
 
 // Performs all actions necessary to log out an admin
-function log_out_admin() {
-    unset($_SESSION['admin_id']);
+function log_out_user() {
+    unset($_SESSION['user_id']);
     unset($_SESSION['last_login']);
     unset($_SESSION['username']);
     // session_destroy(); // optional: destroys the whole session
@@ -28,7 +28,7 @@ function is_logged_in() {
     // Having a admin_id in the session serves a dual-purpose:
     // - Its presence indicates the admin is logged in.
     // - Its value tells which admin for looking up their record.
-    return isset($_SESSION['admin_id']);
+    return isset($_SESSION['user_id']);
 }
 
 // Call require_login() at the top of any page which needs to
