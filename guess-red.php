@@ -102,7 +102,7 @@ if (is_post_request()) {
                         echo "Black";
                     } ?></td>
                 <td><?php if ($wine['blue_fruit'] == "1") {
-                        echo "Blue checked";
+                        echo "Blue";
                     } ?></td>
             </tr>
         </table>

@@ -6,7 +6,7 @@ include(SHARED_PATH . '/header.php');
 ?>
     <div class="center">
         <h2>Select Red Wine Characteristics</h2>
-        <form class="wine-form" action="guess.php" method="post">
+        <form class="wine-form" action="guess-red.php" method="post">
             <table>
                 <tr>
                     <th colspan="3">Color</th>
@@ -22,9 +22,12 @@ include(SHARED_PATH . '/header.php');
                     <th colspan="3">Fruit</th>
                 </tr>
                 <tr>
-                    <td><label for="red-fruit-select">Red </label><input type="checkbox" name="red_fruit" id="red-fruit-select" value="1"></td>
-                    <td><label for="black-fruit-select">Black </label><input type="checkbox" name="black_fruit" id="black-fruit-select" value="1"></td>
-                    <td><label for="blue-fruit-select">Blue </label><input type="checkbox" name="blue_fruit" id="blue-fruit-select" value="1"></td>
+                    <td><label for="red_fruit">Red </label><input type="checkbox" name="red_fruit" id="red_fruit"
+                                                                  value="1"></td>
+                    <td><label for="black_fruit">Black </label><input type="checkbox" name="black_fruit"
+                                                                      id="black_fruit" value="1"></td>
+                    <td><label for="blue_fruit">Blue </label><input type="checkbox" name="blue_fruit" id="blue_fruit"
+                                                                    value="1"></td>
                 </tr>
             </table>
             <table>
@@ -32,10 +35,18 @@ include(SHARED_PATH . '/header.php');
                     <th colspan="4">Fruit Condition - Nose (Select up to two)</th>
                 </tr>
                 <tr>
-                    <td><label for="nose-tart">Tart</label><br><input type="checkbox" name="nose_tart" id="nose-tart" value="1"></td>
-                    <td><label for="nose-ripe">Ripe</label><br><input type="checkbox" name="nose_ripe" id="nose-ripe" value="1"></td>
-                    <td><label for="nose-overripe">Overripe, Jammy, Stewed</label><br><input type="checkbox" name="nose_overripe" id="nose-overripe" value="1"></td>
-                    <td><label for="nose-baked">Baked, Dried, Oxidative</label><br><input type="checkbox" name="nose_baked" id="nose-baked" value="1"></td>
+                    <td><label for="nose_tart">Tart</label><br><input type="checkbox" name="nose_tart" id="nose_tart"
+                                                                      value="1"></td>
+                    <td><label for="nose_ripe">Ripe</label><br><input type="checkbox" name="nose_ripe" id="nose_ripe"
+                                                                      value="1"></td>
+                    <td><label for="nose_overripe">Overripe, Jammy, Stewed</label><br><input type="checkbox"
+                                                                                             name="nose_overripe"
+                                                                                             id="nose_overripe"
+                                                                                             value="1"></td>
+                    <td><label for="nose_baked">Baked, Dried, Oxidative</label><br><input type="checkbox"
+                                                                                          name="nose_baked"
+                                                                                          id="nose_baked" value="1">
+                    </td>
                 </tr>
             </table>
             <table>
@@ -43,60 +54,68 @@ include(SHARED_PATH . '/header.php');
                     <th colspan="4">Fruit Condition - Palate (Select up to two)</th>
                 </tr>
                 <tr>
-                    <td><label for="palate-tart">Tart</label><br><input type="checkbox" name="palate_tart" id="palate-tart" value="1"></td>
-                    <td><label for="palate-ripe">Ripe</label><br><input type="checkbox" name="palate_ripe" id="palate-ripe" value="1"></td>
-                    <td><label for="palate-overripe">Overripe, Jammy, Stewed</label><br><input type="checkbox" name="palate_overripe" id="palate-overripe" value="1"></td>
-                    <td><label for="palate-baked">Baked, Dried, Oxidative</label><br><input type="checkbox" name="palate_baked" id="palate-baked" value="1"></td>
+                    <td><label for="palate_tart">Tart</label><br><input type="checkbox" name="palate_tart"
+                                                                        id="palate_tart" value="1"></td>
+                    <td><label for="palate_ripe">Ripe</label><br><input type="checkbox" name="palate_ripe"
+                                                                        id="palate_ripe" value="1"></td>
+                    <td><label for="palate_overripe">Overripe, Jammy, Stewed</label><br><input type="checkbox"
+                                                                                               name="palate_overripe"
+                                                                                               id="palate_overripe" value="1"></td>
+                    <td><label for="palate_baked">Baked, Dried, Oxidative</label><br><input type="checkbox"
+                                                                                            name="palate_baked"
+                                                                                            id="palate_baked" value="1">
+                    </td>
                 </tr>
             </table>
             <table>
                 <tr>
                     <th colspan="2">Non-Fruit Characteristic</th>
-
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-floral">Floral</label></td>
-                    <td class="right-padded"><input type="checkbox" name="floral" id="nf-floral" value="1"></td>
+                    <td class="left"><label for="floral">Floral</label></td>
+                    <td class="right-padded"><input type="checkbox" name="floral" id="floral" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-vegetal">Vegetal, Green Pepper</label></td>
-                    <td class="right-padded"><input type="checkbox" name="vegetal" id="nf-vegetal" value="1"></td>
+                    <td class="left"><label for="vegetal">Vegetal, Green Pepper</label></td>
+                    <td class="right-padded"><input type="checkbox" name="vegetal" id="vegetal" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-herbs">Savory Dried Herbs, Tomato Leaf</label></td>
-                    <td class="right-padded"><input type="checkbox" name="herbs" id="nf-herbs" value="1"></td>
+                    <td class="left"><label for="herbs">Savory Dried Herbs, Tomato Leaf</label></td>
+                    <td class="right-padded"><input type="checkbox" name="herbs" id="herbs" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-mint">Mint, Eucalyptus</label></td>
-                    <td class="right-padded"><input type="checkbox" name="mint" id="nf-mint" value="1"></td>
+                    <td class="left"><label for="mint">Mint, Eucalyptus</label></td>
+                    <td class="right-padded"><input type="checkbox" name="mint" id="mint" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-peppercorn">Peppercorn</label></td>
-                    <td class="right-padded"><input type="checkbox" name="peppercorn" id="nf-peppercorn" value="1"></td>
+                    <td class="left"><label for="peppercorn">Peppercorn</label></td>
+                    <td class="right-padded"><input type="checkbox" name="peppercorn" id="peppercorn" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-coffee">Coffee, Cocoa, Mocha</label></td>
-                    <td class="right-padded"><input type="checkbox" name="coffee" id="nf-coffee" value="1"></td>
+                    <td class="left"><label for="noffee">Coffee, Cocoa, Mocha</label></td>
+                    <td class="right-padded"><input type="checkbox" name="coffee" id="coffee" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-game">Game, Blood, Cured Meat, Leather</label></td>
-                    <td class="right-padded"><input type="checkbox" name="game" id="nf-game" value="1"></td>
+                    <td class="left"><label for="game">Game, Blood, Cured Meat, Leather</label></td>
+                    <td class="right-padded"><input type="checkbox" name="game" id="game" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-balsamic">Balsamic, Tar</label></td>
-                    <td class="right-padded"><input type="checkbox" name="balsamic" id="nf-balsamic" value="1"></td>
+                    <td class="left"><label for="balsamic">Balsamic, Tar</label></td>
+                    <td class="right-padded"><input type="checkbox" name="balsamic" id="balsamic" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-organic">Organic Earth: Forest floor, Wet Leaves, Mushrooms</label></td>
-                    <td class="right-padded"><input type="checkbox" name="organic" id="nf-organic" value="1"></td>
+                    <td class="left"><label for="organic">Organic Earth: Forest floor, Wet Leaves, Mushrooms</label>
+                    </td>
+                    <td class="right-padded"><input type="checkbox" name="organic" id="organic" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-inorganic">Inorganic Earth: Stone, Rock, Mineral, Sulfur</label></td>
-                    <td class="right-padded"><input type="checkbox" name="inorganic" id="nf-inorganic" value="1"></td>
+                    <td class="left"><label for="inorganic">Inorganic Earth: Stone, Rock, Mineral, Sulfur</label>
+                    </td>
+                    <td class="right-padded"><input type="checkbox" name="inorganic" id="inorganic" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="nf-oak">New Oak: Vanilla, Smoke, Toast, Coconut</label></td>
-                    <td class="right-padded"><input type="checkbox" name="oak" id="nf-oak" value="1"></td>
+                    <td class="left"><label for="oak">New Oak: Vanilla, Smoke, Toast, Coconut</label></td>
+                    <td class="right-padded"><input type="checkbox" name="oak" id="oak" value="1"></td>
                 </tr>
             </table>
             <table>
@@ -109,25 +128,25 @@ include(SHARED_PATH . '/header.php');
                 </tr>
                 <tr>
                     <!-- TODO: Add more label switching. -->
-                    <td class="left"><label for="st-tannin">Tannin:</label></td>
-                    <td><input type="radio" name="tannin_low" id="st-tannin" value="1"></td>
-                    <td><input type="radio" name="tannin_mod" id="st-tannin" value="1"></td>
-                    <td><input type="radio" name="tannin_mod_plus" id="st-tannin" value="1"></td>
-                    <td><input type="radio" name="tannin_high" id="st-tannin" value="1"></td>
+                    <td class="left"><label for="tannin">Tannin:</label></td>
+                    <td><input type="radio" name="tannin_low" id="tannin" value="1"></td>
+                    <td><input type="radio" name="tannin_mod" id="tannin" value="1"></td>
+                    <td><input type="radio" name="tannin_mod_plus" id="tannin" value="1"></td>
+                    <td><input type="radio" name="tannin_high" id="tannin" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="st-acid">Acid:</label></td>
-                    <td><input type="radio" name="acid_low" id="st-acid" value="1"></td>
-                    <td><input type="radio" name="acid_mod" id="st-acid" value="1"></td>
-                    <td><input type="radio" name="acid_mod_plus" id="st-acid" value="1"></td>
-                    <td><input type="radio" name="acid_high" id="st-acid" value="1"></td>
+                    <td class="left"><label for="acid">Acid:</label></td>
+                    <td><input type="radio" name="acid_low" id="acid" value="1"></td>
+                    <td><input type="radio" name="acid_mod" id="acid" value="1"></td>
+                    <td><input type="radio" name="acid_mod_plus" id="acid" value="1"></td>
+                    <td><input type="radio" name="acid_high" id="acid" value="1"></td>
                 </tr>
                 <tr>
-                    <td class="left"><label for="st-alcohol">Alcohol:</label></td>
-                    <td><input type="radio" name="alcohol_low" id="st-alcohol" value="1"></td>
-                    <td><input type="radio" name="alcohol_mod" id="st-alcohol" value="1"></td>
-                    <td><input type="radio" name="alcohol_mod_plus" id="st-alcohol" value="1"></td>
-                    <td><input type="radio" name="alcohol_high" id="st-alcohol" value="1"></td>
+                    <td class="left"><label for="alcohol">Alcohol:</label></td>
+                    <td><input type="radio" name="alcohol_low" id="alcohol" value="1"></td>
+                    <td><input type="radio" name="alcohol_mod" id="alcohol" value="1"></td>
+                    <td><input type="radio" name="alcohol_mod_plus" id="alcohol" value="1"></td>
+                    <td><input type="radio" name="alcohol_high" id="alcohol" value="1"></td>
                 </tr>
             </table>
             <input class="submit-btn" type="submit" value="Submit">

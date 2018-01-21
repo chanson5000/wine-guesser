@@ -61,7 +61,6 @@ if (is_post_request()) {
         $errors = $result;
     }
 }
-
 ?>
 
 <div class="center">

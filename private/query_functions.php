@@ -11,11 +11,35 @@ function find_all_red_wines()
     return $result;
 }
 
+function find_all_white_wines()
+{
+    global $db;
+
+    $sql = "SELECT * FROM white_wine ";
+    $sql .= "ORDER BY varietal ASC;";
+    $result = mysqli_query($db, $sql);
+    confirm_result_set($result);
+    return $result;
+}
+
 function find_red_wine_by_id($id)
 {
     global $db;
 
     $sql = "SELECT * FROM red_wine ";
+    $sql .= "WHERE id='" . db_escape($db, $id) . "';";
+    $result = mysqli_query($db, $sql);
+    confirm_result_set($result);
+    $wine = mysqli_fetch_assoc($result);
+    mysqli_free_result($result);
+    return $wine;  // returned the assoc. array
+}
+
+function find_white_wine_by_id($id)
+{
+    global $db;
+
+    $sql = "SELECT * FROM white_wine ";
     $sql .= "WHERE id='" . db_escape($db, $id) . "';";
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
@@ -78,6 +102,76 @@ function update_red_wine($wine)
     $sql .= "tannin_mod='" . db_escape($db, $wine['tannin_mod']) . "', ";
     $sql .= "tannin_mod_plus='" . db_escape($db, $wine['tannin_mod_plus']) . "', ";
     $sql .= "tannin_high='" . db_escape($db, $wine['tannin_high']) . "', ";
+    $sql .= "acid_low='" . db_escape($db, $wine['acid_low']) . "', ";
+    $sql .= "acid_mod='" . db_escape($db, $wine['acid_mod']) . "', ";
+    $sql .= "acid_mod_plus='" . db_escape($db, $wine['acid_mod_plus']) . "', ";
+    $sql .= "acid_high='" . db_escape($db, $wine['acid_high']) . "', ";
+    $sql .= "alcohol_low='" . db_escape($db, $wine['alcohol_low']) . "', ";
+    $sql .= "alcohol_mod='" . db_escape($db, $wine['alcohol_mod']) . "', ";
+    $sql .= "alcohol_mod_plus='" . db_escape($db, $wine['alcohol_mod_plus']) . "', ";
+    $sql .= "alcohol_high='" . db_escape($db, $wine['alcohol_high']) . "', ";
+    $sql .= "climate_cool='" . db_escape($db, $wine['climate_cool']) . "', ";
+    $sql .= "climate_moderate='" . db_escape($db, $wine['climate_moderate']) . "', ";
+    $sql .= "climate_warm='" . db_escape($db, $wine['climate_warm']) . "', ";
+    $sql .= "description='" . db_escape($db, $wine['description']) . "', ";
+    $sql .= "notes='" . db_escape($db, $wine['notes']) . "', ";
+    $sql .= "confusion='" . db_escape($db, $wine['confusion']) . "' ";
+    $sql .= "WHERE id='" . db_escape($db, $wine['id']) . "' ";
+    $sql .= "LIMIT 1";
+
+    $result = mysqli_query($db, $sql);
+    // For UPDATE statements, $result is true/false
+    if ($result) {
+        return true;
+    } else {
+        // UPDATE failed
+        echo mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+}
+
+function update_white_wine($wine)
+{
+    global $db;
+
+    $errors = validate_wine_admin($wine);
+    if (!empty($errors)) {
+        return $errors;
+    }
+
+    $sql = "UPDATE white_wine SET ";
+    $sql .= "varietal='" . db_escape($db, $wine['varietal']) . "', ";
+    $sql .= "new_world='" . db_escape($db, $wine['new_world']) . "', ";
+    $sql .= "straw='" . db_escape($db, $wine['straw']) . "', ";
+    $sql .= "yellow='" . db_escape($db, $wine['yellow']) . "', ";
+    $sql .= "gold='" . db_escape($db, $wine['gold']) . "', ";
+    $sql .= "apple='" . db_escape($db, $wine['apple']) . "', ";
+    $sql .= "citrus='" . db_escape($db, $wine['citrus']) . "', ";
+    $sql .= "stone='" . db_escape($db, $wine['stone']) . "', ";
+    $sql .= "tropical='" . db_escape($db, $wine['tropical']) . "', ";
+    $sql .= "nose_tart='" . db_escape($db, $wine['nose_tart']) . "', ";
+    $sql .= "nose_ripe='" . db_escape($db, $wine['nose_ripe']) . "', ";
+    $sql .= "nose_overripe='" . db_escape($db, $wine['nose_overripe']) . "', ";
+    $sql .= "nose_baked='" . db_escape($db, $wine['nose_baked']) . "', ";
+    $sql .= "palate_tart='" . db_escape($db, $wine['palate_tart']) . "', ";
+    $sql .= "palate_ripe='" . db_escape($db, $wine['palate_ripe']) . "', ";
+    $sql .= "palate_overripe='" . db_escape($db, $wine['palate_overripe']) . "', ";
+    $sql .= "palate_baked='" . db_escape($db, $wine['palate_baked']) . "', ";
+    $sql .= "floral='" . db_escape($db, $wine['floral']) . "', ";
+    $sql .= "vegetal='" . db_escape($db, $wine['vegetal']) . "', ";
+    $sql .= "herbal='" . db_escape($db, $wine['herbal']) . "', ";
+    $sql .= "botrytis='" . db_escape($db, $wine['botrytis']) . "', ";
+    $sql .= "oxidative='" . db_escape($db, $wine['oxidative']) . "', ";
+    $sql .= "lees='" . db_escape($db, $wine['lees']) . "', ";
+    $sql .= "buttery='" . db_escape($db, $wine['buttery']) . "', ";
+    $sql .= "organic='" . db_escape($db, $wine['organic']) . "', ";
+    $sql .= "inorganic='" . db_escape($db, $wine['inorganic']) . "', ";
+    $sql .= "oak='" . db_escape($db, $wine['oak']) . "', ";
+    $sql .= "bitter='" . db_escape($db, $wine['bitter']) . "', ";
+    $sql .= "dry='" . db_escape($db, $wine['dry']) . "', ";
+    $sql .= "off_dry='" . db_escape($db, $wine['off_dry']) . "', ";
+    $sql .= "sweet='" . db_escape($db, $wine['sweet']) . "', ";
     $sql .= "acid_low='" . db_escape($db, $wine['acid_low']) . "', ";
     $sql .= "acid_mod='" . db_escape($db, $wine['acid_mod']) . "', ";
     $sql .= "acid_mod_plus='" . db_escape($db, $wine['acid_mod_plus']) . "', ";
@@ -183,11 +277,107 @@ function create_red_wine($wine)
     }
 }
 
+function create_white_wine($wine)
+{
+    global $db;
+
+    $errors = validate_wine_admin($wine);
+    if (!empty($errors)) {
+        return $errors;
+    }
+
+
+    $sql = "INSERT INTO white_wine ";
+    $sql .= "(varietal, new_world, straw, yellow, gold, apple, citrus, stone, ";
+    $sql .= "tropical, nose_tart, nose_ripe, nose_overripe, nose_baked, palate_tart, palate_ripe, ";
+    $sql .= "palate_overripe, palate_baked, floral, vegetal, herbal, botrytis, oxidative, lees, ";
+    $sql .= "buttery, organic, inorganic, oak, bitter, dry, off_dry, sweet, ";
+    $sql .= "acid_low, acid_mod, acid_mod_plus, acid_high, alcohol_low, alcohol_mod, ";
+    $sql .= "alcohol_mod_plus, alcohol_high, climate_cool, climate_moderate, climate_warm, description, ";
+    $sql .= "notes, confusion) VALUES (";
+    $sql .= "'" . db_escape($db, $wine['varietal']) . "',";
+    $sql .= "'" . db_escape($db, $wine['new_world']) . "',";
+    $sql .= "'" . db_escape($db, $wine['straw']) . "',";
+    $sql .= "'" . db_escape($db, $wine['yellow']) . "',";
+    $sql .= "'" . db_escape($db, $wine['gold']) . "',";
+    $sql .= "'" . db_escape($db, $wine['apple']) . "',";
+    $sql .= "'" . db_escape($db, $wine['citrus']) . "',";
+    $sql .= "'" . db_escape($db, $wine['stone']) . "',";
+    $sql .= "'" . db_escape($db, $wine['tropical']) . "',";
+    $sql .= "'" . db_escape($db, $wine['nose_tart']) . "',";
+    $sql .= "'" . db_escape($db, $wine['nose_ripe']) . "',";
+    $sql .= "'" . db_escape($db, $wine['nose_overripe']) . "',";
+    $sql .= "'" . db_escape($db, $wine['nose_baked']) . "',";
+    $sql .= "'" . db_escape($db, $wine['palate_tart']) . "',";
+    $sql .= "'" . db_escape($db, $wine['palate_ripe']) . "',";
+    $sql .= "'" . db_escape($db, $wine['palate_overripe']) . "',";
+    $sql .= "'" . db_escape($db, $wine['palate_baked']) . "',";
+    $sql .= "'" . db_escape($db, $wine['floral']) . "',";
+    $sql .= "'" . db_escape($db, $wine['vegetal']) . "',";
+    $sql .= "'" . db_escape($db, $wine['herbal']) . "',";
+    $sql .= "'" . db_escape($db, $wine['botrytis']) . "',";
+    $sql .= "'" . db_escape($db, $wine['oxidative']) . "',";
+    $sql .= "'" . db_escape($db, $wine['lees']) . "',";
+    $sql .= "'" . db_escape($db, $wine['buttery']) . "',";
+    $sql .= "'" . db_escape($db, $wine['organic']) . "',";
+    $sql .= "'" . db_escape($db, $wine['inorganic']) . "',";
+    $sql .= "'" . db_escape($db, $wine['oak']) . "',";
+    $sql .= "'" . db_escape($db, $wine['bitter']) . "',";
+    $sql .= "'" . db_escape($db, $wine['dry']) . "',";
+    $sql .= "'" . db_escape($db, $wine['off_dry']) . "',";
+    $sql .= "'" . db_escape($db, $wine['sweet']) . "',";
+    $sql .= "'" . db_escape($db, $wine['acid_low']) . "',";
+    $sql .= "'" . db_escape($db, $wine['acid_mod']) . "',";
+    $sql .= "'" . db_escape($db, $wine['acid_mod_plus']) . "',";
+    $sql .= "'" . db_escape($db, $wine['acid_high']) . "',";
+    $sql .= "'" . db_escape($db, $wine['alcohol_low']) . "',";
+    $sql .= "'" . db_escape($db, $wine['alcohol_mod']) . "',";
+    $sql .= "'" . db_escape($db, $wine['alcohol_mod_plus']) . "',";
+    $sql .= "'" . db_escape($db, $wine['alcohol_high']) . "',";
+    $sql .= "'" . db_escape($db, $wine['climate_cool']) . "',";
+    $sql .= "'" . db_escape($db, $wine['climate_moderate']) . "',";
+    $sql .= "'" . db_escape($db, $wine['climate_warm']) . "',";
+    $sql .= "'" . db_escape($db, $wine['description']) . "',";
+    $sql .= "'" . db_escape($db, $wine['notes']) . "',";
+    $sql .= "'" . db_escape($db, $wine['confusion']) . "' ";
+    $sql .= ")";
+    $result = mysqli_query($db, $sql);
+    // For INSERT statements, $result is true/false
+    if ($result) {
+        return true;
+    } else {
+        // INSERT failed
+        echo mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+}
+
 function delete_red_wine($id)
 {
     global $db;
 
     $sql = "DELETE FROM red_wine ";
+    $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+    $sql .= "LIMIT 1;";
+    $result = mysqli_query($db, $sql);
+
+    // For DELETE statements, $result is true/false
+    if ($result) {
+        return true;
+    } else {
+        // DELETE failed
+        echo mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+}
+
+function delete_white_wine($id)
+{
+    global $db;
+
+    $sql = "DELETE FROM white_wine ";
     $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
     $sql .= "LIMIT 1;";
     $result = mysqli_query($db, $sql);
@@ -219,7 +409,6 @@ function validate_wine_admin($wine)
 
 function find_total_red_wines()
 {
-
     global $db;
 
     $sql = "SELECT COUNT(*) FROM red_wine;";
@@ -227,12 +416,21 @@ function find_total_red_wines()
     $result = mysqli_query($db, $sql);
     $num = mysqli_fetch_row($result);
     return $num[0];
+}
 
+function find_total_white_wines()
+{
+    global $db;
+
+    $sql = "SELECT COUNT(*) FROM white_wine;";
+
+    $result = mysqli_query($db, $sql);
+    $num = mysqli_fetch_row($result);
+    return $num[0];
 }
 
 function testing_function()
 {
-
     global $db;
     $wines = [];
 
@@ -245,40 +443,23 @@ function testing_function()
         $wines[] = $wine;
 
     }
-
     return $wines;
 
 }
 
-//function populate_red_wine_search_array() {
-//
-//    global $db;
-//
-//    $wine_data = [];
-//    $sql = "SELECT COUNT(*) FROM red_wine;";
-//
-//
-//    for $wine_record in
-//}
-//
 function find_red_wine_match($guess_wine)
 {
     global $db;
     $wines = [];
 
     for ($num_records = (find_total_red_wines() - 1); $num_records >= 0; $num_records--) {
-
         $sql = "SELECT * FROM red_wine LIMIT " . $num_records . ",1;";
         $result = mysqli_query($db, $sql);
         $wine = mysqli_fetch_assoc($result);
-
         $wines[] = $wine;
 //        mysqli_free_result($result);
     }
-
     $match_values = [];
-
-
 
     foreach ($guess_wine as $key => $value) {
         if ($value == 1) {
@@ -288,9 +469,40 @@ function find_red_wine_match($guess_wine)
 
     $match_frequency = [];
 
-    echo "Match values: ";
-    print_r($match_values);
-    echo "<br>";
+    foreach ($wines as $wine) {
+        $match_frequency[$wine['id']] = 0;
+        foreach ($wine as $property => $status)
+            if (in_array($property, $match_values) && ($status === '1')) {
+                $match_frequency[$wine['id']]++;
+            }
+    }
+    $most_matched_wine_id = array_search(max($match_frequency), $match_frequency);
+    return find_red_wine_by_id($most_matched_wine_id);
+}
+
+function find_white_wine_match($guess_wine)
+{
+    global $db;
+    $wines = [];
+
+    for ($num_records = (find_total_white_wines() - 1); $num_records >= 0; $num_records--) {
+
+        $sql = "SELECT * FROM white_wine LIMIT " . $num_records . ",1;";
+        $result = mysqli_query($db, $sql);
+        $wine = mysqli_fetch_assoc($result);
+
+        $wines[] = $wine;
+//        mysqli_free_result($result);
+    }
+    $match_values = [];
+
+    foreach ($guess_wine as $key => $value) {
+        if ($value == 1) {
+            $match_values[] = $key;
+        }
+    }
+
+    $match_frequency = [];
 
     foreach ($wines as $wine) {
         $match_frequency[$wine['id']] = 0;
@@ -300,11 +512,9 @@ function find_red_wine_match($guess_wine)
             }
     }
 
-    print_r($match_frequency);
-
     $most_matched_wine_id = array_search(max($match_frequency), $match_frequency);
 
-    return find_red_wine_by_id($most_matched_wine_id);
+    return find_white_wine_by_id($most_matched_wine_id);
 }
 
 function insert_user($user) {
