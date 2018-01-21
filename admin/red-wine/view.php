@@ -1,6 +1,9 @@
 <?php
 require_once('../../private/initialize.php');
 
+$page_title = 'Wine Administration - View Red Wine';
+include(SHARED_PATH . '/staff_header.php');
+
 if (!isset($_GET['id'])) {
     redirect_to(url_for('admin/index.php'));
 }
@@ -11,8 +14,7 @@ $wine = find_red_wine_by_id($id);
 
 ?>
 
-<?php $page_title = 'Wine Administration - View Red Wine'; ?>
-<?php include(SHARED_PATH . '/header.php'); ?>
+
 
 <div class="center">
     <h2>Red Wine Properties</h2>

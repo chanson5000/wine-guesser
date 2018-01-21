@@ -1,14 +1,10 @@
 <?php
-
 require_once('../../private/initialize.php');
 
-//require_login();
+$page_title = 'Wine Guesser - User List';
+include (SHARED_PATH . '/staff_header.php');
 
 $user_set = find_all_users();
-
-$page_title = 'Wine Guesser - User List';
-
-include (SHARED_PATH . '/header.php');
 ?>
 
 <div class="center">

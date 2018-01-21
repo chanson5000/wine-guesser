@@ -1,6 +1,9 @@
 <?php
 require_once('../../private/initialize.php');
 
+$page_title = 'Wine Administration - Add Wine Varietal';
+include(SHARED_PATH . '/staff_header.php');
+
 if (is_post_request()) {
     $wine = [];
     $wine['varietal'] = isset($_POST['varietal']) ? $_POST['varietal'] : '0';
@@ -57,14 +60,9 @@ if (is_post_request()) {
     } else {
         $errors = $result;
     }
-
-} else {
 }
 
 ?>
-
-<?php $page_title = 'Wine Administration - Add Wine Varietal'; ?>
-<?php include(SHARED_PATH . '/header.php'); ?>
 
 <div class="center">
     <h2>Add New Wine Varietal</h2>

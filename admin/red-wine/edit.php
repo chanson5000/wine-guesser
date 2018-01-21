@@ -1,6 +1,9 @@
 <?php
 require_once('../../private/initialize.php');
 
+$page_title = 'Wine Administration - Edit Red Wine';
+include(SHARED_PATH . '/staff_header.php');
+
 if (!isset($_GET['id'])) {
     redirect_to(url_for('admin/index.php'));
 }
@@ -69,9 +72,6 @@ if (is_post_request()) {
 }
 
 ?>
-
-<?php $page_title = 'Wine Administration - Edit Red Wine'; ?>
-<?php include(SHARED_PATH . '/header.php'); ?>
 
 <div class="center">
     <h2>Edit Red Wine</h2>

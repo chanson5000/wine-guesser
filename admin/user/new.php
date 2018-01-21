@@ -1,7 +1,8 @@
 <?php
 require_once('../../private/initialize.php');
 
-//require_login();
+$page_title = 'Wine Guesser - New User';
+include (SHARED_PATH . '/staff_header.php');
 
 if(is_post_request()) {
 
@@ -34,11 +35,6 @@ if(is_post_request()) {
     $user['is_admin'] = '0';
 }
 
-?>
-
-<?php
-$page_title = 'Wine Guesser - New User';
-include (SHARED_PATH . '/header.php');
 ?>
 
 <div class="center">

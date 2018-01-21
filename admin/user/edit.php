@@ -1,7 +1,8 @@
 <?php
 require_once('../../private/initialize.php');
 
-//require_login();
+$page_title = 'Wine Guesser - Edit User';
+include (SHARED_PATH . '/staff_header.php');
 
 if (!isset($_GET['id'])) {
     redirect_to(url_for('admin/user/index.php'));
@@ -33,11 +34,6 @@ if(is_post_request()) {
     $user = find_user_by_id($id);
 }
 
-?>
-
-<?php
-$page_title = 'Wine Guesser - Edit User';
-include (SHARED_PATH . '/header.php');
 ?>
 
     <div class="center">

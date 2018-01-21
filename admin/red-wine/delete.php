@@ -1,6 +1,9 @@
 <?php
 require_once('../../private/initialize.php');
 
+$page_title = 'Delete Varietal';
+include(SHARED_PATH . '/staff_header.php');
+
 if (!isset($_GET['id'])) {
     redirect_to(url_for('admin/index.php'));
 }
@@ -13,11 +16,9 @@ if (is_post_request()) {
 } else {
     $wine = find_red_wine_by_id($id);
 }
-
 ?>
 
-<?php $page_title = 'Delete Varietal'; ?>
-<?php include(SHARED_PATH . '/header.php'); ?>
+
 
     <div class="center delete-page">
         <h2>Delete Varietal</h2>

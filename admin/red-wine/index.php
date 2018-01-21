@@ -1,11 +1,10 @@
 <?php
 require_once('../../private/initialize.php');
 
-$wine_set = find_all_red_wines();
-
 $page_title = 'Wine Guesser - Red Wines Administration';
+include(SHARED_PATH . '/staff_header.php');
 
-include(SHARED_PATH . '/header.php');
+$wine_set = find_all_red_wines();
 ?>
     <div class="center">
         <h2>Red Wines Administration</h2>

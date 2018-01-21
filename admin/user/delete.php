@@ -1,8 +1,8 @@
 <?php
-
 require_once('../../private/initialize.php');
 
-//require_login();
+$page_title = 'Delete User';
+include(SHARED_PATH . '/staff_header.php');
 
 if (!isset($_GET['id'])) {
     redirect_to(url_for('/admin/user/index.php'));
@@ -18,9 +18,6 @@ if (is_post_request()) {
 }
 
 ?>
-
-<?php $page_title = 'Delete User'; ?>
-<?php include(SHARED_PATH . '/header.php'); ?>
 
 <div class="center delete-page">
     <h1>Delete User</h1>

@@ -2,7 +2,7 @@
 require_once('../private/initialize.php');
 
 $page_title = 'Wine Guesser - Administration';
-include(SHARED_PATH . '/header.php');
+include(SHARED_PATH . '/staff_header.php');
 ?>
 
 <h2 class="center">Administration</h2>

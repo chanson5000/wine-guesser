@@ -1,14 +1,14 @@
 <?php
 require_once('../../private/initialize.php');
 
-//require_login();
+$page_title = 'Wine Guesser - User Added';
+include (SHARED_PATH . '/staff_header.php');
 
 $id = isset($_GET['id']) ? $_GET['id'] : '1';
 
 $user = find_user_by_id($id);
 
-$page_title = 'Wine Guesser - User Added';
-include (SHARED_PATH . '/header.php');
+
 ?>
 
 <div class="center">
