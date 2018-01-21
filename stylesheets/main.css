@@ -16,8 +16,7 @@ header {
     /*height: 7em;*/
     background: #721330;
     display: block;
-    /*padding: .5em;*/
-    /*border: 2px solid yellow;*/
+    border-bottom: 2px solid black;
 }
 
 footer {
@@ -31,12 +30,13 @@ footer {
 h1 {
     text-align: center;
     font-size: 5em;
+    line-height: 1;
     padding: 5px;
 }
 
 h2 {
     font-size: 2.5em;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-top: 10px;
 }
 
@@ -76,29 +76,29 @@ header a:visited {
 
 .index-title {
     text-align: center;
-    max-width: 620px;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    max-width: 500px;
+    min-width: 350px;
+    width: 100%;
+    margin: auto;
+    height: 80%;
+    display: block;
+    position: relative;
 }
 
 .index-title table {
-    width: 100%;
-    table-layout: fixed;
+    min-width: 350px;
+    position: relative;
+    padding: 25% 0;
+    margin: auto;
 }
 
 .index-title th {
-    font-size: 2em;
-    padding-bottom: 20px;
+    font-size: 2.5em;
 }
 
 .index-title td {
-    font-size: 4em;
-    /*border: 1px solid green;*/
-    /*margin-top: 10px;*/
-    /*margin-bottom: 10px;*/
+    font-size: 6em;
+    width: 49%;
 }
 
 .index-title a:link {
@@ -108,8 +108,6 @@ header a:visited {
 
 .index-title a {
     display: block;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .index-title a:visited {
@@ -136,20 +134,20 @@ header a:visited {
     max-width: 700px;
     border: solid black 2px;
     display: inline-block;
-    margin: 10px;
+    /*margin: 10px;*/
 }
 
 .wine-form table {
     width: 100%;
     /*max-width: 100%;*/
     border-bottom: 1px solid black;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    /*padding-top: 5px;*/
+    /*padding-bottom: 5px;*/
     table-layout: fixed;
 }
 
 .wine-form td {
-    padding: 5px 10px 5px 10px;
+    padding: 2px 10px 2px 10px;
     /*border: 1px solid yellow;*/
 }
 
@@ -157,36 +155,36 @@ header a:visited {
     font-size: 1.2em;
     font-weight: bold;
     border-bottom: 1px dashed black;
-    padding: 5px;
+    padding: 2px;
 }
 
 /*** Admin Styles ***/
 
 .admin-index {
     text-align: center;
-    max-width: 700px;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    max-width: 550px;
+    min-width: 350px;
+    width: 100%;
+    margin: auto;
+    height: 80%;
+    display: block;
+    position: relative;
 }
 
 .admin-index table {
-    width: 100%;
-    table-layout: fixed;
+    min-width: 350px;
+    position: relative;
+    padding: 25% 0;
+    margin: auto;
 }
 
 .admin-index th {
-    font-size: 2em;
-    padding-bottom: 20px;
+    font-size: 2.5em;
 }
 
 .admin-index td {
-    font-size: 4em;
-    /*border: 1px solid green;*/
-    /*margin-top: 10px;*/
-    /*margin-bottom: 10px;*/
+    font-size: 3.5em;
+    width: 49%;
 }
 
 .admin-index a:link {
@@ -263,9 +261,9 @@ textarea {
     font-size: 2em;
     background: #721330;
     border: 2px solid black;
-    padding: 10px 10px 15px 10px;
-    margin: 10px;
-    width: 680px;
+    /*padding: 10px 10px 15px 10px;*/
+    margin-top: 10px;
+    width: 700px;
     display: inline-block;
 }
 
@@ -275,19 +273,75 @@ textarea {
     font-size: 1.5em;
     background: #721330;
     border: 2px solid black;
-    padding: 10px 10px 15px 10px;
-    margin: 10px;
-    width: 680px;
+    /*padding: 10px 10px 15px 10px;*/
+    margin-top: 10px;
+    width: 700px;
     display: inline-block;
 }
 
-#errors p {
-    margin-bottom: 10px;
+.user-form {
+    background: #721330;
+    width: 100%;
+    max-width: 400px;
+    border: solid black 2px;
+    display: inline-block;
+}
+
+.user-show {
+    background: #721330;
+    width: 100%;
+    max-width: 400px;
+    border: solid black 2px;
+    display: inline-block;
+}
+
+.user-show dl {
+    margin: 10px;
+}
+
+.user-show dt,dd {
+    display: inline-block;
+}
+
+.user-show dt {
+    width: 50%;
+    text-align: left;
+}
+
+.user-show dd {
+    width: 49%;
+    text-align: left;
+}
+
+.user-form dl {
+    margin: 10px;
+}
+
+.user-form dt,dd {
+    display: inline-block;
+}
+
+.user-form dt {
+    width: 50%;
+    text-align: left;
+}
+
+.user-form dd {
+    width: 49%;
+    text-align: right;
+}
+
+.user-form p {
+    margin: 10px;
 }
 
 #errors ul {
     color: #370037;
     font-size: .9em;
+}
+
+#center_id {
+    text-align: center;
 }
 
 .max-width {
@@ -307,7 +361,7 @@ textarea {
 }
 
 .right-padded input {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
 }
 
 .max-width {
@@ -315,6 +369,6 @@ textarea {
 }
 
 .submit-btn {
-    padding: 2px;
-    margin: 4px 0;
+    margin: 10px 0 10px 0;
+    padding: 5px;
 }

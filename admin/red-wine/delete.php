@@ -23,9 +23,10 @@ if (is_post_request()) {
         <h2>Delete Varietal</h2>
 
         <p>Are you sure you want to delete this wine varietal from the database?</p>
+        <p><?php echo $wine['varietal']; ?></p>
 
         <form action="<?php echo url_for('admin/red-wine/delete?id=' . h(u($wine['id']))); ?>" method="post">
-                <input type="submit" name="commit" value="Delete Varietal">
+            <input type="submit" name="commit" value="Delete Varietal">
         </form>
 
         <div class="btm-return-link"><a href="<?php echo url_for('admin/red-wine/index.php'); ?>">Return to red wines

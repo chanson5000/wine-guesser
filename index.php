@@ -20,6 +20,6 @@ include(SHARED_PATH . '/header.php');
 </div>
 
 <?php
-//include(SHARED_PATH . '/footer.php');
-//?>
+include(SHARED_PATH . '/footer.php');
+?>
 

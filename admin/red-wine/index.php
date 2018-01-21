@@ -34,6 +34,8 @@ include(SHARED_PATH . '/header.php');
         </div>
     </div>
 
-    <div class="btm-return-link center"><a href="<?php echo url_for('admin/index.php'); ?>">Return to administration index.</a></div>
+    <div class="btm-return-link center">
+        <a href="<?php echo url_for('admin/index.php'); ?>">Return to administration index.</a>
+    </div>
 
 <?php include(SHARED_PATH . '/footer.php'); ?>

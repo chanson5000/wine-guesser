@@ -156,3 +156,7 @@ $wine = find_red_wine_by_id($id);
     </div>
     </div>
 </div>
+
+<?php
+include(SHARED_PATH . '/footer.php');
+?>
