@@ -1,13 +1,13 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Wine Guesser - Red Wines Administration';
+$page_title = 'Wine Guesser Administration - Red Wine Varietals';
 include(SHARED_PATH . '/staff_header.php');
 
 $wine_set = find_all_red_wines();
 ?>
     <div class="center">
-        <h2>Red Wines Administration</h2>
+        <h2>Red Wine Varietal Administration</h2>
         <div class="wine-form">
             <table>
                 <tr>
@@ -41,4 +41,4 @@ $wine_set = find_all_red_wines();
         <a href="<?php echo url_for('admin/index.php'); ?>">Return to administration index.</a>
     </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/staff_footer.php'); ?>

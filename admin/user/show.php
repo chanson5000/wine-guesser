@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Wine Guesser - User Added';
+$page_title = 'Wine Guesser Administration - View User';
 include (SHARED_PATH . '/staff_header.php');
 
 $id = isset($_GET['id']) ? $_GET['id'] : '1';
@@ -42,4 +42,4 @@ $user = find_user_by_id($id);
         </div>
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/staff_footer.php'); ?>

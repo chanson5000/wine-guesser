@@ -1,7 +1,7 @@
 <?php
 require_once('private/initialize.php');
 
-$page_title = 'Wine Guesser - Your Wine Varietal';
+$page_title = 'Wine Guesser - Possible Wine Varietal';
 include(SHARED_PATH . '/header.php');
 
 if (is_post_request()) {
@@ -61,7 +61,7 @@ if (is_post_request()) {
 ?>
 
     <div class="center">
-    <h2>Closest Varietal Match</h2>
+    <h2>Possible Closest Varietal Match</h2>
 
     <div class="wine-form">
         <table>
@@ -287,7 +287,7 @@ if (is_post_request()) {
             </tr>
         </table>
         <div class="btm-return-link">
-            <a href="<?php echo url_for('white-wine.php'); ?>">Return to white wine guesser.</a>
+            <a href="<?php echo url_for('/white-wine.php'); ?>">Return to white wine guesser.</a>
         </div>
     </div>
 

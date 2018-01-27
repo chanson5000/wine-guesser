@@ -1,7 +1,7 @@
 <?php
 require_once('../private/initialize.php');
 
-$page_title = 'Wine Guesser - Administration';
+$page_title = 'Wine Guesser Administration';
 include(SHARED_PATH . '/staff_header.php');
 ?>
 
@@ -22,5 +22,5 @@ include(SHARED_PATH . '/staff_header.php');
 </div>
 
 <?php
-include(SHARED_PATH . '/footer.php');
+include(SHARED_PATH . '/staff_footer.php');
 ?>

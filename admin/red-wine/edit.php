@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Wine Administration - Edit Red Wine';
+$page_title = 'Wine Guesser Administration - Edit Varietal';
 include(SHARED_PATH . '/staff_header.php');
 
 if (!isset($_GET['id'])) {
@@ -74,7 +74,7 @@ if (is_post_request()) {
 ?>
 
 <div class="center">
-    <h2>Edit Red Wine</h2>
+    <h2>Edit Red Varietal Characteristics</h2>
     <form class="wine-form" action="<?php echo url_for('/admin/red-wine/edit.php?id=' . h(u($id))); ?>" id="wine-form" method="post">
         <table>
             <tr>
@@ -236,7 +236,7 @@ if (is_post_request()) {
         </table>
         <table>
             <tr>
-                <th colspan="3"><label for="confusion">Confusion</label></th>
+                <th colspan="3"><label for="confusion">Common Confusions</label></th>
             </tr>
             <tr>
                 <td colspan="3"><textarea class="max-width" name="confusion" id="confusion" cols="3" rows="3"><?php echo $wine['confusion']; ?></textarea></td>
@@ -247,4 +247,4 @@ if (is_post_request()) {
     <div class="btm-return-link"><a href="<?php echo url_for('admin/red-wine/index.php'); ?>">Return to red wines administration.</a></div>
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/staff_footer.php'); ?>

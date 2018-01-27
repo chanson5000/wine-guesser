@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Wine Administration - Add Wine Varietal';
+$page_title = 'Wine Guesser Administration - Add New Varietal';
 include(SHARED_PATH . '/staff_header.php');
 
 if (is_post_request()) {
@@ -225,7 +225,7 @@ if (is_post_request()) {
         </table>
         <table>
             <tr>
-                <th colspan="3"><label for="confusion">Confusion</label></th>
+                <th colspan="3"><label for="confusion">Common Confusions</label></th>
             </tr>
             <tr>
                 <td colspan="3"><textarea class="max-width" name="confusion" id="confusion" cols="3" rows="3"></textarea></td>
@@ -238,4 +238,4 @@ if (is_post_request()) {
     </div>
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/staff_footer.php'); ?>

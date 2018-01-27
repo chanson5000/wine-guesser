@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Wine Guesser - User List';
+$page_title = 'Wine Guesser Administration - Users';
 include (SHARED_PATH . '/staff_header.php');
 
 $user_set = find_all_users();
@@ -15,7 +15,7 @@ $user_set = find_all_users();
                 <th>Username</th>
                 <th>Full Name</th>
                 <th>Admin</th>
-                <th colspan="3"><a href="<?php echo url_for('admin/user/new.php') ?>">Add A New User</a></th>
+                <th colspan="3"><a href="<?php echo url_for('/admin/user/new.php') ?>">Add A New User</a></th>
 
             </tr>
 
@@ -24,11 +24,11 @@ $user_set = find_all_users();
                     <td><?php echo h($user['username']); ?></td>
                     <td><?php echo h($user['first_name']) . ' ' . h($user['last_name']); ?></td>
                     <td><?php echo $user['is_admin'] == 1 ? 'Yes' : 'No'; ?></td>
-                    <td><a href="<?php echo url_for('admin/user/show.php?id=' . h(u($user['id']))); ?>">View</a>
+                    <td><a href="<?php echo url_for('/admin/user/show.php?id=' . h(u($user['id']))); ?>">View</a>
                     </td>
-                    <td><a href="<?php echo url_for('admin/user/edit.php?id=' . h(u($user['id']))); ?>">Edit</a>
+                    <td><a href="<?php echo url_for('/admin/user/edit.php?id=' . h(u($user['id']))); ?>">Edit</a>
                     </td>
-                    <td><a href="<?php echo url_for('admin/user/delete.php?id=' . h(u($user['id']))); ?>">Delete</a>
+                    <td><a href="<?php echo url_for('/admin/user/delete.php?id=' . h(u($user['id']))); ?>">Delete</a>
                     </td>
                 </tr>
             <?php } ?>
@@ -36,11 +36,11 @@ $user_set = find_all_users();
     </div>
 
     <div class="btm-return-link center">
-        <a href="<?php echo url_for('admin/index.php'); ?>">Return to administration index.</a>
+        <a href="<?php echo url_for('/admin/index.php'); ?>">Return to administration index.</a>
     </div>
 
 </div>
 
 <?php
-include(SHARED_PATH . '/footer.php');
+include(SHARED_PATH . '/staff_footer.php');
 ?>

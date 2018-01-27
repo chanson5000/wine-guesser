@@ -472,8 +472,11 @@ function find_red_wine_match($guess_wine)
     foreach ($wines as $wine) {
         $match_frequency[$wine['id']] = 0;
         foreach ($wine as $property => $status)
-            if (in_array($property, $match_values) && ($status === '1')) {
+            if (in_array($property, $match_values) && ($status > '0')) {
                 $match_frequency[$wine['id']]++;
+                if ($status > '1') {
+                   $match_frequency[$wine['id']]++;
+                }
             }
     }
     $most_matched_wine_id = array_search(max($match_frequency), $match_frequency);
@@ -579,7 +582,7 @@ function validate_user($user, $options = [])
         $errors[] = "Username cannot be blank.";
     } elseif (!has_length($user['username'], array('min' => 4, 'max' => 255))) {
         $errors[] = "Username must be between 8 and 255 characters.";
-    } elseif (!has_unique_username($user['username'], $user['id'] ?? 0)) {
+    } elseif (!has_unique_username($user['username'], isset($user['id']) ? $user['id'] : 0)) {
         $errors[] = "Username not allowed. Try another.";
     }
 

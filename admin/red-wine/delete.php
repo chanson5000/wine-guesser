@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Delete Varietal';
+$page_title = 'Wine Guesser Administration - Delete Varietal';
 include(SHARED_PATH . '/staff_header.php');
 
 if (!isset($_GET['id'])) {
@@ -12,7 +12,7 @@ $id = $_GET['id'];
 if (is_post_request()) {
     $result = delete_red_wine($id);
     $_SESSION['message'] = 'Wine deleted.';
-    redirect_to(url_for('admin/red-wine/index.php'));
+    redirect_to(url_for('/admin/red-wine/index.php'));
 } else {
     $wine = find_red_wine_by_id($id);
 }
@@ -35,6 +35,6 @@ if (is_post_request()) {
     </div>
 <?php
 
-include(SHARED_PATH . '/footer.php');
+include(SHARED_PATH . '/staff_footer.php');
 
 ?>

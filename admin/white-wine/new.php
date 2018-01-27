@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Wine Administration - Add Wine Varietal';
+$page_title = 'Wine Guesser Administration - Add New Varietal';
 include(SHARED_PATH . '/staff_header.php');
 
 if (is_post_request()) {
@@ -56,7 +56,7 @@ if (is_post_request()) {
     if($result === true) {
         $new_id = mysqli_insert_id($db);
         $_SESSION['message'] = 'Wine added.';
-        redirect_to(url_for('admin/white-wine/view.php?id=' . $new_id));
+        redirect_to(url_for('/admin/white-wine/view.php?id=' . $new_id));
     } else {
         $errors = $result;
     }
@@ -234,7 +234,7 @@ if (is_post_request()) {
         </table>
         <table>
             <tr>
-                <th colspan="3"><label for="confusion">Confusion</label></th>
+                <th colspan="3"><label for="confusion">Common Confusions</label></th>
             </tr>
             <tr>
                 <td colspan="3"><textarea class="max-width" name="confusion" id="confusion" cols="3" rows="3"></textarea></td>
@@ -243,8 +243,8 @@ if (is_post_request()) {
         <input class="submit-btn" type="submit" value="Submit">
     </form>
     <div class="btm-return-link">
-        <a href="<?php echo url_for('admin/white-wine/index.php'); ?>">Return to white wines administration.</a>
+        <a href="<?php echo url_for('/admin/white-wine/index.php'); ?>">Return to white wines administration.</a>
     </div>
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/staff_footer.php'); ?>

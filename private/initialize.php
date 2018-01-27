@@ -9,6 +9,7 @@
     define("ADMIN_PATH", PROJECT_PATH . '/admin');
     define("SHARED_PATH", PROJECT_PATH . '/shared');
 
+    //Define this path if location of wine guesser is not in the root html directory.
     define("WWW_ROOT", '/wine_guesser');
 
     require_once('functions.php');

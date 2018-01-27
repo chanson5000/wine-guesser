@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Wine Administration - View White Wine';
+$page_title = 'Wine Guesser Administration - View White Wine Varietal';
 include(SHARED_PATH . '/staff_header.php');
 
 if (!isset($_GET['id'])) {
@@ -14,10 +14,8 @@ $wine = find_white_wine_by_id($id);
 
 ?>
 
-
-
 <div class="center">
-    <h2>White Wine Properties</h2>
+    <h2>Possible Varietal Characteristics</h2>
 
     <div class="wine-form">
         <table>
@@ -157,7 +155,7 @@ $wine = find_white_wine_by_id($id);
         </table>
         <table>
             <tr>
-                <th colspan="3">Confusion</th>
+                <th colspan="3">Common Confusions</th>
             </tr>
             <tr>
                 <td colspan="3"><?php echo $wine['confusion']; ?></td>

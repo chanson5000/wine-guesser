@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Wine Guesser - New User';
+$page_title = 'Wine Guesser Administration - Add New User';
 include (SHARED_PATH . '/staff_header.php');
 
 if(is_post_request()) {
@@ -70,15 +70,15 @@ if(is_post_request()) {
             <dd><input type="password" name="confirm_password" id="confirm_password" value=""></dd>
         </dl>
         <p>
-            Passwords should be at least 12 characters and include at least one uppercase letter, lowercase letter, number, and symbol.
+            Passwords should be at least 4 characters and include at least one uppercase letter, lowercase letter, number, and symbol.
         </p>
 
         <input class="submit-btn" type="submit" value="Create User">
 
     </form>
         <div class="btm-return-link">
-            <a href="<?php echo url_for('admin/user/index.php'); ?>">Return to user administration.</a>
+            <a href="<?php echo url_for('/admin/user/index.php'); ?>">Return to user administration.</a>
         </div>
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/staff_footer.php'); ?>

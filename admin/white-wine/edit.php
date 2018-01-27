@@ -1,11 +1,11 @@
 <?php
 require_once('../../private/initialize.php');
 
-$page_title = 'Wine Administration - Edit White Wine';
+$page_title = 'Wine Administration - Edit White Wine Varietal';
 include(SHARED_PATH . '/staff_header.php');
 
 if (!isset($_GET['id'])) {
-    redirect_to(url_for('admin/index.php'));
+    redirect_to(url_for('/admin/index.php'));
 }
 
 $id = $_GET['id'];
@@ -62,7 +62,7 @@ if (is_post_request()) {
     $result = update_white_wine($wine);
     if($result === true) {
         $_SESSION['message'] = 'Wine updated.';
-        redirect_to(url_for('admin/white-wine/view.php?id=' . $id));
+        redirect_to(url_for('/admin/white-wine/view.php?id=' . $id));
     } else {
         $errors = $result;
     }
@@ -74,7 +74,7 @@ if (is_post_request()) {
 ?>
 
 <div class="center">
-    <h2>Edit White Wine</h2>
+    <h2>Edit White Varietal Characteristics</h2>
     <form class="wine-form" action="<?php echo url_for('/admin/white-wine/edit.php?id=' . h(u($id))); ?>" id="wine-form" method="post">
         <table>
             <tr>
@@ -246,7 +246,7 @@ if (is_post_request()) {
         </table>
         <table>
             <tr>
-                <th colspan="3"><label for="confusion">Confusion</label></th>
+                <th colspan="3"><label for="confusion">Common Confusions</label></th>
             </tr>
             <tr>
                 <td colspan="3"><textarea class="max-width" name="confusion" id="confusion" cols="3" rows="3"><?php echo $wine['confusion']; ?></textarea></td>
@@ -254,7 +254,7 @@ if (is_post_request()) {
         </table>
         <input class="submit-btn" type="submit" value="Submit">
     </form>
-    <div class="btm-return-link"><a href="<?php echo url_for('admin/white-wine/index.php'); ?>">Return to white wines administration.</a></div>
+    <div class="btm-return-link"><a href="<?php echo url_for('/admin/white-wine/index.php'); ?>">Return to white wines administration.</a></div>
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/staff_footer.php'); ?>
