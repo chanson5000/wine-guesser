@@ -24,6 +24,19 @@ function raw_u($string = "")
     return rawurlencode($string);
 }
 
+// TODO: Consider modifying this code to redirect any page to HTTPS, not just login.php.
+
+function secure_login_redirect() {
+    header("Location: https://" . $_SERVER['HTTP_HOST'] . WWW_ROOT . "/login.php");
+}
+
+// TODO: Clean up these next two lines of code.
+
+function https_redirect($location) {
+    header("Location: https://" . $_SERVER['HTTP_HOST'] . WWW_ROOT . $location);
+    exit;
+}
+
 function redirect_to($location)
 {
     header("Location: " . $location);
@@ -39,6 +52,8 @@ function is_get_request()
 {
     return $_SERVER['REQUEST_METHOD'] == 'GET';
 }
+
+// TODO: Investigate the two following statement's return warnings and their implication.
 
 function get_and_clear_session_message()
 {
