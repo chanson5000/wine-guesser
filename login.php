@@ -1,50 +1,52 @@
 <?php
 require_once('./private/initialize.php');
 
-$errors = [];
-$username = '';
-$password = '';
+if ($_SERVER['HTTPS']) {
 
-if (is_post_request()) {
+    $errors = [];
+    $username = '';
+    $password = '';
 
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    if (is_post_request()) {
 
-    // Validations
-    if (is_blank($username)) {
-        $errors[] = "Username cannot be blank.";
-    }
-    if (is_blank($password)) {
-        $errors[] = "Password cannot be blank.";
-    }
+        $username = isset($_POST['username']) ? $_POST['username'] : '';
+        $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    // if there were no errors, try to login
-    if (empty($errors)) {
-        // Using one variable ensures that msg is the same
-        $login_failure_msg = "Log in was unsuccessful.";
-
-        $user = find_user_by_username($username);
-        if ($user) {
-
-            if (password_verify($password, $user['password'])) {
-                // password matches
-                log_in_user($user);
-                $_SESSION['message'] = 'Login successful.';
-                redirect_to(url_for('/admin/index.php'));
-            } else {
-                // username found, but password does not match
-                $errors[] = $login_failure_msg;
-            }
-
-        } else {
-            // no username found
-            $errors[] = $login_failure_msg;
+        // Validations
+        if (is_blank($username)) {
+            $errors[] = "Username cannot be blank.";
+        }
+        if (is_blank($password)) {
+            $errors[] = "Password cannot be blank.";
         }
 
+        // if there were no errors, try to login
+        if (empty($errors)) {
+            // Using one variable ensures that msg is the same
+            $login_failure_msg = "Log in was unsuccessful.";
+
+            $user = find_user_by_username($username);
+            if ($user) {
+
+                if (password_verify($password, $user['password'])) {
+                    // password matches
+                    log_in_user($user);
+                    $_SESSION['message'] = 'Login successful.';
+                    redirect_to(url_for('/admin/index.php'));
+                } else {
+                    // username found, but password does not match
+                    $errors[] = $login_failure_msg;
+                }
+
+            } else {
+                // no username found
+                $errors[] = $login_failure_msg;
+            }
+        }
     }
-
+} else {
+    secure_login_redirect();
 }
-
 ?>
 
 <?php $page_title = 'Log in'; ?>
