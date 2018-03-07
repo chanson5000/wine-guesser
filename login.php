@@ -1,6 +1,8 @@
 <?php
 require_once('./private/initialize.php');
 
+// Check if we are using the HTTPS protocol before proceeding with login attempts.
+
 if ($_SERVER['HTTPS']) {
 
     $errors = [];
