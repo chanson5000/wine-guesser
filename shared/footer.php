@@ -8,11 +8,6 @@
                     href="<?php echo url_for('logout.php'); ?>">Logout?</a><br>
             <a href="<?php echo url_for('admin/index.php'); ?>">Got to the administration page.</a>
         </div>
-
-    <?php } else { ?>
-        <div class="btm-return-link">
-            <a href="<?php echo url_for('login.php'); ?>">Login?</a>
-        </div>
     <?php } ?>
 
 </footer>
