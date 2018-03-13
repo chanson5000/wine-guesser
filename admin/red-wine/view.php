@@ -72,19 +72,24 @@ $wine = find_red_wine_by_id($id);
         </table>
         <table>
             <tr>
-                <th>Non-Fruit Characteristic</th>
+                <th class="left">Non-Fruit</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>No</th>
+                <th>Yes</th>
+                <th>Key Indicator</th>
             </tr>
-            <?php if ($wine['floral'] == "1") { echo "<tr><td>Floral</td></tr>"; } ?>
-            <?php if ($wine['vegetal'] == "1") { echo "<tr><td>Vegetal, Green Pepper</td></tr>"; } ?>
-            <?php if ($wine['herbs'] == "1") { echo "<tr><td>Savory Dried Herbs, Tomato Leaf</td></tr>"; } ?>
-            <?php if ($wine['mint'] == "1") { echo "<tr><td>Mint, Eucalyptus</td></tr>"; } ?>
-            <?php if ($wine['peppercorn'] == "1") { echo "<tr><td>Peppercorn</td></tr>"; } ?>
-            <?php if ($wine['coffee'] == "1") { echo "<tr><td>Coffee, Cocoa, Mocha</td></tr>"; } ?>
-            <?php if ($wine['game'] == "1") { echo "<tr><td>Game, Blood, Cured Meat, Leather</td></tr>"; } ?>
-            <?php if ($wine['balsamic'] == "1") { echo "<tr><td>Balsamic, Tar</td></tr>"; } ?>
-            <?php if ($wine['organic'] == "1") { echo "<tr><td>Organic Earth: Forest floor, Wet Leaves, Mushrooms</td></tr>"; } ?>
-            <?php if ($wine['inorganic'] == "1") { echo "<tr><td>Inorganic Earth: Stone, Rock, Mineral, Sulfur</td></tr>"; } ?>
-            <?php if ($wine['oak'] == "1") { echo "<tr><td>New Oak: Vanilla, Smoke, Toast, Coconut</td></tr>"; } ?>
+
+            <?php
+            foreach (RED_WINE_NOTE_LABELS as $note => $label) {
+                echo "<tr><td colspan=\"5\" class=\"left\">" . $label . "</td>";
+                for ($i = 0; $i <= 2; $i++) { echo "<td>";
+                    if($wine[$note] == $i) { echo "X"; } echo "</td>"; } echo "</tr>";
+            }
+            ?>
+
         </table>
         <table>
             <tr>
