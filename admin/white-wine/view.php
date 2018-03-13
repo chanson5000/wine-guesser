@@ -40,17 +40,6 @@ $wine = find_white_wine_by_id($id);
         </table>
         <table>
             <tr>
-                <th colspan="4">Fruit</th>
-            </tr>
-            <tr>
-                <td><?php if ($wine['apple'] == "1") { echo "Apple"; } ?></td>
-                <td><?php if ($wine['citrus'] == "1") { echo "Citrus"; } ?></td>
-                <td><?php if ($wine['stone'] == "1") { echo "Stone"; } ?></td>
-                <td><?php if ($wine['tropical'] == "1") { echo "Tropical"; } ?></td>
-            </tr>
-        </table>
-        <table>
-            <tr>
                 <th colspan="4">Fruit Condition - Nose</th>
             </tr>
             <tr>
@@ -71,7 +60,33 @@ $wine = find_white_wine_by_id($id);
                 <td><?php if ($wine['palate_baked'] == "1") { echo "Baked, Dried, Bruised"; } ?></td>
             </tr>
         </table>
+        <table>
+            <tr>
+                <th class="left">Fruit</th>
+                <th>&nbsp;</th>
+                <th>No</th>
+                <th>Yes</th>
+                <th>Key Indicator</th>
+            </tr>
+            <?php
+            echo "<tr><td colspan=\"2\" class=\"left\">Apple/Pear</td>";
+            for ($i = 0; $i <= 2; $i++) { echo "<td>";
+                if($wine['apple'] == $i) { echo "X"; } echo "</td>"; } echo "</tr>";
 
+            echo "<tr><td colspan=\"2\" class=\"left\">Citrus</td>";
+            for ($i = 0; $i <= 2; $i++) { echo "<td>";
+                if($wine['citrus'] == $i) { echo "X"; } echo "</td>"; } echo "</tr>";
+
+            echo "<tr><td colspan=\"2\" class=\"left\">Stone</td>";
+            for ($i = 0; $i <= 2; $i++) { echo "<td>";
+                if($wine['stone'] == $i) { echo "X"; } echo "</td>"; } echo "</tr>";
+
+            echo "<tr><td colspan=\"2\" class=\"left\">Tropical</td>";
+                for ($i = 0; $i <= 2; $i++) { echo "<td>";
+                    if($wine['tropical'] == $i) { echo "X"; } echo "</td>"; } echo "</tr>";
+
+            ?>
+        </table>
         <table>
             <tr>
                 <th class="left">Non-Fruit</th>
