@@ -26,7 +26,7 @@ if (is_post_request()) {
         <p>Are you sure you want to delete this wine varietal from the database?</p>
         <p><?php echo $wine['varietal']; ?></p>
 
-        <form action="<?php echo url_for('admin/red-wine/delete?id=' . h(u($wine['id']))); ?>" method="post">
+        <form action="<?php echo url_for('admin/red-wine/delete.php?id=' . h(u($wine['id']))); ?>" method="post">
             <input type="submit" name="commit" value="Delete Varietal">
         </form>
 
