@@ -10,17 +10,6 @@
         </table>
         <table>
             <tr>
-                <th colspan="4">Fruit</th>
-            </tr>
-            <tr>
-                <td><label for="apple">Apple/Pear </label><input type="checkbox" name="apple" id="apple" value="1"<?php if($wine['apple'] == "1") { echo " checked"; } ?>></td>
-                <td><label for="citrus">Citrus </label><input type="checkbox" name="citrus" id="citrus" value="1"<?php if($wine['citrus'] == "1") { echo " checked"; } ?>></td>
-                <td><label for="stone">Stone </label><input type="checkbox" name="stone" id="stone" value="1"<?php if($wine['stone'] == "1") { echo " checked"; } ?>></td>
-                <td><label for="tropical">Tropical </label><input type="checkbox" name="tropical" id="tropical" value="1"<?php if($wine['tropical'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-        </table>
-        <table>
-            <tr>
                 <th colspan="4">Fruit Condition - Nose (Select up to two)</th>
             </tr>
             <tr>
@@ -41,6 +30,36 @@
                 <td><label for="palate_baked">Baked, Dried, Bruised</label><br><input type="checkbox" name="palate_baked" id="palate_baked" value="1"<?php if($wine['palate_baked'] == "1") { echo " checked"; } ?>></td>
             </tr>
         </table>
+        <table>
+            <tr>
+                <th class="left">Fruit</th>
+                <th>&nbsp;</th>
+                <th>No</th>
+                <th>Yes</th>
+                <th>Key Indicator</th>
+            </tr>
+            <tr>
+                <td colspan="2" class="left"><label for="apple">Apple/Pear </label></td>
+                <?php for ($i = 0; $i <= 2; $i++) { echo "<td><input type=\"radio\" name=\"apple\" id=\"apple\" value=" . $i;
+                    if($wine['apple'] == $i) { echo " checked"; } echo "></td>"; } ?>
+            </tr>
+            <tr>
+                <td colspan="2" class="left"><label for="citrus">Citrus </label></td>
+                <?php for ($i = 0; $i <= 2; $i++) { echo "<td><input type=\"radio\" name=\"citrus\" id=\"citrus\" value=" . $i;
+                    if($wine['citrus'] == $i) { echo " checked"; } echo "></td>"; } ?>
+            </tr>
+            <tr>
+                <td colspan="2" class="left"><label for="stone">Stone </label></td>
+                <?php for ($i = 0; $i <= 2; $i++) { echo "<td><input type=\"radio\" name=\"stone\" id=\"stone\" value=" . $i;
+                    if($wine['stone'] == $i) { echo " checked"; } echo "></td>"; } ?>
+            </tr>
+            <tr>
+                <td colspan="2" class="left"><label for="tropical">Tropical </label></td>
+                <?php for ($i = 0; $i <= 2; $i++) { echo "<td><input type=\"radio\" name=\"tropical\" id=\"tropical\" value=" . $i;
+                    if($wine['tropical'] == $i) { echo " checked"; } echo "></td>"; } ?>
+            </tr>
+        </table>
+
         <table>
             <tr>
                 <th class="left">Non-Fruit</th>
