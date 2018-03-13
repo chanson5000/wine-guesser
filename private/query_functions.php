@@ -142,23 +142,23 @@ function create_red_wine($wine)
         return $errors;
     }
 
-    $last_record = count(RED_WINE_FIELDS) - 1;
+    $last_record = count(RED_WINE_FIELDS) -1;
 
     $sql = "INSERT INTO red_wine (";
 
     foreach (RED_WINE_FIELDS as $iteration => $field) {
         if ($iteration != $last_record) {
-            $sql .= $field . ", ";
+            $sql .= db_escape($db, $field) . ", ";
         } else {
-        $sql .= $field . ") VALUES (";
+        $sql .= db_escape($db, $field) . ") VALUES (";
         }
     }
 
     foreach (RED_WINE_FIELDS as $iteration => $field) {
         if ($iteration != $last_record) {
-            $sql .= $field . "'" . db_escape($db, $wine[$field]) . "',";
+            $sql .= "'" . db_escape($db, $wine[$field]) . "', ";
         } else {
-            $sql .= $field . "')";
+            $sql .= "'" . db_escape($db, $wine[$field]) . "')";
         }
 
     }
@@ -190,17 +190,17 @@ function create_white_wine($wine)
 
     foreach (WHITE_WINE_FIELDS as $iteration => $field) {
         if ($iteration != $last_record) {
-            $sql .= $field . ", ";
+            $sql .= db_escape($db, $field) . ", ";
         } else {
-            $sql .= $field . ") VALUES (";
+            $sql .= db_escape($db, $field) . ") VALUES (";
         }
     }
 
     foreach (WHITE_WINE_FIELDS as $iteration => $field) {
         if ($iteration != $last_record) {
-            $sql .= $field . "'" . db_escape($db, $wine[$field]) . "',";
+            $sql .= "'" . db_escape($db, $wine[$field]) . "', ";
         } else {
-            $sql .= $field . "')";
+            $sql .= "'" . db_escape($db, $wine[$field]) . "')";
         }
 
     }
