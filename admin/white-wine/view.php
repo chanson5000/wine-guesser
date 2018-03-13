@@ -71,22 +71,29 @@ $wine = find_white_wine_by_id($id);
                 <td><?php if ($wine['palate_baked'] == "1") { echo "Baked, Dried, Bruised"; } ?></td>
             </tr>
         </table>
+
         <table>
             <tr>
-                <th>Non-Fruit Characteristic</th>
+                <th class="left">Non-Fruit</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>No</th>
+                <th>Yes</th>
+                <th>Key Indicator</th>
             </tr>
-            <?php if ($wine['floral'] == "1") { echo "<tr><td>Floral</td></tr>"; } ?>
-            <?php if ($wine['herbal'] == "1") { echo "<tr><td>Herbal</td></tr>"; } ?>
-            <?php if ($wine['vegetal'] == "1") { echo "<tr><td>Vegetal</td></tr>"; } ?>
-            <?php if ($wine['botrytis'] == "1") { echo "<tr><td>Botrytis: Gingered, Honeyed, Waxy</td></tr>"; } ?>
-            <?php if ($wine['oxidative'] == "1") { echo "<tr><td>Oxidative, Nutty</td></tr>"; } ?>
-            <?php if ($wine['lees'] == "1") { echo "<tr><td>Lees: Doughy, Baked Bread, Yeasty</td></tr>"; } ?>
-            <?php if ($wine['buttery'] == "1") { echo "<tr><td>Buttery, Creamy</td></tr>"; } ?>
-            <?php if ($wine['organic'] == "1") { echo "<tr><td>Organic Earth: Forest floor, Wet Leaves, Mushrooms</td></tr>"; } ?>
-            <?php if ($wine['inorganic'] == "1") { echo "<tr><td>Inorganic Earth: Stone, Rock, Mineral, Sulfur</td></tr>"; } ?>
-            <?php if ($wine['oak'] == "1") { echo "<tr><td>New Oak: Vanilla, Smoke, Toast, Coconut</td></tr>"; } ?>
-            <?php if ($wine['bitter'] == "1") { echo "<tr><td>Bitter, Phenolic</td></tr>"; } ?>
+
+            <?php
+            foreach (WHITE_WINE_NOTE_LABELS as $note => $label) {
+                echo "<tr><td colspan=\"5\" class=\"left\">" . $label . "</td>";
+                for ($i = 0; $i <= 2; $i++) { echo "<td>";
+                    if($wine[$note] == $i) { echo "X"; } echo "</td>"; } echo "</tr>";
+            }
+            ?>
+
         </table>
+
         <table>
             <tr>
                 <th class="left">Structure</th>
