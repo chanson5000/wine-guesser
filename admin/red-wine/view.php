@@ -40,16 +40,6 @@ $wine = find_red_wine_by_id($id);
         </table>
         <table>
             <tr>
-                <th colspan="3">Fruit</th>
-            </tr>
-            <tr>
-                <td><?php if ($wine['red_fruit'] == "1") { echo "Red"; } ?></td>
-                <td><?php if ($wine['black_fruit'] == "1") { echo "Black"; } ?></td>
-                <td><?php if ($wine['blue_fruit'] == "1") { echo "Blue checked"; } ?></td>
-            </tr>
-        </table>
-        <table>
-            <tr>
                 <th colspan="4">Fruit Condition - Nose</th>
             </tr>
             <tr>
@@ -69,6 +59,29 @@ $wine = find_red_wine_by_id($id);
                 <td><?php if ($wine['palate_overripe'] == "1") { echo "Overripe, Jammy, Stewed"; } ?></td>
                 <td><?php if ($wine['palate_baked'] == "1") { echo "Baked, Dried, Oxidative"; } ?></td>
             </tr>
+        </table>
+        <table>
+            <tr>
+                <th class="left">Fruit</th>
+                <th>&nbsp;</th>
+                <th>No</th>
+                <th>Yes</th>
+                <th>Key Indicator</th>
+            </tr>
+            <?php
+            echo "<tr><td colspan=\"2\" class=\"left\">Red</td>";
+                for ($i = 0; $i <= 2; $i++) { echo "<td>";
+                    if($wine['red_fruit'] == $i) { echo "X"; } echo "</td>"; } echo "</tr>";
+
+            echo "<tr><td colspan=\"2\" class=\"left\">Black</td>";
+            for ($i = 0; $i <= 2; $i++) { echo "<td>";
+                if($wine['black_fruit'] == $i) { echo "X"; } echo "</td>"; } echo "</tr>";
+
+            echo "<tr><td colspan=\"2\" class=\"left\">Blue</td>";
+            for ($i = 0; $i <= 2; $i++) { echo "<td>";
+                if($wine['blue_fruit'] == $i) { echo "X"; } echo "</td>"; } echo "</tr>";
+
+            ?>
         </table>
         <table>
             <tr>
