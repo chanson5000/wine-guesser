@@ -6,7 +6,7 @@
         <div class="btm-return-link">
             Welcome, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Unknown'; ?>. <a
                     href="<?php echo url_for('logout.php'); ?>">Logout?</a><br>
-            <a href="<?php echo url_for('admin/index.php'); ?>">Got to the administration page.</a>
+            <a href="<?php echo url_for('admin/index.php'); ?>">Go to the administration page.</a>
         </div>
 
     <?php } else { ?>
