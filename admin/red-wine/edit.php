@@ -20,13 +20,14 @@ if (is_post_request()) {
 
     foreach (RED_WINE_FIELDS as $field) {
         if ($field != WINE_TEXT_FIELDS) {
-            $wine[$field] = isset($_POST[$field]) ?? '0';
+            $wine[$field] = $_POST[$field] ?? '0';
         } else {
-            $wine[$field] = isset($_POST[$field]) ?? '';
+            $wine[$field] = $_POST[$field] ?? '';
         }
     }
 
     $result = update_red_wine($wine);
+
     if($result === true) {
         $_SESSION['message'] = 'Wine updated.';
         redirect_to(url_for('admin/red-wine/view.php?id=' . $id));
@@ -118,6 +119,9 @@ if (is_post_request()) {
             <tr>
                 <th class="left">Non-Fruit</th>
                 <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
                 <th>No</th>
                 <th>Yes</th>
                 <th>Key Indicator</th>
@@ -127,7 +131,7 @@ if (is_post_request()) {
             // The following code may have replaced around 110 lines of code!
 
             foreach (RED_WINE_NOTE_LABELS as $note => $label) {
-                echo "<tr><td colspan=\"2\" class=\"left\"><label for=\"" . $note . "\">" . $label . "</label></td>";
+                echo "<tr><td colspan=\"5\" class=\"left\"><label for=\"" . $note . "\">" . $label . "</label></td>";
                 for ($i = 0; $i <= 2; $i++) { echo "<td><input type=\"radio\" name=\"" . $note . "\" id=\"" . $note . "\" value=" . $i;
                     if($wine[$note] == $i) { echo " checked"; } echo "></td>"; } echo "</tr>";
             }
