@@ -13,51 +13,18 @@ $id = $_GET['id'];
 if (is_post_request()) {
     $wine = [];
     $wine['id'] = $id;
-    $wine['varietal'] = isset($_POST['varietal']) ? $_POST['varietal'] : '';
-    $wine['new_world'] = isset($_POST['new_world']) ? $_POST['new_world'] : '0';
-    $wine['straw'] = isset($_POST['straw']) ? $_POST['straw'] : '0';
-    $wine['yellow'] = isset($_POST['yellow']) ? $_POST['yellow'] : '0';
-    $wine['gold'] = isset($_POST['purple']) ? $_POST['gold'] : '0';
-    $wine['apple'] = isset($_POST['apple']) ? $_POST['apple'] : '0';
-    $wine['citrus'] = isset($_POST['citrus']) ? $_POST['citrus'] : '0';
-    $wine['stone'] = isset($_POST['stone']) ? $_POST['stone'] : '0';
-    $wine['tropical'] = isset($_POST['tropical']) ? $_POST['tropical'] : '0';
-    $wine['nose_tart'] = isset($_POST['nose_tart']) ? $_POST['nose_tart'] : '0';
-    $wine['nose_ripe'] = isset($_POST['nose_ripe']) ? $_POST['nose_ripe'] : '0';
-    $wine['nose_overripe'] = isset($_POST['nose_overripe']) ? $_POST['nose_overripe'] : '0';
-    $wine['nose_baked'] = isset($_POST['nose_baked']) ? $_POST['nose_baked'] : '0';
-    $wine['palate_tart'] = isset($_POST['palate_tart']) ? $_POST['palate_tart'] : '0';
-    $wine['palate_ripe'] = isset($_POST['palate_ripe']) ? $_POST['palate_ripe'] : '0';
-    $wine['palate_overripe'] = isset($_POST['palate_overripe']) ? $_POST['palate_overripe'] : '0';
-    $wine['palate_baked'] = isset($_POST['palate_baked']) ? $_POST['palate_baked'] : '0';
-    $wine['floral'] = isset($_POST['floral']) ? $_POST['floral'] : '0';
-    $wine['vegetal'] = isset($_POST['vegetal']) ? $_POST['vegetal'] : '0';
-    $wine['herbal'] = isset($_POST['herbal']) ? $_POST['herbal'] : '0';
-    $wine['botrytis'] = isset($_POST['botrytis']) ? $_POST['botrytis'] : '0';
-    $wine['oxidative'] = isset($_POST['oxidative']) ? $_POST['oxidative'] : '0';
-    $wine['lees'] = isset($_POST['lees']) ? $_POST['lees'] : '0';
-    $wine['buttery'] = isset($_POST['buttery']) ? $_POST['buttery'] : '0';
-    $wine['organic'] = isset($_POST['organic']) ? $_POST['organic'] : '0';
-    $wine['inorganic'] = isset($_POST['inorganic']) ? $_POST['inorganic'] : '0';
-    $wine['oak'] = isset($_POST['oak']) ? $_POST['oak'] : '0';
-    $wine['bitter'] = isset($_POST['bitter']) ? $_POST['bitter'] : '0';
-    $wine['dry'] = isset($_POST['dry']) ? $_POST['dry'] : '0';
-    $wine['off_dry'] = isset($_POST['off_dry']) ? $_POST['off_dry'] : '0';
-    $wine['sweet'] = isset($_POST['sweet']) ? $_POST['sweet'] : '0';
-    $wine['acid_low'] = isset($_POST['acid_low']) ? $_POST['acid_low'] : '0';
-    $wine['acid_mod'] = isset($_POST['acid_mod']) ? $_POST['acid_mod'] : '0';
-    $wine['acid_mod_plus'] = isset($_POST['acid_mod_plus']) ? $_POST['acid_mod_plus'] : '0';
-    $wine['acid_high'] = isset($_POST['acid_high']) ? $_POST['acid_high'] : '0';
-    $wine['alcohol_low'] = isset($_POST['alcohol_low']) ? $_POST['alcohol_low'] : '0';
-    $wine['alcohol_mod'] = isset($_POST['alcohol_mod']) ? $_POST['alcohol_mod'] : '0';
-    $wine['alcohol_mod_plus'] = isset($_POST['alcohol_mod_plus']) ? $_POST['alcohol_mod_plus'] : '0';
-    $wine['alcohol_high'] = isset($_POST['alcohol_high']) ? $_POST['alcohol_high'] : '0';
-    $wine['climate_cool'] = isset($_POST['climate_cool']) ? $_POST['climate_cool'] : '0';
-    $wine['climate_moderate'] = isset($_POST['climate_moderate']) ? $_POST['climate_moderate'] : '0';
-    $wine['climate_warm'] = isset($_POST['climate_warm']) ? $_POST['climate_warm'] : '0';
-    $wine['description'] = isset($_POST['description']) ? $_POST['description'] : '';
-    $wine['notes'] = isset($_POST['notes']) ? $_POST['notes'] : '';
-    $wine['confusion'] = isset($_POST['confusion']) ? $_POST['confusion'] : '';
+
+    // This function uses the PHP 7 coalescing operator
+    // The old version looked like this: $wine[$field] = isset($_POST[$field]) ? $_POST[$field] : '';
+    // Replaced around 50 lines of code with this foreach loop!
+
+    foreach (WHITE_WINE_FIELDS as $field) {
+        if ($field != WINE_TEXT_FIELDS) {
+            $wine[$field] = $_POST[$field] ?? '0';
+        } else {
+            $wine[$field] = $_POST[$field] ?? '';
+        }
+    }
 
     $result = update_white_wine($wine);
     if($result === true) {
@@ -131,52 +98,26 @@ if (is_post_request()) {
         </table>
         <table>
             <tr>
-                <th colspan="2">Non-Fruit Characteristic</th>
+                <th class="left">Non-Fruit</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>No</th>
+                <th>Yes</th>
+                <th>Key Indicator</th>
             </tr>
-            <tr>
-                <td class="left"><label for="floral">Floral</label></td>
-                <td class="right-padded"><input type="checkbox" name="floral" id="nf-floral" value="1"<?php if($wine['floral'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="herbal">Herbal</label></td>
-                <td class="right-padded"><input type="checkbox" name="herbal" id="herbal" value="1"<?php if($wine['herbal'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="vegetal">Vegetal</label></td>
-                <td class="right-padded"><input type="checkbox" name="vegetal" id="vegetal" value="1"<?php if($wine['vegetal'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="botrytis">Botrytis: Gingered, Honeyed, Waxy</label></td>
-                <td class="right-padded"><input type="checkbox" name="botrytis" id="botrytis" value="1"<?php if($wine['botrytis'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="oxidative">Oxidative</label></td>
-                <td class="right-padded"><input type="checkbox" name="oxidative" id="oxidative" value="1"<?php if($wine['oxidative'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="lees">Lees: doughy, Baked Bread</label></td>
-                <td class="right-padded"><input type="checkbox" name="lees" id="lees" value="1"<?php if($wine['lees'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="buttery">Buttery, Creamy</label></td>
-                <td class="right-padded"><input type="checkbox" name="buttery" id="buttery" value="1"<?php if($wine['buttery'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="organic">Organic Earth: Wet Leaves, Mushrooms</label></td>
-                <td class="right-padded"><input type="checkbox" name="organic" id="organic" value="1"<?php if($wine['organic'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="inorganic">Inorganic Earth: Stone, Rock, Mineral, Sulfur</label></td>
-                <td class="right-padded"><input type="checkbox" name="inorganic" id="inorganic" value="1"<?php if($wine['inorganic'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="oak">New Oak: Vanilla, Brown Baking Spices, Smoke</label></td>
-                <td class="right-padded"><input type="checkbox" name="oak" id="oak" value="1"<?php if($wine['oak'] == "1") { echo " checked"; } ?>></td>
-            </tr>
-            <tr>
-                <td class="left"><label for="bitter">Bitter, Phenolic</label></td>
-                <td class="right-padded"><input type="checkbox" name="bitter" id="bitter" value="1"<?php if($wine['bitter'] == "1") { echo " checked"; } ?>></td>
-            </tr>
+
+            <?php
+            // The following code may have replaced around 110 lines of code!
+
+            foreach (WHITE_WINE_NOTE_LABELS as $note => $label) {
+                echo "<tr><td colspan=\"5\" class=\"left\"><label for=\"" . $note . "\">" . $label . "</label></td>";
+                for ($i = 0; $i <= 2; $i++) { echo "<td><input type=\"radio\" name=\"" . $note . "\" id=\"" . $note . "\" value=" . $i;
+                    if($wine[$note] == $i) { echo " checked"; } echo "></td>"; } echo "</tr>";
+            }
+            ?>
+
         </table>
         <table>
             <tr>
@@ -187,11 +128,11 @@ if (is_post_request()) {
                 <th>&nbsp;</th>
             </tr>
             <tr>
-                <!-- TODO: Add more label switching. -->
-                <td class="left"><label for="st-tannin">Sweetness:</label></td>
-                <td><input type="checkbox" name="dry" id="dry" value="1"<?php if($wine['dry'] == "1") { echo " checked"; } ?>></td>
-                <td><input type="checkbox" name="off_dry" id="off_dry" value="1"<?php if($wine['off_dry'] == "1") { echo " checked"; } ?>></td>
-                <td><input type="checkbox" name="sweet" id="sweet" value="1"<?php if($wine['sweet'] == "1") { echo " checked"; } ?>></td>
+                <!-- TODO: Add label switching. -->
+                <td class="left"><label for="sweetness">Sweetness:</label></td>
+                <td><input type="checkbox" name="dry" id="sweetness" value="1"<?php if($wine['dry'] == "1") { echo " checked"; } ?>></td>
+                <td><input type="checkbox" name="off_dry" id="sweetness" value="1"<?php if($wine['off_dry'] == "1") { echo " checked"; } ?>></td>
+                <td><input type="checkbox" name="sweet" id="sweetness" value="1"<?php if($wine['sweet'] == "1") { echo " checked"; } ?>></td>
                 <td>&nbsp;</td>
             </tr>
         </table>
@@ -224,7 +165,7 @@ if (is_post_request()) {
             </tr>
             <tr>
                 <td><label for="climate_cool">Cool </label><input type="checkbox" name="climate_cool" id="climate_cool" value="1"<?php if($wine['climate_cool'] == "1") { echo " checked"; } ?>></td>
-                <td><label for="climate_moderate">Moderate </label><input type="checkbox" name="climate_moderate" id="climate-moderate" value="1"<?php if($wine['climate_moderate'] == "1") { echo " checked"; } ?>></td>
+                <td><label for="climate_moderate">Moderate </label><input type="checkbox" name="climate_moderate" id="climate_moderate" value="1"<?php if($wine['climate_moderate'] == "1") { echo " checked"; } ?>></td>
                 <td><label for="climate_warm">Warm </label><input type="checkbox" name="climate_warm" id="climate_warm" value="1"<?php if($wine['climate_warm'] == "1") { echo " checked"; } ?>></td>
             </tr>
         </table>
