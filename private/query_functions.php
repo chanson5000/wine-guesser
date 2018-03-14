@@ -313,7 +313,60 @@ function testing_function()
 
 // TODO: Fine tune the red and white wine matching algorithms.
 
-function find_red_wine_match($guess_wine)
+function wine_guess_id($guess_wine, $type) {
+    global $db;
+    $wines = [];
+
+    if ($type == RED_WINE) {
+        for ($num_records = (find_total_red_wines() - 1); $num_records >= 0; $num_records--) {
+            $sql = "SELECT * FROM red_wine LIMIT " . $num_records . ",1;";
+            $result = mysqli_query($db, $sql);
+            $wine = mysqli_fetch_assoc($result);
+            $wines[] = $wine;
+//        mysqli_free_result($result);
+        }
+    }
+
+    elseif ($type == WHITE_WINE) {
+        for ($num_records = (find_total_white_wines() - 1); $num_records >= 0; $num_records--) {
+
+            $sql = "SELECT * FROM white_wine LIMIT " . $num_records . ",1;";
+            $result = mysqli_query($db, $sql);
+            $wine = mysqli_fetch_assoc($result);
+            $wines[] = $wine;
+//        mysqli_free_result($result);
+        }
+    }
+
+    $match_property = [];
+
+    // Populate a variable with the properties we have selected for matching to a wine in the database.
+    foreach ($guess_wine as $key => $value) {
+        if ($value > 0) {
+            $match_property[] = $key;
+        }
+    }
+
+    $match_score = [];
+
+    foreach ($wines as $wine) {
+        $match_score[$wine['id']] = 0;
+        foreach ($wine as $property => $status)
+            if (in_array($property, $match_property) && ($status > '0')) {
+                $match_score[$wine['id']]++;
+                if ($status > '1') {
+                    $match_score[$wine['id']]++;
+                }
+            } else {
+                $match_score[$wine['id']]--;
+            }
+    }
+    $most_matched_wine_id = array_search(max($match_score), $match_score);
+
+    return $most_matched_wine_id;
+}
+
+function red_wine_guess_id($guess_wine)
 {
     global $db;
     $wines = [];
@@ -349,11 +402,12 @@ function find_red_wine_match($guess_wine)
             }
     }
     $most_matched_wine_id = array_search(max($match_score), $match_score);
-    return find_red_wine_by_id($most_matched_wine_id);
+
+    return $most_matched_wine_id;
 }
 
 // TODO: Reflect changes made in the red wine match pattern to this white wine pattern.
-function find_white_wine_match($guess_wine)
+function white_wine_guess_id($guess_wine)
 {
     global $db;
     $wines = [];
@@ -363,31 +417,34 @@ function find_white_wine_match($guess_wine)
         $sql = "SELECT * FROM white_wine LIMIT " . $num_records . ",1;";
         $result = mysqli_query($db, $sql);
         $wine = mysqli_fetch_assoc($result);
-
         $wines[] = $wine;
 //        mysqli_free_result($result);
     }
-    $match_values = [];
+    $match_property = [];
 
     foreach ($guess_wine as $key => $value) {
         if ($value == 1) {
-            $match_values[] = $key;
+            $match_property[] = $key;
         }
     }
 
-    $match_frequency = [];
+    $match_score = [];
 
     foreach ($wines as $wine) {
-        $match_frequency[$wine['id']] = 0;
+        $match_score[$wine['id']] = 0;
         foreach ($wine as $property => $status)
-            if (in_array($property, $match_values) && ($status === '1')) {
-                $match_frequency[$wine['id']]++;
+            if (in_array($property, $match_property) && ($status > '0')) {
+                $match_score[$wine['id']]++;
+                if ($status > '1') {
+                    $match_score[$wine['id']]++;
+                }
+            } else {
+                $match_score[$wine['id']]--;
             }
     }
+    $most_matched_wine_id = array_search(max($match_score), $match_score);
 
-    $most_matched_wine_id = array_search(max($match_frequency), $match_frequency);
-
-    return find_white_wine_by_id($most_matched_wine_id);
+    return $most_matched_wine_id;
 }
 
 function insert_user($user) {
