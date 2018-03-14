@@ -69,10 +69,7 @@
         <th>Yes</th>
         <th>Key Indicator</th>
     </tr>
-
     <?php
-    // The following code may have replaced around 110 lines of code!
-
     foreach (RED_WINE_NOTE_LABELS as $note => $label) {
         echo "<tr><td colspan=\"5\" class=\"left\"><label for=\"" . $note . "\">" . $label . "</label></td>";
         for ($i = 0; $i <= 2; $i++) { echo "<td><input type=\"radio\" name=\"" . $note . "\" id=\"" . $note . "\" value=" . $i;
