@@ -3,33 +3,28 @@ require_once('private/initialize.php');
 
 $page_title = 'Wine Guesser - White Wine';
 include(SHARED_PATH . '/header.php');
+
+if (is_post_request()) {
+
+    $guessed_wine_id = wine_guess_id(transform_wine_fields(sanitize_wine_fields($_POST, WHITE_WINE), WHITE_WINE), WHITE_WINE);
+    echo "Guessed ID?: " . $guessed_wine_id;
+    redirect_to(url_for('/guess-white.php?id=' . u($guessed_wine_id)));
+
+} else {
+
+}
 ?>
     <div class="center">
         <h2>Select White Wine Characteristics</h2>
-        <form class="wine-form" action="guess-white.php" method="post">
+        <form class="wine-form" action="/white-wine.php" method="post">
             <table>
                 <tr>
                     <th colspan="3">Color</th>
                 </tr>
                 <tr>
-                    <td><label for="straw">Straw </label><input type="radio" name="straw" id="straw" value="1"></td>
-                    <td><label for="yellow">Yellow </label><input type="radio" name="yellow" id="yellow" value="1"></td>
-                    <td><label for="gold">Gold </label><input type="radio" name="gold" id="gold" value="1"></td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <th colspan="4">Fruit</th>
-                </tr>
-                <tr>
-                    <td><label for="apple">Apple/Pear </label><input type="checkbox" name="apple" id="apple" value="1">
-                    </td>
-                    <td><label for="citrus">Citrus </label><input type="checkbox" name="citrus" id="citrus" value="1">
-                    </td>
-                    <td><label for="stone">Stone </label><input type="checkbox" name="stone" id="stone" value="1">
-                    </td>
-                    <td><label for="tropical">Tropical </label><input type="checkbox" name="tropical" id="tropical"
-                                                                      value="1"></td>
+                    <?php foreach (WHITE_WINE_COLOR_LABELS as $color => $label) {
+                        echo "<td><label for=\"" . $color . "\">" . $label . "</label><input type=\"radio\" name=\"" . $color . "\" id=\"" . $color . "\" value=\"" . $color . "\"></td>";
+                    } ?>
                 </tr>
             </table>
             <table>
@@ -37,16 +32,11 @@ include(SHARED_PATH . '/header.php');
                     <th colspan="4">Fruit Condition - Nose (Select up to two)</th>
                 </tr>
                 <tr>
-                    <td><label for="nose_tart">Tart</label><br><input type="checkbox"
-                                                                      name="nose_tart" id="nose_tart"
-                                                                      value="1"></td>
-                    <td><label for="nose_ripe">Ripe</label><br><input type="checkbox"
-                                                                      name="nose_ripe" id="nose_ripe"
-                                                                      value="1"></td>
-                    <td><label for="nose_overripe">Overripe, Jammy, Stewed</label><br><input
-                                type="checkbox" id="nose_overripe" name="nose_overripe" value="1"></td>
-                    <td><label for="nose_baked">Baked, Dried, Bruised</label><br><input
-                                type="checkbox" name="nose_baked" id="nose_baked" value="1"></td>
+                    <?php foreach (WHITE_NOSE_COND_LABELS as $condition => $label) {
+                        echo "<td><label for=\"" . $condition . "\">". $label . "</label><br><input type=\"checkbox\"
+                                                                      name=\"" . $condition . "\" id=\"" . $condition . "\"
+                                                                      value=\"1\"></td>";
+                    } ?>
                 </tr>
             </table>
             <table>
@@ -54,69 +44,54 @@ include(SHARED_PATH . '/header.php');
                     <th colspan="4">Fruit Condition - Palate (Select up to two)</th>
                 </tr>
                 <tr>
-                    <td><label for="palate_tart">Tart</label><br><input type="checkbox" name="palate_tart"
-                                                                        id="palate_tart" value="1"></td>
-                    <td><label for="palate_ripe">Ripe</label><br><input type="checkbox" name="palate_ripe"
-                                                                        id="palate_ripe" value="1"></td>
-                    <td><label for="palate_overripe">Overripe, Jammy, Stewed</label><br><input type="checkbox"
-                                                                                               name="palate_overripe"
-                                                                                               id="palate_overripe"
-                                                                                               value="1"></td>
-                    <td><label for="palate_baked">Baked, Dried, Bruised</label><br><input type="checkbox"
-                                                                                          name="palate_baked"
-                                                                                          id="palate_baked" value="1">
-                    </td>
+                    <?php foreach (WHITE_PALATE_COND_LABELS as $condition => $label) {
+                        echo "<td><label for=\"" . $condition . "\">" . $label . "</label><br><input type=\"checkbox\"
+                                                                      name=\"" . $condition . "\" id=\"" . $condition . "\"
+                                                                      value=\"1\"></td>";
+                    } ?>
                 </tr>
             </table>
             <table>
                 <tr>
-                    <th colspan="2">Non-Fruit Characteristic</th>
+                    <th class="left">Fruit</th>
+                    <th>&nbsp;</th>
+                    <th>No</th>
+                    <th>Yes</th>
+                    <th>Key Indicator</th>
                 </tr>
+                <?php foreach (WHITE_WINE_FRUIT_LABELS as $fruit => $label) {
+                    echo "<tr><td colspan=\"2\" class=\"left\"><label for=\"" .  $fruit . "\">" . $label . "</label></td>";
+                    for ($i = 0; $i <= 2; $i++) {
+                        echo "<td><input type=\"radio\" name=\"" . $fruit . "\" id=\"" . $fruit . "\" value=" . $i;
+                        if ($i == 0) { echo " checked"; } echo "></td>";
+                    }
+                    echo "</tr>";
+                } ?>
+            </table>
+            <table>
                 <tr>
-                    <td class="left"><label for="floral">Floral</label></td>
-                    <td class="right-padded"><input type="checkbox" name="floral" id="floral" value="1"></td>
+                    <th class="left">Non-Fruit</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>No</th>
+                    <th>Yes</th>
+                    <th>Key Indicator</th>
                 </tr>
-                <tr>
-                    <td class="left"><label for="herbal">Herbal</label></td>
-                    <td class="right-padded"><input type="checkbox" name="herbal" id="herbal" value="1"></td>
-                </tr>
-                <tr>
-                    <td class="left"><label for="vegetal">Vegetal</label></td>
-                    <td class="right-padded"><input type="checkbox" name="vegetal" id="vegetal" value="1"></td>
-                </tr>
-                <tr>
-                    <td class="left"><label for="botrytis">Botrytis: Gingered, Honeyed, Waxy</label></td>
-                    <td class="right-padded"><input type="checkbox" name="botrytis" id="botrytis" value="1"></td>
-                </tr>
-                <tr>
-                    <td class="left"><label for="oxidative">Oxidative, Nutty</label></td>
-                    <td class="right-padded"><input type="checkbox" name="oxidative" id="oxidative" value="1"></td>
-                </tr>
-                <tr>
-                    <td class="left"><label for="lees">Lees: Doughy, Baked Bread, Yeasty</label></td>
-                    <td class="right-padded"><input type="checkbox" name="lees" id="lees" value="1"></td>
-                </tr>
-                <tr>
-                    <td class="left"><label for="buttery">Buttery, Creamy</label></td>
-                    <td class="right-padded"><input type="checkbox" name="buttery" id="buttery" value="1"></td>
-                </tr>
-                <tr>
-                    <td class="left"><label for="">Organic Earth: Wet Leaves, Mushrooms</label></td>
-                    <td class="right-padded"><input type="checkbox" name="organic" id="" value="1"></td>
-                </tr>
-                <tr>
-                    <td class="left"><label for="inorganic">Inorganic Earth: Stone, Rock, Mineral, Sulfur</label>
-                    </td>
-                    <td class="right-padded"><input type="checkbox" name="inorganic" id="inorganic" value="1"></td>
-                </tr>
-                <tr>
-                    <td class="left"><label for="oak">New Oak: Vanilla, Brown Baking Spices, Smoke</label></td>
-                    <td class="right-padded"><input type="checkbox" name="oak" id="oak" value="1"></td>
-                </tr>
-                <tr>
-                    <td class="left"><label for="bitter">Bitter, Phenolic</label></td>
-                    <td class="right-padded"><input type="checkbox" name="bitter" id="bitter" value="1"></td>
-                </tr>
+                <?php
+                foreach (WHITE_WINE_NOTE_LABELS as $note => $label) {
+                    echo "<tr><td colspan=\"5\" class=\"left\"><label for=\"" . $note . "\">" . $label . "</label></td>";
+                    for ($i = 0; $i <= 2; $i++) {
+                        echo "<td><input type=\"radio\" name=\"" . $note . "\" id=\"" . $note . "\" value=" . $i;
+                        if ($i == 0) {
+                            echo " checked";
+                        }
+                        echo "></td>";
+                    }
+                    echo "</tr>";
+                }
+                ?>
             </table>
             <table>
                 <tr>
@@ -128,9 +103,9 @@ include(SHARED_PATH . '/header.php');
                 </tr>
                 <tr>
                     <td class="left"><label for="sweetness">Sweetness:</label></td>
-                    <td><input type="radio" name="dry" id="sweetness" value="1"></td>
-                    <td><input type="radio" name="off_dry" id="sweetness" value="1"></td>
-                    <td><input type="radio" name="sweet" id="sweetness" value="1"></td>
+                    <?php foreach (WINE_SWEETNESS as $sweetness) {
+                        echo "<td><input type=\"radio\" name=\"sweetness\" id=\"sweetness\" value=\"" . $sweetness . "\"></td>";
+                    } ?>
                 </tr>
             </table>
             <table>
@@ -143,17 +118,26 @@ include(SHARED_PATH . '/header.php');
                 </tr>
                 <tr>
                     <td class="left"><label for="acid">Acid:</label></td>
-                    <td><input type="radio" name="acid_low" id="acid" value="1"></td>
-                    <td><input type="radio" name="acid_mod" id="acid" value="1"></td>
-                    <td><input type="radio" name="acid_mod_plus" id="acid" value="1"></td>
-                    <td><input type="radio" name="acid_high" id="acid" value="1"></td>
+                    <?php foreach (WINE_STRUCTURES as $structure) {
+                        echo "<td><input type=\"radio\" name=\"acid\" id=\"acid\" value=\"" . $structure . "\"></td>";
+                    } ?>
                 </tr>
                 <tr>
                     <td class="left"><label for="alcohol">Alcohol:</label></td>
-                    <td><input type="radio" name="alcohol_low" id="alcohol" value="1"></td>
-                    <td><input type="radio" name="alcohol_mod" id="alcohol" value="1"></td>
-                    <td><input type="radio" name="alcohol_mod_plus" id="alcohol" value="1"></td>
-                    <td><input type="radio" name="alcohol_high" id="alcohol" value="1"></td>
+                    <?php foreach (WINE_STRUCTURES as $structure) {
+                        echo "<td><input type=\"radio\" name=\"alcohol\" id=\"alcohol\" value=\"" . $structure . "\"></td>";
+                    } ?>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th colspan="3">Climate</th>
+                </tr>
+                <tr>
+                    <?php foreach (WINE_CLIMATES as $climate) {
+                        echo "<td><label for=\"climate\">Cool </label><input type=\"radio\" name=\"climate\" id=\"climate\"
+                                                                      value=\"" . $climate . "\"></td>";
+                    } ?>
                 </tr>
             </table>
             <input class="center submit-btn" type="submit" value="Submit">
