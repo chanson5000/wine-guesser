@@ -100,4 +100,122 @@ function display_errors($errors = array())
     return $output;
 }
 
-?>
+function transform_wine_fields($wine, $type) {
+
+    foreach (sync_trans_fields($type) as $field) {
+        switch($field) {
+            case 'color':
+                foreach (sync_trans_colors($type) as $color) {
+                    if ($wine[$field] == $color) {
+                        $wine[$field] = 1;
+                    } else {
+                        $wine[$field] = 0;
+                    }
+                }
+                unset($wine['color']);
+                break;
+            case 'climate':
+                foreach (WINE_CLIMATES as $climate) {
+                    if ($wine[$field] == $climate) {
+                        $wine[$field] = 1;
+                    } else {
+                        $wine[$field] = 0;
+                    }
+                }
+                unset($wine['climate']);
+                break;
+            case 'tannin':
+                foreach (WINE_STRUCTURES as $structure) {
+                    if ($wine[$field] == $structure) {
+                        $wine[$field] = 1;
+                    } else {
+                        $wine[$field] = 0;
+                    }
+                }
+                unset($wine['tannin']);
+                break;
+            case 'acid':
+                foreach (WINE_STRUCTURES as $structure) {
+                    if ($wine[$field] == $structure) {
+                        $wine[$field] = 1;
+                    } else {
+                        $wine[$field] = 0;
+                    }
+                }
+                unset($wine['acid']);
+                break;
+            case 'alcohol':
+                foreach (WINE_STRUCTURES as $structure) {
+                    if ($wine[$field] == $structure) {
+                        $wine[$field] = 1;
+                    } else {
+                        $wine[$field] = 0;
+                    }
+                }
+                unset($wine['alcohol']);
+                break;
+            case 'sweetness':
+                foreach (WINE_SWEETNESS as $sweetness) {
+                    if ($wine[$field] == $sweetness) {
+                        $wine[$field] = 1;
+                    } else {
+                        $wine[$field] = 0;
+                    }
+                }
+                unset($wine['sweetness']);
+                break;
+            default:
+                break;
+        }
+    }
+    return $wine;
+}
+
+function sanitize_wine_fields($wine, $type)
+{
+    if ($type == RED_WINE) {
+        foreach (RED_WINE_FIELDS as $field) {
+            if (!in_array($field, WINE_TEXT_FIELDS)) {
+                $wine[$field] = $wine[$field] ?? '0';
+            } else {
+                $wine[$field] = $wine[$field] ?? '';
+            }
+        }
+    } elseif ($type == WHITE_WINE) {
+        foreach (WHITE_WINE_FIELDS as $field) {
+            if (!in_array($field, WINE_TEXT_FIELDS)) {
+                $wine[$field] = $wine[$field] ?? '0';
+            } else {
+                $wine[$field] = $wine[$field] ?? '';
+            }
+        }
+    } else {
+        // TODO: Add error handling.
+    }
+    return $wine;
+}
+
+function sync_trans_fields($wine_type)
+{
+    if ($wine_type == RED_WINE) {
+        return RED_TRANSFORM_FIELDS;
+    } elseif ($wine_type == WHITE_WINE) {
+        return WHITE_TRANSFORM_FIELDS;
+    } else {
+        // TODO: Add some error handling.
+        return RED_TRANSFORM_FIELDS;
+    }
+}
+
+function sync_trans_colors($wine_type)
+{
+    if ($wine_type == RED_WINE) {
+        return RED_WINE_COLORS;
+    } elseif ($wine_type == WHITE_WINE) {
+        return WHITE_WINE_COLORS;
+    } else {
+        // TODO: Add some error handling.
+        return RED_WINE_COLORS;
+    }
+}
+
