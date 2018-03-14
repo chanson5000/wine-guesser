@@ -1,5 +1,13 @@
 <?php
 
+const RED_WINE = "red wine";
+const WHITE_WINE = "white wine";
+
+const WINE_TYPES = array(
+    RED_WINE,
+    WHITE_WINE,
+);
+
 const RED_WINE_FIELDS = array(
     "varietal",
     "new_world",
@@ -164,4 +172,118 @@ const WHITE_WINE_NOTE_LABELS = array(
     "inorganic" => "Inorganic Earth: Stone, Rock, Mineral, Sulfur",
     "oak" => "New Oak: Vanilla, Brown Baking Spices, Smoke",
     "bitter" => "Bitter, Phenolic",
+);
+
+const RED_TRANSFORM_FIELDS = array(
+    "color",
+    "tannin",
+    "acid",
+    "alcohol",
+    "climate",
+);
+
+const WHITE_TRANSFORM_FIELDS = array(
+    "color",
+    "acid",
+    "alcohol",
+    "sweetness",
+    "climate",
+);
+
+const RED_WINE_COLORS = array(
+    "garnet",
+    "ruby",
+    "purple",
+);
+
+const WHITE_WINE_COLORS = array(
+    "straw",
+    "yellow",
+    "gold",
+);
+
+const WHITE_WINE_COLOR_LABELS = array(
+    "straw" => "Straw",
+    "yellow" => "Yellow",
+    "gold" => "Gold",
+);
+
+const WINE_STRUCTURES = array(
+    "low",
+    "mod",
+    "mod_plus",
+    "high",
+);
+
+const WINE_SWEETNESS = array(
+    "dry",
+    "off_dry",
+    "sweet",
+);
+
+const WINE_CLIMATES = array(
+    "cool",
+    "moderate",
+    "warm",
+);
+
+const WINE_NOSE_CONDITIONS = array(
+    "nose_tart",
+    "nose_ripe",
+    "nose_overripe",
+    "nose_baked",
+);
+
+const WHITE_NOSE_COND_LABELS = array(
+    "nose_tart" => "Tart",
+    "nose_ripe" => "Ripe",
+    "nose_overripe" => "Overripe, Jammy, Stewed",
+    "nose_baked" => "Baked, Dried, Bruised",
+);
+
+const WHITE_PALATE_COND_LABELS = array(
+    "palate_tart" => "Tart",
+    "palate_ripe" => "Ripe",
+    "palate_overripe" => "Overripe, Jammy, Stewed",
+    "palate_baked" => "Baked, Dried, Bruised",
+);
+
+const WINE_PALATE_CONDITIONS = array(
+    "palate_tart",
+    "palate_ripe",
+    "palate_overripe",
+    "palate_baked",
+);
+
+const RED_NOSE_COND_LABELS = array(
+    "nose_tart" => "Tart",
+    "palate_ripe" => "Ripe",
+    "palate_overripe" => "Overripe",
+    "palate_baked" => "Baked, Dried, Oxidative",
+);
+
+const RED_PALATE_COND_LABELS = array(
+    "palate_tart" => "Tart",
+    "palate_ripe" => "Ripe",
+    "palate_overripe" => "Overripe",
+    "palate_baked" => "Baked, Dried, Oxidative",
+);
+
+const WHITE_WINE_FRUIT_LABELS = array(
+    "apple" => "Apple/Pear",
+    "citrus" => "Citrus",
+    "stone" => "Stone",
+    "tropical" => "Tropical",
+);
+
+const RED_WINE_COLOR_LABELS = array(
+    "garnet" => "Garnet",
+    "ruby" => "Ruby",
+    "purple" => "Purple",
+);
+
+const RED_WINE_FRUIT_LABELS = array(
+    "red_fruit" => "Red",
+    "black_fruit" => "Black",
+    "blue_fruit" => "Blue",
 );
