@@ -57,7 +57,7 @@ if (is_post_request()) {
                     <th>&nbsp;</th>
                     <th>No</th>
                     <th>Yes</th>
-                    <th>Key Indicator</th>
+                    <th>Key</th>
                 </tr>
                 <?php foreach (RED_WINE_FRUIT_LABELS as $fruit => $label) {
                     echo "<tr><td colspan=\"2\" class=\"left\"><label for=\"" .  $fruit . "\">" . $label . "</label></td>";
@@ -74,14 +74,13 @@ if (is_post_request()) {
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
-                    <th>&nbsp;</th>
                     <th>No</th>
                     <th>Yes</th>
-                    <th>Key Indicator</th>
+                    <th>Key</th>
                 </tr>
                 <?php
                 foreach (RED_WINE_NOTE_LABELS as $note => $label) {
-                    echo "<tr><td colspan=\"5\" class=\"left\"><label for=\"" . $note . "\">" . $label . "</label></td>";
+                    echo "<tr><td colspan=\"4\" class=\"left\"><label for=\"" . $note . "\">" . $label . "</label></td>";
                     for ($i = 0; $i <= 2; $i++) {
                         echo "<td><input type=\"radio\" name=\"" . $note . "\" id=\"" . $note . "\" value=" . $i;
                         if ($i == 0) {
@@ -102,7 +101,7 @@ if (is_post_request()) {
                     <th>High</th>
                 </tr>
                 <tr>
-                    <td class="left"><label for="acid">Tannin:</label></td>
+                    <td class="left"><label for="tannin">Tannin:</label></td>
                     <?php foreach (WINE_STRUCTURES as $structure) {
                         echo "<td><input type=\"radio\" name=\"tannin\" id=\"tannin\" value=\"" . $structure . "\"></td>";
                     } ?>
@@ -126,8 +125,7 @@ if (is_post_request()) {
                 </tr>
                 <tr>
                     <?php foreach (WINE_CLIMATES as $climate) {
-                        echo "<td><label for=\"climate\">Cool </label><input type=\"radio\" name=\"climate\" id=\"climate\"
-                                                                      value=\"" . $climate . "\"></td>";
+                        echo "<td><label for=\"climate_" . $climate . "\">" . ucfirst($climate) . " </label><input type=\"radio\" name=\"climate\" id=\"climate_" . $climate . "\" value=\"" . $climate . "\"></td>";
                     } ?>
                 </tr>
             </table>
