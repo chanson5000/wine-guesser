@@ -22,10 +22,12 @@ $wine = find_red_wine_by_id($id);
             <tr>
                 <th>Varietal</th>
                 <th>Origin</th>
+                <th>Match Score</th>
             </tr>
             <tr>
                 <td>Name: <?php echo h($wine['varietal']); ?></td>
                 <td><?php echo $wine['new_world'] == 1 ? 'New World' : 'Old World'; ?></td>
+                <td><?php echo $_SESSION['wine_score']; ?></td>
             </tr>
         </table>
 

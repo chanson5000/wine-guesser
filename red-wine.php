@@ -6,9 +6,11 @@ include(SHARED_PATH . '/header.php');
 
 if (is_post_request()) {
 
-    $guessed_wine_id = wine_guess_id(transform_wine_fields(sanitize_wine_fields($_POST, RED_WINE), RED_WINE), RED_WINE);
+    $guessed_wine_id_score = wine_guess_id(transform_wine_fields(sanitize_wine_fields($_POST, RED_WINE), RED_WINE), RED_WINE);
 
-    redirect_to(url_for('/guess-red.php?id=' . u($guessed_wine_id)));
+    $_SESSION['wine_score'] = $guessed_wine_id_score[1];
+
+    redirect_to(url_for('/guess-red.php?id=' . u($guessed_wine_id_score[0])));
 
 } else {
 
