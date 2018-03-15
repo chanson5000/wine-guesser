@@ -25,7 +25,7 @@ if (is_post_request()) {
                 </tr>
                 <tr>
                     <?php foreach (WHITE_WINE_COLOR_LABELS as $color => $label) {
-                        echo "<td><label for=\"" . $color . "\">" . $label . "</label><input type=\"radio\" name=\"" . $color . "\" id=\"" . $color . "\" value=\"" . $color . "\"></td>";
+                        echo "<td><label for=\"" . $color . "\">" . $label . "</label><input type=\"radio\" name=\"color\" id=\"" . $color . "\" value=\"" . $color . "\"></td>";
                     } ?>
                 </tr>
             </table>
