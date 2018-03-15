@@ -31,7 +31,7 @@
         <th>&nbsp;</th>
         <th>No</th>
         <th>Yes</th>
-        <th>Key Indicator</th>
+        <th>Key</th>
     </tr>
     <?php foreach (RED_WINE_FRUIT_LABELS as $fruit => $label) {
         echo "<tr><td colspan=\"2\" class=\"left\">". $label ."</td>";
@@ -44,13 +44,12 @@
         <th>&nbsp;</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
-        <th>&nbsp;</th>
         <th>No</th>
         <th>Yes</th>
-        <th>Key Indicator</th>
+        <th>Key</th>
     </tr>
     <?php foreach (RED_WINE_NOTE_LABELS as $note => $label) {
-        echo "<tr><td colspan=\"5\" class=\"left\">" . $label . "</td>";
+        echo "<tr><td colspan=\"4\" class=\"left\">" . $label . "</td>";
         for ($i = 0; $i <= 2; $i++) { echo "<td>";
             if($wine[$note] == $i) { echo "X"; } echo "</td>"; } echo "</tr>"; } ?>
 </table>
