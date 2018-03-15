@@ -132,7 +132,7 @@ const WINE_TEXT_FIELDS = array(
 
 const RED_WINE_NOTE_LABELS = array(
     "floral" => "Floral",
-    "vegetal_pyrazine" => "Vegetal: Pyrazine (Bell Pepper, Jalepeno",
+    "vegetal_pyrazine" => "Vegetal: Pyrazine (Bell Pepper, Jalepeno)",
     "vegetal_tomato_leaf" => "Vegetal: Tomato Leaf",
     "herbal_tobacco" => "Herbal: Tobacco",
     "herbal_mint" => "Herbal: Mint, Eucalyptus",
