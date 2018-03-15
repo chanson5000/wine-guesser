@@ -43,7 +43,7 @@ if (is_post_request()) {
             </tr>
         </table>
 
-        <?php include(SHARED_PATH . '/white-fields.php'); ?>
+        <?php include('white-fields.php'); ?>
 
         <input class="submit-btn" type="submit" value="Submit">
     </form>
