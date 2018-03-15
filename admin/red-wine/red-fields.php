@@ -39,7 +39,7 @@
         <th>&nbsp;</th>
         <th>No</th>
         <th>Yes</th>
-        <th>Key Indicator</th>
+        <th>Key</th>
     </tr>
     <tr>
         <td colspan="2" class="left"><label for="red_fruit">Red </label></td>
@@ -64,14 +64,13 @@
         <th>&nbsp;</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
-        <th>&nbsp;</th>
         <th>No</th>
         <th>Yes</th>
-        <th>Key Indicator</th>
+        <th>Key</th>
     </tr>
     <?php
     foreach (RED_WINE_NOTE_LABELS as $note => $label) {
-        echo "<tr><td colspan=\"5\" class=\"left\"><label for=\"" . $note . "\">" . $label . "</label></td>";
+        echo "<tr><td colspan=\"4\" class=\"left\"><label for=\"" . $note . "\">" . $label . "</label></td>";
         for ($i = 0; $i <= 2; $i++) { echo "<td><input type=\"radio\" name=\"" . $note . "\" id=\"" . $note . "\" value=" . $i;
             if($wine[$note] == $i) { echo " checked"; } echo "></td>"; } echo "</tr>";
     }
