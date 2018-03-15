@@ -48,7 +48,8 @@ function find_white_wine_by_id($id)
     return $wine;  // returned the assoc. array
 }
 
-function find_user_by_id($id) {
+function find_user_by_id($id)
+{
     global $db;
 
     $sql = "SELECT * FROM users ";
@@ -76,9 +77,9 @@ function update_red_wine($wine)
 
     foreach (RED_WINE_FIELDS as $iterations => $field) {
         if ($iterations != $last_record) {
-            $sql .= db_escape($db,$field) . "='" . db_escape($db, $wine[$field]) . "', ";
+            $sql .= db_escape($db, $field) . "='" . db_escape($db, $wine[$field]) . "', ";
         } else {
-            $sql .= db_escape($db,$field) . "='" . db_escape($db, $wine[$field]) . "' ";
+            $sql .= db_escape($db, $field) . "='" . db_escape($db, $wine[$field]) . "' ";
         }
     }
 
@@ -112,9 +113,9 @@ function update_white_wine($wine)
 
     foreach (WHITE_WINE_FIELDS as $iterations => $field) {
         if ($iterations != $last_record) {
-            $sql .= db_escape($db,$field) . "='" . db_escape($db, $wine[$field]) . "', ";
+            $sql .= db_escape($db, $field) . "='" . db_escape($db, $wine[$field]) . "', ";
         } else {
-            $sql .= db_escape($db,$field) . "='" . db_escape($db, $wine[$field]) . "' ";
+            $sql .= db_escape($db, $field) . "='" . db_escape($db, $wine[$field]) . "' ";
         }
     }
 
@@ -142,7 +143,7 @@ function create_red_wine($wine)
         return $errors;
     }
 
-    $last_record = count(RED_WINE_FIELDS) -1;
+    $last_record = count(RED_WINE_FIELDS) - 1;
 
     $sql = "INSERT INTO red_wine (";
 
@@ -150,7 +151,7 @@ function create_red_wine($wine)
         if ($iteration != $last_record) {
             $sql .= db_escape($db, $field) . ", ";
         } else {
-        $sql .= db_escape($db, $field) . ") VALUES (";
+            $sql .= db_escape($db, $field) . ") VALUES (";
         }
     }
 
@@ -313,7 +314,8 @@ function testing_function()
 
 // TODO: Fine tune the red and white wine matching algorithms.
 
-function wine_guess_id($guess_wine, $type) {
+function wine_guess_id($guess_wine, $type)
+{
     global $db;
     $wines = [];
 
@@ -325,9 +327,7 @@ function wine_guess_id($guess_wine, $type) {
             $wines[] = $wine;
 //        mysqli_free_result($result);
         }
-    }
-
-    elseif ($type == WHITE_WINE) {
+    } elseif ($type == WHITE_WINE) {
         for ($num_records = (find_total_white_wines() - 1); $num_records >= 0; $num_records--) {
 
             $sql = "SELECT * FROM white_wine LIMIT " . $num_records . ",1;";
@@ -338,32 +338,70 @@ function wine_guess_id($guess_wine, $type) {
         }
     }
 
-    $match_property = [];
+    $match_yes = [];
+    $match_key = [];
 
-    // Populate a variable with the properties we have selected for matching to a wine in the database.
-    foreach ($guess_wine as $key => $value) {
-        if ($value > 0) {
-            $match_property[] = $key;
+    // Populate variables for "yes" and "key" indicator matches.
+    foreach ($guess_wine as $prop => $stat) {
+        switch ($stat) {
+            case 1:
+                $match_yes[] = $prop;
+                break;
+            case 2:
+                $match_key[] = $prop;
+                break;
+            default:
+                break;
         }
     }
 
     $match_score = [];
 
     foreach ($wines as $wine) {
+        // Initialize the wine's score at 0.
         $match_score[$wine['id']] = 0;
-        foreach ($wine as $property => $status)
-            if (in_array($property, $match_property) && ($status > '0')) {
-                $match_score[$wine['id']]++;
-                if ($status > '1') {
-                    $match_score[$wine['id']]++;
+        // Cycle through the wines in the database and checking if they match "yes" or "key".
+        foreach ($wine as $property => $status) {
+            // If that property is in our "yes" matches.
+            if (in_array($property, $match_yes)) {
+                switch ($status) {
+                    // If "yes" to "yes" match.
+                    case 1:
+                        $match_score[$wine['id']] += 2;
+                        break;
+                    // If "yes" to "key" match.
+                    case 2:
+                        $match_score[$wine['id']]++;
+                        break;
+                    // If it is a negative match.
+                    default:
+                        $match_score[$wine['id']]--;
+                        break;
                 }
-            } else {
-                $match_score[$wine['id']]--;
+                // If that property is in our "key" matches.
+            } elseif (in_array($property, $match_key)) {
+                switch ($status) {
+                    // If "key" to "yes" match.
+                    case 1:
+                        $match_score[$wine['id']]++;
+                        break;
+                    // If "key" to "key" match.
+                    case 2:
+                        $match_score[$wine['id']] += 2;
+                        break;
+                    // If it is a negative match.
+                    default:
+                        $match_score[$wine['id']]--;
+                        break;
+                }
             }
+        }
     }
-    $most_matched_wine_id = array_search(max($match_score), $match_score);
 
-    return $most_matched_wine_id;
+    $most_matched_wine_id = array_search(max($match_score), $match_score);
+    $score = max($match_score);
+    $id_and_score = [$most_matched_wine_id, $score];
+    return $id_and_score;
 }
 
 function red_wine_guess_id($guess_wine)
@@ -395,7 +433,7 @@ function red_wine_guess_id($guess_wine)
             if (in_array($property, $match_property) && ($status > '0')) {
                 $match_score[$wine['id']]++;
                 if ($status > '1') {
-                   $match_score[$wine['id']]++;
+                    $match_score[$wine['id']]++;
                 }
             } else {
                 $match_score[$wine['id']]--;
@@ -447,7 +485,8 @@ function white_wine_guess_id($guess_wine)
     return $most_matched_wine_id;
 }
 
-function insert_user($user) {
+function insert_user($user)
+{
     global $db;
 
     $errors = validate_user($user);
@@ -470,7 +509,7 @@ function insert_user($user) {
     $result = mysqli_query($db, $sql);
 
     // For INSERT statements, $result is true/false
-    if($result) {
+    if ($result) {
         return true;
     } else {
         // INSERT failed
@@ -538,7 +577,8 @@ function validate_user($user, $options = [])
 }
 
 // Find all admins, ordered last_name, first_name
-function find_all_users() {
+function find_all_users()
+{
     global $db;
 
     $sql = "SELECT * FROM users ";
@@ -606,7 +646,8 @@ function delete_user($user)
     }
 }
 
-function find_user_by_username($username) {
+function find_user_by_username($username)
+{
     global $db;
 
     $sql = "SELECT * FROM users ";
