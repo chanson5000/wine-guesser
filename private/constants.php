@@ -157,9 +157,9 @@ const RED_WINE_NOTE_LABELS = array(
 
 const WHITE_WINE_NOTE_LABELS = array(
     "floral_fruit_blossoms" => "Fruit Blossoms: Orange, Orchard, Apple, and Citrus",
-    "floral_red_flowers" => "Red Flowers: Gardenia, Rose, Jasmine, Lilac, Honeysuckle, Potpourri, Lavender",
+    "floral_red_flowers" => "Red Flowers: Rose, Lilac, Potpourri, Lavender",
     "floral_light_flowers" => "Yellow and White Flowers, Stems, Hay.",
-    "herbal_lemongrass" => "Fresh/Sweet Herbs: Lemongrass, Tarragon, Chive, Cilantro, Hay, Straw",
+    "herbal_lemongrass" => "Fresh Herbs: Lemongrass, Tarragon, Chive, Cilantro",
     "herbal_dry" => "Dried/Savory Herbs",
     "herbal_sage_mint" => "Herbal: Sage, Mint, Eucalyptus, Pine",
     "herbal_tea" => "Herbal: Tea",
@@ -241,15 +241,15 @@ const WINE_NOSE_CONDITIONS = array(
 const WHITE_NOSE_COND_LABELS = array(
     "nose_tart" => "Tart",
     "nose_ripe" => "Ripe",
-    "nose_overripe" => "Overripe, Jammy, Stewed",
-    "nose_baked" => "Baked, Dried, Bruised",
+    "nose_overripe" => "Overripe",
+    "nose_baked" => "Baked, Dried",
 );
 
 const WHITE_PALATE_COND_LABELS = array(
     "palate_tart" => "Tart",
     "palate_ripe" => "Ripe",
-    "palate_overripe" => "Overripe, Jammy, Stewed",
-    "palate_baked" => "Baked, Dried, Bruised",
+    "palate_overripe" => "Overripe",
+    "palate_baked" => "Baked, Dried",
 );
 
 const WINE_PALATE_CONDITIONS = array(
@@ -263,14 +263,14 @@ const RED_NOSE_COND_LABELS = array(
     "nose_tart" => "Tart",
     "palate_ripe" => "Ripe",
     "palate_overripe" => "Overripe",
-    "palate_baked" => "Baked, Dried, Oxidative",
+    "palate_baked" => "Baked, Dried",
 );
 
 const RED_PALATE_COND_LABELS = array(
     "palate_tart" => "Tart",
     "palate_ripe" => "Ripe",
     "palate_overripe" => "Overripe",
-    "palate_baked" => "Baked, Dried, Oxidative",
+    "palate_baked" => "Baked, Dried",
 );
 
 const WHITE_WINE_FRUIT_LABELS = array(
