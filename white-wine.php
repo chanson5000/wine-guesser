@@ -72,8 +72,7 @@ if (is_post_request()) {
             </table>
             <table>
                 <tr>
-                    <th class="left">Non-Fruit</th>
-                    <th>&nbsp;</th>
+                    <th class="left" colspan="2">Non-Fruit</th>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
                     <th>No</th>
@@ -99,8 +98,7 @@ if (is_post_request()) {
                     <th class="left">Structure</th>
                     <th>Dry</th>
                     <th>Off-Dry</th>
-                    <th>Medium-Sweet</th>
-                    <th>&nbsp;</th>
+                    <th>Sweet</th>
                 </tr>
                 <tr>
                     <td class="left"><label for="sweetness">Sweetness:</label></td>
