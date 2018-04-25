@@ -74,40 +74,32 @@ header a:visited {
 
 .index-title {
     text-align: center;
-    max-width: 500px;
+    max-width: 90%;
     min-width: 350px;
-    width: 100%;
-    margin: auto;
-    height: 80%;
-    display: block;
-    position: relative;
-}
-
-.index-title table {
-    min-width: 350px;
-    position: relative;
-    padding: 25% 0;
-    margin: auto;
+    display: inline-block;
 }
 
 .index-title th {
-    /*font-size: 2.5em;*/
-    font-size: 4vmin;
+    font-size: 5vw;
 }
 
 .index-title td {
-    /*font-size: 6em;*/
-    font-size: 12vmin;
-    width: 49%;
+    font-size: 9vw;
+}
+
+.index-title tr td {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+}
+
+.index-title a {
+    display: block;
 }
 
 .index-title a:link {
     color: #4c0017;
     text-decoration: none;
-}
-
-.index-title a {
-    display: block;
 }
 
 .index-title a:visited {
@@ -296,7 +288,7 @@ textarea {
     margin: 10px;
 }
 
-.user-show dt,dd {
+.user-show dt, dd {
     display: inline-block;
 }
 
@@ -314,7 +306,7 @@ textarea {
     margin: 10px;
 }
 
-.user-form dt,dd {
+.user-form dt, dd {
     display: inline-block;
 }
 
@@ -361,8 +353,36 @@ textarea {
     width: 100%;
 }
 
-.max-width-400px{
-    max-width: 400px;
+/** About Page **/
+.about-page {
+    max-width: 90%;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+}
+
+.about-page h2 {
+    font-size: 7vw;
+    margin: 5px;
+}
+
+.about-page h3 {
+    font-size: 3em;
+    margin: 5px 5px 10px 5px;
+}
+
+.about-page p {
+    font-size: 2em;
+}
+
+.what-is-bottom-link {
+    margin: 5px;
+}
+
+#pdf-wine-link {
+    margin: 10px;
+    display: inline-block;
+    font-size: 4em;
 }
 
 .submit-btn {
@@ -405,5 +425,5 @@ input[type=checkbox] {
 }
 
 input:checked {
-     background-color: black;
- }
+    background-color: black;
+}
