@@ -35,7 +35,7 @@ if (is_post_request()) {
                 </tr>
                 <tr>
                     <?php foreach (RED_NOSE_COND_LABELS as $condition => $label) {
-                        echo "<td><label for=\"" . $condition . "\">". $label . "</label><br><input type=\"checkbox\"
+                        echo "<td><label for=\"" . $condition . "\">" . $label . "</label><br><input type=\"checkbox\"
                                                                       name=\"" . $condition . "\" id=\"" . $condition . "\"
                                                                       value=\"1\"></td>";
                     } ?>
@@ -62,10 +62,13 @@ if (is_post_request()) {
                     <th>Key</th>
                 </tr>
                 <?php foreach (RED_WINE_FRUIT_LABELS as $fruit => $label) {
-                    echo "<tr><td colspan=\"2\" class=\"left\"><label for=\"" .  $fruit . "\">" . $label . "</label></td>";
+                    echo "<tr><td colspan=\"2\" class=\"left\"><label for=\"" . $fruit . "\">" . $label . "</label></td>";
                     for ($i = 0; $i <= 2; $i++) {
                         echo "<td><input type=\"radio\" name=\"" . $fruit . "\" id=\"" . $fruit . "\" value=" . $i;
-                        if ($i == 0) { echo " checked"; } echo "></td>";
+                        if ($i == 0) {
+                            echo " checked";
+                        }
+                        echo "></td>";
                     }
                     echo "</tr>";
                 } ?>
@@ -134,8 +137,6 @@ if (is_post_request()) {
             <input class="submit-btn" type="submit" value="Submit">
         </form>
 
-        <p>Did you mean to guess a <a href="white-wine.php">white wine?</a></p>
+        <p id="did-you-mean-it">Did you mean to guess a <a href="white-wine.php">white wine?</a></p>
     </div>
-
-
-    <?php include(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/footer.php'); ?>
