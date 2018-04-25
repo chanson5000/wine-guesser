@@ -361,6 +361,10 @@ textarea {
     width: 100%;
 }
 
+.max-width-400px{
+    max-width: 400px;
+}
+
 .submit-btn {
     -webkit-appearance: none;
     margin: 10px 0 10px 0;
