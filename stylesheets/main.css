@@ -152,78 +152,6 @@ header a:visited {
     font-size: x-large;
 }
 
-/*** Admin Styles ***/
-
-.admin-index {
-    text-align: center;
-    max-width: 550px;
-    min-width: 350px;
-    width: 100%;
-    margin: auto;
-    height: 80%;
-    display: block;
-    position: relative;
-}
-
-.admin-index table {
-    min-width: 350px;
-    position: relative;
-    padding: 25% 0;
-    margin: auto;
-}
-
-.admin-index th {
-    font-size: 2.5em;
-}
-
-.admin-index td {
-    font-size: 3.5em;
-    width: 49%;
-}
-
-.admin-index a:link {
-    color: #4c0017;
-    text-decoration: none;
-}
-
-.admin-index a {
-    display: block;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.admin-index a:visited {
-    color: #4c0017;
-    text-decoration: none;
-}
-
-.admin-index a:hover {
-    color: #721330;
-    text-decoration: none;
-    border: rebeccapurple 1px dashed;
-}
-
-.admin-index a:active {
-    color: #be5f7c;
-    text-decoration: none;
-}
-
-.admin-wine {
-    text-align: center;
-    width: 100%;
-    max-width: 800px;
-    display: inline-block;
-    border: solid yellow 1px;
-}
-
-.admin-wine table {
-    width: 100%;
-    text-align: center;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
 textarea {
     resize: none;
 }
@@ -246,6 +174,7 @@ textarea {
 }
 
 .btm-return-link {
+    font-size: x-large;
     padding: 10px;
 }
 

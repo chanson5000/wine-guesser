@@ -75,8 +75,7 @@ if (is_post_request()) {
             </table>
             <table>
                 <tr>
-                    <th class="left">Non-Fruit</th>
-                    <th>&nbsp;</th>
+                    <th class="left" colspan="2">Non-Fruit</th>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
                     <th>No</th>

@@ -9,10 +9,12 @@
     <link rel="stylesheet" type="text/css" href="<?php echo url_for('stylesheets/main.css'); ?>">
 </head>
 <body>
-    <header>
-        <a href="<?php echo url_for('index.php'); ?>">
+<header>
+    <a href="<?php echo url_for('index.php'); ?>">
         <h1>Wine Guesser</h1>
-        </a>
-    </header>
-<?php echo display_session_message(); ?>
-<?php echo display_errors($errors); ?>
+    </a>
+</header>
+<div class="center">
+    <?php echo display_session_message(); ?>
+    <?php echo display_errors($errors); ?>
+</div>

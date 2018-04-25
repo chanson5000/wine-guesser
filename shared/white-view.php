@@ -44,8 +44,7 @@
 </table>
 <table>
     <tr>
-        <th class="left">Non-Fruit</th>
-        <th>&nbsp;</th>
+        <th class="left" colspan="2">Non-Fruit</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
         <th>No</th>
@@ -65,7 +64,6 @@
         <th>Dry</th>
         <th>Off-Dry</th>
         <th>Sweet</th>
-        <th>&nbsp;</th>
     </tr>
     <tr>
         <!-- TODO: Add more label switching. -->
@@ -74,7 +72,6 @@
         foreach (WINE_SWEETNESS as $sweetness) { ?>
         <td><?php if ($wine[$sweetness] == "1") { echo "X"; } ?></td> <?php
         } ?>
-        <td>&nbsp;</td>
     </tr>
 </table>
 <table>
