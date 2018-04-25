@@ -1,5 +1,5 @@
 <footer>
-
+    <p><a href="<?php echo url_for('/about.php'); ?>">What is Wine Guesser?</a></p>
     &copy; <?php echo date('Y'); ?> <a href="http://www.coryhanson.us" target="_blank">Cory Hanson</a>
 
     <?php if (is_logged_in()) { ?>
