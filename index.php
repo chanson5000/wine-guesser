@@ -13,8 +13,8 @@ include(SHARED_PATH . '/header.php');
             <th colspan="2"><h2>Guess a wine.</h2></th>
         </tr>
         <tr>
-            <td><a href="red-wine.php">Red</a></td>
-            <td><a href="white-wine.php">White</a></td>
+            <td><a id="wine-buttons" href="red-wine.php">Red</a></td>
+            <td><a id="wine-buttons" href="white-wine.php">White</a></td>
         </tr>
     </table>
 </div>
