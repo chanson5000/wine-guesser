@@ -143,7 +143,7 @@ if (is_post_request()) {
             <input class="center submit-btn" type="submit" value="Submit">
         </form>
 
-        <p>Did you mean to guess a <a href="red-wine.php">red wine?</a></p>
+        <p id="did-you-mean-it">Did you mean to guess a <a href="red-wine.php">red wine?</a></p>
     </div>
 
 <?php
