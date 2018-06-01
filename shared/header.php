@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo $page_title ?></title>
-    <meta name="description" content="Guess a wine based on its characteristics. A tool for blind tasters."
+    <meta name="description" content="Guess a wine based on its characteristics. A tool for blind tasters.">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo url_for('stylesheets/reset.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo url_for('stylesheets/main.css'); ?>">
