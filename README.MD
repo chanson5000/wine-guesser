@@ -1,6 +1,8 @@
 # WINE GUESSER
 I wanted to create a tool to help aspiring sommeliers in their blind tasting efforts. While employing the deductive tasting method and going through wine tasting grid, input your observations into the wine guesser input forms. Wine Guesser will do its best to guess the wine varietal based on your observations.
 
+<img src="images/Wine-Guesser-01.png">
+
 ## Website Deployment
 You can currently find this PHP version of Wine Guesser deployed at:
 [WineGuesser.Com](https://wineguesser.com)
