@@ -21,4 +21,4 @@ I would like to implement OOP and more of a MVC design pattern with this project
 Currently [porting this project](https://github.com/chanson5000/WineGuesser-NoEx-Port) to Node/Express.
 
 ## License
-GPL
+[MIT](LICENSE)
