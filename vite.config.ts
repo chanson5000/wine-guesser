@@ -34,6 +34,13 @@ export default defineConfig({
   plugins: [contentSecurityPolicy()],
   build: {
     target: 'es2022',
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        // Deductive Wine Taster's store listings link to this path.
+        privacy: 'deductive-wine-taster/privacy-policy.html',
+      },
+    },
   },
   test: {
     include: ['tests/**/*.test.ts'],

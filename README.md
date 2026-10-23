@@ -45,12 +45,16 @@ src/
   types.ts        shared types (Wine, Traits, MatchResult)
   dom.ts          el() helper that builds DOM nodes; text is never parsed as HTML
   styles.css      all styling, including dark mode
+  static.css      styling (with fonts) for plain HTML pages that load no JavaScript
   data/red.json   red varietal profiles
   data/white.json white varietal profiles
   data/wines.ts   loads the profiles
   views/          pages (home, guess form, results, profiles, about)
 tests/            scoring, trait catalog and data validation tests
 public/files/     CMS examinable wine lists (PDF)
+deductive-wine-taster/privacy-policy.html
+                  privacy policy for the Deductive Wine Taster mobile app; its store
+                  listings link to this path, so keep it stable
 ```
 
 ## Editing varietal profiles
