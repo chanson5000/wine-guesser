@@ -1,0 +1,325 @@
+[
+  {
+    "id": "albarino-rias-baixas",
+    "varietal": "Albariño",
+    "region": "Rías Baixas, Spain",
+    "newWorld": false,
+    "traits": {
+      "straw": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "apple": 1, "citrus": 2, "stone": 1,
+      "floral_fruit_blossoms": 1, "oyster_shell": 2, "inorganic": 1, "bitter": 1,
+      "dry": 1,
+      "acid_mod_plus": 1, "acid_high": 1,
+      "alcohol_mod": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Lemon, lime, grapefruit, white peach and green apple with orange blossom and a saline, sea-spray finish. Light pithy bitterness.",
+    "notes": "Usually no wood aging. Atlantic influence keeps acidity high.",
+    "confusion": "Sauvignon Blanc shows pyrazine and green herbs; Chablis has more chalk and less floral fruit; Pinot Grigio is more neutral."
+  },
+  {
+    "id": "chardonnay-chablis",
+    "varietal": "Chardonnay",
+    "region": "Chablis, Burgundy, France",
+    "newWorld": false,
+    "traits": {
+      "straw": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1,
+      "apple": 2, "citrus": 2,
+      "oyster_shell": 2, "inorganic": 2, "lees": 1,
+      "dry": 1,
+      "acid_mod_plus": 1, "acid_high": 1,
+      "alcohol_mod": 1,
+      "climate_cool": 1
+    },
+    "description": "Green apple, pear and lemon with oyster shell, chalk and wet stone. Lean and taut with racy acidity.",
+    "notes": "Kimmeridgian limestone. Most Petit Chablis and village wines see no new oak; some Premier and Grand Cru see a little.",
+    "confusion": "Albariño is more floral and saline-citrus; Loire Sauvignon Blanc has pyrazine; dry Chenin Blanc shows wax and quince."
+  },
+  {
+    "id": "chardonnay-burgundy",
+    "varietal": "Chardonnay",
+    "region": "Côte d'Or & Mâconnais, Burgundy, France",
+    "newWorld": false,
+    "traits": {
+      "straw": 1, "yellow": 1,
+      "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "apple": 2, "citrus": 1, "stone": 1,
+      "lees": 1, "buttery": 1, "oxidative": 1, "organic": 1, "inorganic": 1, "oak": 1,
+      "dry": 1,
+      "acid_mod_plus": 1, "acid_high": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Ripe apple, pear and lemon with hazelnut, mushroom, wet stone and subtle toast and cream from oak and lees.",
+    "notes": "Meursault is richer and nutty; Puligny is more mineral; Mâconnais is fruitier with less oak.",
+    "confusion": "California Chardonnay is riper with more butter and oak; Chablis is leaner with no oak influence."
+  },
+  {
+    "id": "chardonnay-california",
+    "varietal": "Chardonnay",
+    "region": "Napa Valley, Sonoma County & Central Coast, California",
+    "newWorld": true,
+    "traits": {
+      "yellow": 1, "gold": 1,
+      "nose_ripe": 1, "nose_overripe": 1, "palate_ripe": 1, "palate_overripe": 1,
+      "apple": 1, "citrus": 1, "stone": 1, "tropical": 2,
+      "spice": 1, "lees": 1, "buttery": 2, "oak": 2,
+      "dry": 1,
+      "acid_mod": 1, "acid_mod_plus": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_moderate": 1, "climate_warm": 1
+    },
+    "description": "Baked apple, pineapple, mango and lemon curd with butter, vanilla, toast and baking spice. Full-bodied and creamy.",
+    "notes": "Full malolactic fermentation and new oak are common, though cooler Sonoma Coast sites make leaner styles.",
+    "confusion": "Viognier is more floral with lower acid; oaked Sauvignon Blanc keeps a herbal note and higher acid."
+  },
+  {
+    "id": "chenin-blanc-loire",
+    "varietal": "Chenin Blanc",
+    "region": "Vouvray & Savennières, Loire Valley, France",
+    "newWorld": false,
+    "traits": {
+      "straw": 1, "yellow": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "apple": 2, "citrus": 1,
+      "floral_light_flowers": 1, "herbal_tea": 1, "wax": 2, "botrytis": 1, "oxidative": 1, "inorganic": 1,
+      "dry": 1, "off_dry": 1,
+      "acid_high": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Quince, apple, pear and lemon with chamomile, lanolin and beeswax, honey and chalky minerality. Piercing acidity.",
+    "notes": "Vouvray ranges from sec to demi-sec; Savennières is dry, fuller and more oxidative.",
+    "confusion": "Chablis lacks the wax and honey; Alsace Riesling shows petrol and more citrus; Pinot Gris is lower in acid."
+  },
+  {
+    "id": "gewurztraminer-alsace",
+    "varietal": "Gewurztraminer",
+    "region": "Alsace, France",
+    "newWorld": false,
+    "traits": {
+      "yellow": 1, "gold": 1,
+      "nose_ripe": 1, "nose_overripe": 1, "palate_ripe": 1, "palate_overripe": 1,
+      "stone": 1, "tropical": 2, "citrus": 1,
+      "floral_red_flowers": 2, "spice": 1, "soap": 1, "bitter": 1,
+      "dry": 1, "off_dry": 1,
+      "acid_low": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Lychee, rose petal, apricot, pink grapefruit and Turkish delight with ginger and sweet spice. Oily texture, low acid, phenolic finish.",
+    "notes": "One of the most aromatic grapes; often finished with a little residual sugar.",
+    "confusion": "Viognier is less rose-scented and more stone fruit; Torrontés is lighter with higher acid and a bitter edge."
+  },
+  {
+    "id": "pinot-gris-alsace",
+    "varietal": "Pinot Gris",
+    "region": "Alsace, France",
+    "newWorld": false,
+    "traits": {
+      "yellow": 1, "gold": 1,
+      "nose_ripe": 1, "palate_ripe": 1,
+      "apple": 2, "stone": 1, "citrus": 1,
+      "floral_light_flowers": 1, "spice": 1, "botrytis": 1, "inorganic": 1,
+      "dry": 1, "off_dry": 1,
+      "acid_mod": 1, "acid_mod_plus": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Baked apple, ripe pear and peach with honey, ginger, smoke and wet stone. Rich, oily texture.",
+    "notes": "Often a touch of residual sugar. Grand Cru sites add smoky minerality.",
+    "confusion": "Chenin Blanc has higher acid and wax; Alsace Riesling is leaner with petrol; Pinot Grigio is much lighter."
+  },
+  {
+    "id": "pinot-grigio-italy",
+    "varietal": "Pinot Grigio",
+    "region": "Friuli & Trentino-Alto Adige, Italy",
+    "newWorld": false,
+    "traits": {
+      "straw": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "apple": 2, "citrus": 1, "stone": 1,
+      "floral_light_flowers": 1, "inorganic": 1, "bitter": 1,
+      "dry": 1,
+      "acid_mod": 1, "acid_mod_plus": 1,
+      "alcohol_mod": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Pear, green apple, lemon and white peach with almond skin and a light mineral, slightly bitter finish. Light-bodied and neutral.",
+    "notes": "Friuli examples can be fuller with some skin contact; Alto Adige is crisp and alpine.",
+    "confusion": "Albariño is more saline and floral; Chablis has more chalk and acid; Alsace Pinot Gris is much richer."
+  },
+  {
+    "id": "riesling-germany",
+    "varietal": "Riesling",
+    "region": "Mosel & Rhein, Germany",
+    "newWorld": false,
+    "traits": {
+      "straw": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "apple": 1, "citrus": 2, "stone": 1,
+      "floral_fruit_blossoms": 1, "terpene": 2, "botrytis": 1, "inorganic": 2,
+      "dry": 1, "off_dry": 1, "sweet": 1,
+      "acid_high": 1,
+      "alcohol_low": 1, "alcohol_mod": 1,
+      "climate_cool": 1
+    },
+    "description": "Lime, green apple, white peach and apricot with petrol, honey, blossom and slate. Feather-light alcohol and searing acidity balancing any sweetness.",
+    "notes": "Trocken is dry; Kabinett and Spätlese usually show residual sugar. Mosel slate gives a smoky, stony note.",
+    "confusion": "Alsace Riesling is drier and fuller; Australian Riesling is dry with lime and lower in residual sugar; Chenin Blanc has wax and quince."
+  },
+  {
+    "id": "riesling-alsace",
+    "varietal": "Riesling",
+    "region": "Alsace, France",
+    "newWorld": false,
+    "traits": {
+      "straw": 1, "yellow": 1,
+      "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "apple": 1, "citrus": 2, "stone": 1,
+      "floral_fruit_blossoms": 1, "terpene": 2, "inorganic": 2,
+      "dry": 1, "off_dry": 1,
+      "acid_mod_plus": 1, "acid_high": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Lemon, lime, green apple and peach with petrol, flint and wet stone. Drier and fuller-bodied than German Riesling.",
+    "notes": "Grand Cru examples are powerful and mineral; most are dry or with only slight residual sugar.",
+    "confusion": "German Riesling is lighter with more residual sugar; Alsace Pinot Gris is richer with lower acid."
+  },
+  {
+    "id": "riesling-australia",
+    "varietal": "Riesling",
+    "region": "Clare Valley & Eden Valley, South Australia",
+    "newWorld": true,
+    "traits": {
+      "straw": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1,
+      "citrus": 2, "apple": 1,
+      "floral_fruit_blossoms": 1, "terpene": 2, "inorganic": 1,
+      "dry": 1,
+      "acid_high": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_moderate": 1, "climate_warm": 1
+    },
+    "description": "Intense lime, lime zest and grapefruit with lime blossom, early petrol and talc. Bone-dry with laser-like acidity.",
+    "notes": "Petrol notes appear early because of strong sunlight. Almost always dry.",
+    "confusion": "German Riesling usually shows residual sugar and lower alcohol; Albariño lacks the petrol."
+  },
+  {
+    "id": "sauvignon-blanc-loire",
+    "varietal": "Sauvignon Blanc",
+    "region": "Sancerre & Pouilly-Fumé, Loire Valley, France",
+    "newWorld": false,
+    "traits": {
+      "straw": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1,
+      "apple": 1, "citrus": 2,
+      "herbal_lemongrass": 1, "vegetal_pyrazine": 1, "inorganic": 2, "oyster_shell": 1,
+      "dry": 1,
+      "acid_high": 1,
+      "alcohol_mod": 1,
+      "climate_cool": 1
+    },
+    "description": "Grapefruit, lemon, gooseberry and green apple with cut grass, flint, chalk and gunsmoke. Lean and racy.",
+    "notes": "Silex (flint) soils in Pouilly-Fumé and Sancerre add smoky minerality. Usually no oak.",
+    "confusion": "New Zealand Sauvignon Blanc is far more tropical and pungent; Chablis lacks the herbaceousness."
+  },
+  {
+    "id": "sauvignon-blanc-bordeaux",
+    "varietal": "Sauvignon Blanc",
+    "region": "Pessac-Léognan & Graves, Bordeaux, France",
+    "newWorld": false,
+    "traits": {
+      "straw": 1, "yellow": 1,
+      "nose_ripe": 1, "palate_ripe": 1,
+      "citrus": 2, "apple": 1, "stone": 1,
+      "herbal_lemongrass": 1, "vegetal_pyrazine": 1, "wax": 1, "lees": 1, "inorganic": 1, "oak": 2,
+      "dry": 1,
+      "acid_mod_plus": 1, "acid_high": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_moderate": 1
+    },
+    "description": "Lemon, grapefruit and white peach with fresh herbs, beeswax from Sémillon, and toast and vanilla from new oak. Rounder and fuller than Loire.",
+    "notes": "Blended with Sémillon and aged in new wood.",
+    "confusion": "Burgundy Chardonnay lacks the herbaceous note; California Fumé Blanc is riper with lower acid."
+  },
+  {
+    "id": "sauvignon-blanc-california",
+    "varietal": "Sauvignon Blanc",
+    "region": "Napa Valley & Sonoma County, California",
+    "newWorld": true,
+    "traits": {
+      "straw": 1, "yellow": 1,
+      "nose_ripe": 1, "palate_ripe": 1,
+      "citrus": 2, "stone": 1, "tropical": 1,
+      "herbal_lemongrass": 1, "vegetal_pyrazine": 1, "lees": 1, "oak": 1,
+      "dry": 1,
+      "acid_mod": 1, "acid_mod_plus": 1,
+      "alcohol_mod_plus": 1,
+      "climate_warm": 1
+    },
+    "description": "Ripe grapefruit, melon, white peach and lemongrass with a subtle grassy note and some vanilla or cream from oak (Fumé Blanc).",
+    "notes": "Styles range from stainless-steel fresh to barrel-fermented Fumé Blanc.",
+    "confusion": "New Zealand is more pungent and acidic; Bordeaux blanc shows more wax and higher acid."
+  },
+  {
+    "id": "sauvignon-blanc-new-zealand",
+    "varietal": "Sauvignon Blanc",
+    "region": "Marlborough, New Zealand",
+    "newWorld": true,
+    "traits": {
+      "straw": 1,
+      "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "citrus": 2, "tropical": 2, "stone": 1,
+      "herbal_lemongrass": 1, "vegetal_pyrazine": 2,
+      "dry": 1,
+      "acid_high": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Pungent passion fruit, grapefruit, lime and gooseberry with jalapeño, green bell pepper, cut grass and tomato leaf. Zesty and very aromatic.",
+    "notes": "Usually stainless steel, no oak. High UV and cool nights give intense aromatics.",
+    "confusion": "Loire Sauvignon Blanc is more mineral and restrained; Albariño lacks the pyrazine."
+  },
+  {
+    "id": "torrontes-argentina",
+    "varietal": "Torrontés",
+    "region": "Salta, Catamarca & Mendoza, Argentina",
+    "newWorld": true,
+    "traits": {
+      "straw": 1,
+      "nose_ripe": 1, "palate_ripe": 1,
+      "citrus": 1, "stone": 2, "tropical": 1,
+      "floral_red_flowers": 1, "floral_fruit_blossoms": 2, "herbal_tea": 1, "soap": 1, "bitter": 1,
+      "dry": 1,
+      "acid_mod": 1, "acid_mod_plus": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_warm": 1
+    },
+    "description": "Peach, lemon and lychee with intense orange blossom, jasmine and rose, plus a soapy, bitter, pithy finish. Aromatic yet dry.",
+    "notes": "High-altitude Salta (Cafayate) gives the most aromatic examples.",
+    "confusion": "Gewurztraminer is fuller and oilier with more lychee and rose; Viognier is richer with lower acid."
+  },
+  {
+    "id": "viognier-condrieu",
+    "varietal": "Viognier",
+    "region": "Condrieu, Northern Rhône, France",
+    "newWorld": false,
+    "traits": {
+      "yellow": 1, "gold": 1,
+      "nose_ripe": 1, "nose_overripe": 1, "palate_ripe": 1, "palate_overripe": 1,
+      "stone": 2, "tropical": 1, "citrus": 1,
+      "floral_fruit_blossoms": 1, "floral_light_flowers": 2, "spice": 1, "lees": 1, "bitter": 1, "oak": 1,
+      "dry": 1,
+      "acid_low": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_moderate": 1, "climate_warm": 1
+    },
+    "description": "Ripe apricot, peach, mango and tangerine with honeysuckle, violet and ginger. Oily and full-bodied with low acidity.",
+    "notes": "Often aged partly in older oak. Aromatics fade quickly with age.",
+    "confusion": "Gewurztraminer has more lychee and rose; California Chardonnay has more oak and butter; Torrontés is lighter and more bitter."
+  }
+]
