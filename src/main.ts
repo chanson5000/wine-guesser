@@ -13,7 +13,13 @@ const isWineType = (s: string | undefined): s is WineType => WINE_TYPES.includes
 
 function route(hash: string): View {
   const [path = '', query = ''] = hash.replace(/^#/, '').split('?', 2);
-  const [page, type, id] = path.split('/').filter(Boolean).map(decodeURIComponent);
+  let segments: string[];
+  try {
+    segments = path.split('/').filter(Boolean).map(decodeURIComponent);
+  } catch {
+    return notFoundView(); // malformed percent-encoding in a hand-edited or truncated link
+  }
+  const [page, type, id] = segments;
 
   if (!page) return homeView();
   if (page === 'about') return aboutView();

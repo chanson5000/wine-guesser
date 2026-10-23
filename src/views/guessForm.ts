@@ -10,9 +10,13 @@ const SCALE = [
 ] as const;
 
 const UNSURE = '';
+const SYNC_EVENT = 'sync-limits';
 
-function singleGroup(group: TraitGroup, prefill: Traits, showLabel: boolean): HTMLElement {
-  const selected = group.options.find((o) => prefill[o.id])?.id ?? UNSURE;
+// Inputs are rendered in their blank state, which the browser treats as the form's defaults,
+// so the Clear (reset) button always empties the grid. Prefilled values are applied afterwards
+// as live state by applyPrefill().
+
+function singleGroup(group: TraitGroup, showLabel: boolean): HTMLElement {
   const choices = [{ id: UNSURE, label: 'Unsure' }, ...group.options];
   return el(
     'div',
@@ -26,7 +30,7 @@ function singleGroup(group: TraitGroup, prefill: Traits, showLabel: boolean): HT
         return el(
           'span',
           { class: 'segment' },
-          el('input', { type: 'radio', name: group.id, id, value: choice.id, checked: choice.id === selected }),
+          el('input', { type: 'radio', name: group.id, id, value: choice.id, checked: choice.id === UNSURE }),
           el('label', { for: id }, choice.label),
         );
       }),
@@ -34,12 +38,12 @@ function singleGroup(group: TraitGroup, prefill: Traits, showLabel: boolean): HT
   );
 }
 
-function pickSection(section: Section, prefill: Traits): HTMLElement[] {
+function pickSection(section: Section): HTMLElement[] {
   const max = section.max ?? Infinity;
   const hintId = `${section.id}-hint`;
   return section.groups.map((group) => {
     const boxes = group.options.map((o) =>
-      el('input', { type: 'checkbox', name: o.id, id: o.id, value: 1, checked: prefill[o.id] === 1, 'aria-describedby': hintId }),
+      el('input', { type: 'checkbox', name: o.id, id: o.id, value: 1, 'aria-describedby': hintId }),
     );
     const sync = () => {
       const full = boxes.filter((b) => b.checked).length >= max;
@@ -50,13 +54,12 @@ function pickSection(section: Section, prefill: Traits): HTMLElement[] {
       { class: 'segmented wrap', onchange: sync },
       group.options.map((o, i) => el('span', { class: 'segment' }, boxes[i], el('label', { for: o.id }, o.label))),
     );
-    row.addEventListener('reset-sync', sync);
-    sync();
+    row.addEventListener(SYNC_EVENT, sync);
     return row;
   });
 }
 
-function scaleGroup(group: TraitGroup, prefill: Traits): HTMLElement {
+function scaleGroup(group: TraitGroup): HTMLElement {
   return el(
     'div',
     { class: 'scale' },
@@ -70,7 +73,7 @@ function scaleGroup(group: TraitGroup, prefill: Traits): HTMLElement {
           return el(
             'span',
             { class: 'scale-cell' },
-            el('input', { type: 'radio', name: o.id, id, value: s.value, checked: (prefill[o.id] ?? 0) === s.value }),
+            el('input', { type: 'radio', name: o.id, id, value: s.value, checked: s.value === 0 }),
             el('label', { for: id }, el('span', { class: 'visually-hidden' }, `${o.label}: `), s.label),
           );
         }),
@@ -79,19 +82,19 @@ function scaleGroup(group: TraitGroup, prefill: Traits): HTMLElement {
   );
 }
 
-function sectionFieldset(section: Section, prefill: Traits): HTMLElement {
+function sectionFieldset(section: Section): HTMLElement {
   let body: HTMLElement[];
   let hint: string | undefined;
   switch (section.kind) {
     case 'single':
-      body = section.groups.map((g) => singleGroup(g, prefill, section.groups.length > 1));
+      body = section.groups.map((g) => singleGroup(g, section.groups.length > 1));
       break;
     case 'pick':
-      body = pickSection(section, prefill);
+      body = pickSection(section);
       hint = `Select up to ${section.max}.`;
       break;
     case 'scale':
-      body = section.groups.map((g) => scaleGroup(g, prefill));
+      body = section.groups.map((g) => scaleGroup(g));
       hint = 'Key marks a defining characteristic.';
       break;
   }
@@ -102,6 +105,34 @@ function sectionFieldset(section: Section, prefill: Traits): HTMLElement {
     hint && el('p', { class: 'hint', id: `${section.id}-hint` }, hint),
     body,
   );
+}
+
+function inputId(section: Section, group: TraitGroup, trait: string, value: number): string {
+  switch (section.kind) {
+    case 'single':
+      return `${group.id}-${trait}`;
+    case 'pick':
+      return trait;
+    case 'scale':
+      return `${trait}-${value}`;
+  }
+}
+
+function applyPrefill(form: HTMLFormElement, type: WineType, prefill: Traits): void {
+  for (const section of SECTIONS[type]) {
+    for (const group of section.groups) {
+      for (const { id } of group.options) {
+        const value = prefill[id] ?? 0;
+        if (value === 0) continue;
+        const input = form.querySelector<HTMLInputElement>(`[id="${inputId(section, group, id, value)}"]`);
+        if (input) input.checked = true;
+      }
+    }
+  }
+}
+
+function syncPickLimits(form: HTMLFormElement): void {
+  for (const row of form.querySelectorAll('.segmented.wrap')) row.dispatchEvent(new Event(SYNC_EVENT));
 }
 
 function readForm(form: HTMLFormElement, type: WineType): Traits {
@@ -127,7 +158,7 @@ export function guessFormView(type: WineType, query: string): View {
   const form = el(
     'form',
     { class: 'guess-form', novalidate: true },
-    SECTIONS[type].map((s) => sectionFieldset(s, prefill)),
+    SECTIONS[type].map((s) => sectionFieldset(s)),
     error,
     el(
       'div',
@@ -136,6 +167,9 @@ export function guessFormView(type: WineType, query: string): View {
       el('button', { type: 'reset', class: 'button' }, 'Clear'),
     ),
   );
+
+  applyPrefill(form, type, prefill);
+  syncPickLimits(form);
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -150,9 +184,7 @@ export function guessFormView(type: WineType, query: string): View {
   form.addEventListener('reset', () => {
     error.textContent = '';
     // Defaults are restored after the event, so re-sync the pick limits on the next tick.
-    setTimeout(() => {
-      for (const row of form.querySelectorAll('.segmented.wrap')) row.dispatchEvent(new Event('reset-sync'));
-    });
+    setTimeout(() => syncPickLimits(form));
   });
 
   const other: WineType = type === 'red' ? 'white' : 'red';

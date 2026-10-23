@@ -5,9 +5,12 @@
   "description": "Deductive tasting helper that guesses a wine varietal from your observations.",
   "license": "MIT",
   "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vitest run && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "lint": "eslint .",

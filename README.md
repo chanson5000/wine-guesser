@@ -19,7 +19,7 @@ TypeScript, [Vite](https://vite.dev/) and plain DOM rendering, tested with [Vite
 
 ## Getting started
 
-Requires Node.js 20+.
+Requires Node.js 20.19+ or 22.12+ (Vite 7's supported range).
 
 ```sh
 npm install
@@ -32,17 +32,22 @@ npm run dev        # http://localhost:5173
 | `npm test`          | Run the unit tests                   |
 | `npm run lint`      | Lint with ESLint                     |
 | `npm run typecheck` | Type-check with `tsc`                |
-| `npm run build`     | Type-check and build to `dist/`      |
+| `npm run build`     | Type-check, test and build to `dist/` |
 | `npm run preview`   | Serve the production build locally   |
 
 ## Project layout
 
 ```
 src/
+  main.ts         entry point and hash router
   traits.ts       tasting-grid definition: every trait, its label and how it is entered
   scoring.ts      turns form input into traits and ranks the profiles
+  types.ts        shared types (Wine, Traits, MatchResult)
+  dom.ts          el() helper that builds DOM nodes; text is never parsed as HTML
+  styles.css      all styling, including dark mode
   data/red.json   red varietal profiles
   data/white.json white varietal profiles
+  data/wines.ts   loads the profiles
   views/          pages (home, guess form, results, profiles, about)
 tests/            scoring, trait catalog and data validation tests
 public/files/     CMS examinable wine lists (PDF)
@@ -50,7 +55,7 @@ public/files/     CMS examinable wine lists (PDF)
 
 ## Editing varietal profiles
 
-Profiles live in `src/data/red.json` and `src/data/white.json`. Each entry looks like:
+Profiles live in `src/data/red.json` and `src/data/white.json`. A complete red entry looks like:
 
 ```json
 {
@@ -58,16 +63,28 @@ Profiles live in `src/data/red.json` and `src/data/white.json`. Each entry looks
   "varietal": "Gamay",
   "region": "Beaujolais (Villages, Cru), France",
   "newWorld": false,
-  "traits": { "ruby": 1, "red_fruit": 2, "carbonic_maceration": 2, "tannin_low": 1 },
+  "traits": {
+    "ruby": 1, "purple": 1,
+    "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+    "red_fruit": 2,
+    "floral": 1, "carbonic_maceration": 2, "organic": 1, "inorganic": 1,
+    "tannin_low": 1,
+    "acid_mod_plus": 1, "acid_high": 1,
+    "alcohol_mod": 1,
+    "climate_cool": 1, "climate_moderate": 1
+  },
   "description": "...",
   "notes": "...",
   "confusion": "..."
 }
 ```
 
-- `traits` lists only the characteristics the wine shows: `1` = present, `2` = a key marker. Anything left out counts as absent. Valid trait ids are defined in `src/traits.ts`.
-- Color, structure, climate, sweetness and fruit condition use `1` only. A profile may mark several levels in a group, e.g. `tannin_mod_plus` and `tannin_high`.
-- `npm test` validates every profile (known trait ids, valid values, required fields, unique ids), so a bad edit fails CI.
+Valid trait ids are defined in `src/traits.ts`. Traits fall into two kinds:
+
+- **Rated notes** (fruit and non-fruit) are optional. List only the ones the wine shows: `1` = present, `2` = a key marker. Anything left out counts as absent.
+- **Grouped choices** (color, nose and palate fruit condition, tannin, acid, alcohol, climate and, for whites, sweetness) are required. Every group needs at least one option set to `1`, and `2` is not allowed. A profile may mark several levels in a group, e.g. `tannin_mod_plus` and `tannin_high`.
+
+`npm test` validates every profile: known trait ids, valid values, every grouped choice filled in, required text fields and unique ids. `npm run build` runs the tests too, so a bad edit cannot be built or deployed.
 
 The bundled profiles are a starting point written from typical textbook descriptions. Refine them to match your own tasting experience.
 
@@ -85,7 +102,7 @@ Traits left at No or Unsure are ignored. Profiles are ranked by score, and the p
 
 ## Deployment
 
-Pushing to `master` runs `.github/workflows/deploy.yml`, which tests, builds and publishes `dist/` to GitHub Pages. To enable it once, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+`.github/workflows/ci.yml` lints, type-checks, tests and builds every push and pull request. On `master`, a deploy job then publishes that same `dist/` to GitHub Pages, and it only runs if every check passed. To enable it once, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
 
 The build is a plain static folder with relative paths, so `dist/` can be hosted anywhere (Netlify, Cloudflare Pages, S3, a subdirectory on an existing site, and so on).
 

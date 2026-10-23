@@ -40,6 +40,13 @@ describe('trait catalog', () => {
     }
   });
 
+  it.each(WINE_TYPES)('has one group per pick section for %s', (type) => {
+    // The "Select up to N" hint describes the whole section, while the limit is enforced per group.
+    for (const section of SECTIONS[type].filter((s) => s.kind === 'pick')) {
+      expect(section.groups).toHaveLength(1);
+    }
+  });
+
   it('qualifies grouped labels', () => {
     expect(traitLabel('red', 'tannin_high')).toBe('Tannin: High');
     expect(traitLabel('red', 'black_fruit')).toBe('Black');
