@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Guess a wine varietal from your deductive tasting notes. A practice tool for blind tasters." />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>Wine Guesser</title>
+  </head>
+  <body>
+    <a class="skip-link" id="skip-link" href="#/">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#/">
+        <img src="favicon.svg" alt="" width="32" height="32" />
+        <span>Wine Guesser</span>
+      </a>
+      <nav aria-label="Main">
+        <a href="#/guess/red">Red</a>
+        <a href="#/guess/white">White</a>
+        <a href="#/wines/red">Profiles</a>
+        <a href="#/about">About</a>
+      </nav>
+    </header>
+    <main id="app" tabindex="-1">
+      <noscript><p>Wine Guesser needs JavaScript to run.</p></noscript>
+    </main>
+    <footer class="site-footer">
+      <p>
+        Exam lists:
+        <a href="files/Examinable_Red_Wines.pdf" target="_blank">red</a> ·
+        <a href="files/Examinable_White_Wines.pdf" target="_blank">white</a>
+      </p>
+      <p>© Cory Hanson · <a href="https://github.com/chanson5000/wine-guesser">Source on GitHub</a></p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

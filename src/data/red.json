@@ -1,0 +1,306 @@
+[
+  {
+    "id": "cabernet-sauvignon-bordeaux",
+    "varietal": "Cabernet Sauvignon",
+    "region": "Bordeaux (Left Bank), France",
+    "newWorld": false,
+    "traits": {
+      "garnet": 1, "ruby": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "red_fruit": 1, "black_fruit": 2,
+      "vegetal_pyrazine": 2, "herbal_tobacco": 1, "organic": 1, "inorganic": 1, "oak": 1,
+      "tannin_mod_plus": 1, "tannin_high": 1,
+      "acid_mod_plus": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_moderate": 1
+    },
+    "description": "Blackcurrant, black cherry and plum with cedar, graphite, tobacco leaf and a green bell pepper edge. Firm, drying tannin and fresh acidity.",
+    "notes": "Usually blended with Merlot and Cabernet Franc. Graves and Haut-Médoc gravel soils lend a pencil-shaving minerality; new French oak is subtle compared to Napa.",
+    "confusion": "Merlot (Right Bank) is rounder with softer tannin; Cabernet Franc shows more red fruit and pyrazine; New World Cabernet is riper with more oak and alcohol."
+  },
+  {
+    "id": "cabernet-sauvignon-new-world",
+    "varietal": "Cabernet Sauvignon",
+    "region": "Napa Valley & Sonoma, California; Australia; Chile",
+    "newWorld": true,
+    "traits": {
+      "ruby": 1, "purple": 1,
+      "nose_ripe": 1, "nose_overripe": 1, "palate_ripe": 1, "palate_overripe": 1,
+      "black_fruit": 2,
+      "vegetal_pyrazine": 1, "herbal_mint": 1, "cocoa": 1, "oak": 2,
+      "tannin_mod_plus": 1, "tannin_high": 1,
+      "acid_mod": 1, "acid_mod_plus": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_warm": 1
+    },
+    "description": "Ripe cassis, blackberry and black cherry, mint or eucalyptus, cocoa and lavish vanilla and toast from new oak. Full body with high, ripe tannin.",
+    "notes": "Napa shows the plushest fruit and most oak. Coonawarra and Margaret River (Australia) show mint/eucalyptus; Chile's Central Valley often keeps a pyrazine note.",
+    "confusion": "New World Merlot is softer and less tannic; Australian Shiraz shows more blue fruit and lower acidity; Zinfandel is jammier with higher alcohol."
+  },
+  {
+    "id": "merlot-bordeaux",
+    "varietal": "Merlot",
+    "region": "Pomerol & St.-Émilion (Right Bank), France",
+    "newWorld": false,
+    "traits": {
+      "garnet": 1, "ruby": 1,
+      "nose_ripe": 1, "palate_ripe": 1,
+      "red_fruit": 1, "black_fruit": 2,
+      "vegetal_pyrazine": 1, "herbal_tobacco": 1, "cocoa": 1, "organic": 1, "oak": 1,
+      "tannin_mod": 1, "tannin_mod_plus": 1,
+      "acid_mod": 1, "acid_mod_plus": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_moderate": 1
+    },
+    "description": "Plum, black cherry and red currant with tobacco, cocoa, earth and a light herbal note. Rounder and fleshier than Left Bank Cabernet.",
+    "notes": "Blended with Cabernet Franc. Clay soils in Pomerol give density and truffle-like earth.",
+    "confusion": "Left Bank Cabernet is more tannic and structured; Cabernet Franc is leaner with more pyrazine."
+  },
+  {
+    "id": "merlot-california",
+    "varietal": "Merlot",
+    "region": "Napa Valley & Sonoma, California",
+    "newWorld": true,
+    "traits": {
+      "ruby": 1, "purple": 1,
+      "nose_ripe": 1, "nose_overripe": 1, "palate_ripe": 1, "palate_overripe": 1,
+      "red_fruit": 1, "black_fruit": 2,
+      "cocoa": 2, "coffee": 1, "oak": 1,
+      "tannin_mod": 1, "tannin_mod_plus": 1,
+      "acid_mod": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_warm": 1
+    },
+    "description": "Ripe plum, black cherry and blackberry with mocha, chocolate and vanilla. Plush, round tannin and moderate acidity.",
+    "notes": "Often the softest, most approachable of the Bordeaux varieties in California.",
+    "confusion": "New World Cabernet has firmer tannin and more structure; Zinfandel is jammier with spice and higher alcohol."
+  },
+  {
+    "id": "pinot-noir-burgundy",
+    "varietal": "Pinot Noir",
+    "region": "Côte d'Or, Burgundy, France",
+    "newWorld": false,
+    "traits": {
+      "garnet": 1, "ruby": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "red_fruit": 2,
+      "floral": 1, "herbal_tea": 1, "game": 1, "organic": 2, "inorganic": 1, "oak": 1,
+      "tannin_low": 1, "tannin_mod": 1,
+      "acid_mod_plus": 1, "acid_high": 1,
+      "alcohol_mod": 1,
+      "climate_cool": 1
+    },
+    "description": "Tart cherry, raspberry and cranberry with forest floor, mushroom, dried leaves and wet stone. Light to medium body, silky tannin, bright acidity.",
+    "notes": "Village and Premier Cru wines see a moderate amount of French oak. Earth often rivals fruit.",
+    "confusion": "Gamay (Cru Beaujolais) is fruitier with carbonic notes; Nebbiolo has far more tannin and acidity; Oregon Pinot can be very similar."
+  },
+  {
+    "id": "pinot-noir-new-world",
+    "varietal": "Pinot Noir",
+    "region": "California; Willamette Valley, Oregon; New Zealand",
+    "newWorld": true,
+    "traits": {
+      "ruby": 1,
+      "nose_ripe": 1, "palate_ripe": 1,
+      "red_fruit": 2, "black_fruit": 1,
+      "herbal_tea": 1, "spice_other": 1, "organic": 1, "oak": 1,
+      "tannin_low": 1, "tannin_mod": 1,
+      "acid_mod": 1, "acid_mod_plus": 1,
+      "alcohol_mod_plus": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Ripe black and red cherry, raspberry, cola and baking spice with vanilla. More fruit-forward than Burgundy with softer acidity.",
+    "notes": "California is the ripest; Oregon and Central Otago sit between California and Burgundy; Martinborough leans savory.",
+    "confusion": "Burgundy shows more earth and acidity; Grenache is riper, higher in alcohol and less acidic."
+  },
+  {
+    "id": "gamay-beaujolais",
+    "varietal": "Gamay",
+    "region": "Beaujolais (Villages, Cru), France",
+    "newWorld": false,
+    "traits": {
+      "ruby": 1, "purple": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "red_fruit": 2,
+      "floral": 1, "carbonic_maceration": 2, "organic": 1, "inorganic": 1,
+      "tannin_low": 1,
+      "acid_mod_plus": 1, "acid_high": 1,
+      "alcohol_mod": 1,
+      "climate_cool": 1, "climate_moderate": 1
+    },
+    "description": "Bright raspberry, strawberry, cherry and cranberry with violet and peony, plus banana, bubblegum or kirsch from carbonic maceration. Low tannin, fresh acidity.",
+    "notes": "Cru Beaujolais (Morgon, Moulin-à-Vent) from granite soils is more structured and earthy, with less obvious carbonic character.",
+    "confusion": "Burgundy Pinot Noir is earthier with more oak and finer tannin; young Grenache is higher in alcohol."
+  },
+  {
+    "id": "grenache-rhone",
+    "varietal": "Grenache",
+    "region": "Châteauneuf-du-Pape & Gigondas, Southern Rhône, France",
+    "newWorld": false,
+    "traits": {
+      "garnet": 1, "ruby": 1,
+      "nose_ripe": 1, "nose_overripe": 1, "nose_baked": 1, "palate_ripe": 1, "palate_overripe": 1,
+      "red_fruit": 2, "black_fruit": 1,
+      "herbal_dried": 2, "herbal_thyme_rosemary": 1, "spice_pepper": 1, "game": 1, "organic": 1, "inorganic": 1,
+      "tannin_mod": 1, "tannin_mod_plus": 1,
+      "acid_low": 1, "acid_mod": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_warm": 1
+    },
+    "description": "Ripe to jammy strawberry, raspberry and kirsch with garrigue (dried thyme, lavender, rosemary), white pepper, leather and earth. Warm alcohol, modest acidity.",
+    "notes": "Blended with Syrah and Mourvèdre (GSM). Aged in large old foudres, so little new oak. Garnet rim even when young.",
+    "confusion": "Australian Grenache is fruitier with less earth; Zinfandel is darker with more oak; Tempranillo shows more oak and leather."
+  },
+  {
+    "id": "grenache-australia",
+    "varietal": "Grenache",
+    "region": "South Australia (Barossa, McLaren Vale)",
+    "newWorld": true,
+    "traits": {
+      "ruby": 1,
+      "nose_ripe": 1, "nose_overripe": 1, "palate_ripe": 1, "palate_overripe": 1,
+      "red_fruit": 2, "black_fruit": 1,
+      "herbal_dried": 1, "spice_other": 1,
+      "tannin_mod": 1,
+      "acid_low": 1, "acid_mod": 1,
+      "alcohol_high": 1,
+      "climate_warm": 1
+    },
+    "description": "Jammy raspberry, strawberry and red plum with sweet spice and a light herbal note. Fleshy, high in alcohol, soft acidity.",
+    "notes": "Old bush vines in the Barossa and McLaren Vale; often blended with Shiraz and Mataro (Mourvèdre).",
+    "confusion": "Southern Rhône Grenache is earthier and more savory; Zinfandel is darker with more oak and spice."
+  },
+  {
+    "id": "syrah-northern-rhone",
+    "varietal": "Syrah",
+    "region": "Northern Rhône (Côte-Rôtie, Hermitage, Cornas), France",
+    "newWorld": false,
+    "traits": {
+      "ruby": 1, "purple": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1, "palate_ripe": 1,
+      "black_fruit": 2, "blue_fruit": 1,
+      "floral": 1, "herbal_dried": 1, "spice_pepper": 2, "game": 2, "smoke": 1, "organic": 1, "inorganic": 1,
+      "tannin_mod_plus": 1, "tannin_high": 1,
+      "acid_mod_plus": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_moderate": 1
+    },
+    "description": "Blackberry, black plum and blueberry with violet, cracked black pepper, smoked meat, bacon fat, olive and iron.",
+    "notes": "Côte-Rôtie may be co-fermented with a little Viognier for perfume. Granite soils add a stony, mineral note.",
+    "confusion": "Australian Shiraz is riper with more oak and less pepper and meat; Left Bank Bordeaux shows pyrazine and cedar."
+  },
+  {
+    "id": "syrah-new-world",
+    "varietal": "Syrah / Shiraz",
+    "region": "South Australia, Western Australia & Victoria; California",
+    "newWorld": true,
+    "traits": {
+      "ruby": 1, "purple": 1,
+      "nose_ripe": 1, "nose_overripe": 1, "palate_ripe": 1, "palate_overripe": 1,
+      "black_fruit": 2, "blue_fruit": 2,
+      "herbal_mint": 1, "spice_pepper": 1, "spice_anise": 1, "cocoa": 1, "oak": 1,
+      "tannin_mod_plus": 1,
+      "acid_mod": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_warm": 1
+    },
+    "description": "Jammy blackberry, blueberry and black plum with licorice, dark chocolate, eucalyptus or mint and sweet American or French oak.",
+    "notes": "Barossa is the ripest and most opulent; Victoria and Western Australia are cooler and more peppery. California Syrah sits between Australia and the Rhône.",
+    "confusion": "Zinfandel is jammier with more red fruit; New World Cabernet has firmer tannin and less blue fruit; Malbec is less spicy."
+  },
+  {
+    "id": "malbec-mendoza",
+    "varietal": "Malbec",
+    "region": "Mendoza, Argentina",
+    "newWorld": true,
+    "traits": {
+      "purple": 1,
+      "nose_ripe": 1, "nose_overripe": 1, "palate_ripe": 1,
+      "black_fruit": 2, "blue_fruit": 1,
+      "floral": 1, "cocoa": 1, "oak": 1,
+      "tannin_mod": 1, "tannin_mod_plus": 1,
+      "acid_mod": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_warm": 1
+    },
+    "description": "Deep purple with blackberry, black plum and blueberry, violet, cocoa and sweet vanilla oak. Plush and full-bodied with soft-to-moderate tannin.",
+    "notes": "High-altitude vineyards give intense color and keep acidity fresher than the warm days suggest.",
+    "confusion": "Australian Shiraz has more spice and mint; New World Merlot is less purple and less floral."
+  },
+  {
+    "id": "nebbiolo-piedmont",
+    "varietal": "Nebbiolo",
+    "region": "Barolo & Barbaresco, Piedmont, Italy",
+    "newWorld": false,
+    "traits": {
+      "garnet": 1,
+      "nose_tart": 1, "nose_ripe": 1, "nose_baked": 1, "palate_tart": 1, "palate_ripe": 1,
+      "red_fruit": 2,
+      "floral": 2, "herbal_dried": 1, "herbal_tea": 1, "spice_anise": 1, "balsamic": 2, "organic": 1, "inorganic": 1,
+      "tannin_high": 1,
+      "acid_high": 1,
+      "alcohol_mod_plus": 1, "alcohol_high": 1,
+      "climate_moderate": 1
+    },
+    "description": "Pale garnet with an orange rim. Sour and dried cherry, rose, tar, licorice, dried herbs and earth. Very high tannin and acidity.",
+    "notes": "The color is deceptively light for the power on the palate. Traditional producers age in large neutral botti.",
+    "confusion": "Sangiovese is less tannic with tomato leaf and oregano; Pinot Noir is far softer; aged Grenache is lower in acid."
+  },
+  {
+    "id": "sangiovese-tuscany",
+    "varietal": "Sangiovese",
+    "region": "Chianti Classico & Brunello di Montalcino, Tuscany, Italy",
+    "newWorld": false,
+    "traits": {
+      "ruby": 1, "garnet": 1,
+      "nose_tart": 1, "nose_ripe": 1, "palate_tart": 1,
+      "red_fruit": 2,
+      "vegetal_tomato_leaf": 2, "herbal_oregano_basil": 1, "herbal_dried": 1, "herbal_tea": 1, "balsamic": 1, "organic": 1, "inorganic": 1,
+      "tannin_mod_plus": 1, "tannin_high": 1,
+      "acid_mod_plus": 1, "acid_high": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_moderate": 1
+    },
+    "description": "Sour cherry, red plum and dried cranberry with tomato leaf, oregano, black tea, balsamic, leather and dusty earth. High acid and drying tannin.",
+    "notes": "Brunello is fuller and more powerful than Chianti Classico. Riserva sees longer oak aging.",
+    "confusion": "Nebbiolo is paler with more tannin, tar and rose; Tempranillo has more obvious oak and dill."
+  },
+  {
+    "id": "tempranillo-spain",
+    "varietal": "Tempranillo",
+    "region": "Rioja & Ribera del Duero, Spain",
+    "newWorld": false,
+    "traits": {
+      "garnet": 1, "ruby": 1,
+      "nose_ripe": 1, "nose_baked": 1, "palate_ripe": 1, "palate_baked": 1,
+      "red_fruit": 2, "black_fruit": 1,
+      "herbal_dried": 1, "herbal_tobacco": 1, "game": 1, "volatile_oxidation": 1, "organic": 1, "oak": 2,
+      "tannin_mod": 1, "tannin_mod_plus": 1,
+      "acid_mod": 1, "acid_mod_plus": 1,
+      "alcohol_mod": 1, "alcohol_mod_plus": 1,
+      "climate_moderate": 1, "climate_warm": 1
+    },
+    "description": "Dried cherry, strawberry and plum with tobacco, leather, dill, coconut and vanilla from American oak. Reserva and Gran Reserva show oxidative, savory character.",
+    "notes": "Rioja traditionally uses American oak; Ribera del Duero is darker and more powerful, often with French oak.",
+    "confusion": "Sangiovese has higher acid and less oak; Southern Rhône Grenache has more alcohol and garrigue."
+  },
+  {
+    "id": "zinfandel-california",
+    "varietal": "Zinfandel",
+    "region": "Napa Valley, Paso Robles & Sonoma, California",
+    "newWorld": true,
+    "traits": {
+      "ruby": 1, "purple": 1,
+      "nose_overripe": 1, "nose_baked": 1, "palate_overripe": 1, "palate_baked": 1,
+      "red_fruit": 1, "black_fruit": 2,
+      "spice_pepper": 1, "spice_other": 1, "oak": 1,
+      "tannin_mod": 1, "tannin_mod_plus": 1,
+      "acid_mod": 1,
+      "alcohol_high": 1,
+      "climate_warm": 1
+    },
+    "description": "Jammy blackberry, raspberry and plum with raisin and prune, sweet baking spice, black pepper and American oak. Very high alcohol.",
+    "notes": "Uneven ripening means fresh, jammy and raisined berries in the same bunch. Old-vine Sonoma examples are more structured.",
+    "confusion": "Australian Shiraz has more blue fruit and mint; Australian Grenache is lighter in color with more red fruit."
+  }
+]
