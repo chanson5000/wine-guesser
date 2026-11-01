@@ -1,0 +1,4 @@
+/* Styles for the plain HTML pages that load without the app's JavaScript. */
+@import '@fontsource/oswald/latin-500.css';
+@import '@fontsource/oswald/latin-600.css';
+@import './styles.css';
