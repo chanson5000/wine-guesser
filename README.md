@@ -46,6 +46,7 @@ src/
   dom.ts          el() helper that builds DOM nodes; text is never parsed as HTML
   styles.css      all styling, including dark mode
   static.css      styling (with fonts) for plain HTML pages that load no JavaScript
+  account/        Deductive Wine Taster account deletion (Firebase REST calls and page)
   data/red.json   red varietal profiles
   data/white.json white varietal profiles
   data/wines.ts   loads the profiles
@@ -55,6 +56,9 @@ public/files/     CMS examinable wine lists (PDF)
 deductive-wine-taster/privacy-policy.html
                   privacy policy for the Deductive Wine Taster mobile app; its store
                   listings link to this path, so keep it stable
+deductive-wine-taster/delete-account.html
+                  self-service account deletion for the mobile app; entered in Play
+                  Console as the deletion link, so keep it stable
 ```
 
 ## Editing varietal profiles
