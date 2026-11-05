@@ -4,8 +4,10 @@
 // the account itself.
 
 // Firebase web API keys identify the project; they are not secrets. Access is enforced by
-// Firebase Auth and the database rules.
-const API_KEY = 'AIzaSyAzQL6g_QIuAVZrvH2Uvd0CDrHYAKjIF0k';
+// Firebase Auth and the database rules. This is the project's browser key, restricted to
+// www.wineguesser.com referrers, so the page fails when served from anywhere else (including
+// localhost) unless that origin is added to the key's allowed referrers.
+const API_KEY = 'AIzaSyBqXTyIYHW9tusCZmb42qsXm2tQwhmTdhw';
 const AUTH_URL = 'https://identitytoolkit.googleapis.com/v1/accounts';
 const DATABASE_URL = 'https://deductive-wine-taster.firebaseio.com';
 
