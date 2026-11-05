@@ -728,3 +728,64 @@ main:focus {
     transition: none !important;
   }
 }
+
+/* ---------- Account deletion ---------- */
+.account-panel {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.account-panel h2 {
+  margin-top: 0;
+}
+
+.account-panel h2:focus {
+  outline: none;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.field input {
+  width: 100%;
+  max-width: 24rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.form-status {
+  color: var(--ok);
+  margin: 0;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.button.danger {
+  background: var(--bad);
+  border-color: var(--bad);
+  color: var(--surface);
+}
+
+.button.danger:hover {
+  filter: brightness(1.1);
+  color: var(--surface);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
