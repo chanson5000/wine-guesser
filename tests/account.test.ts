@@ -52,6 +52,17 @@ describe('deleteAccount', () => {
     expect(JSON.parse(calls[2]?.[1].body as string)).toEqual({ idToken: 'token&x' });
   });
 
+  it('asks the user to sign in again when the sign-in has expired', async () => {
+    const fetcher = vi.fn().mockResolvedValueOnce(json(401, { error: 'Auth token is expired' }));
+    await expect(deleteAccount(session, fetcher)).rejects.toThrow('sign-in has expired');
+    const authFetcher = vi
+      .fn()
+      .mockResolvedValueOnce(json(200, null))
+      .mockResolvedValueOnce(json(200, null))
+      .mockResolvedValueOnce(authError('TOKEN_EXPIRED'));
+    await expect(deleteAccount(session, authFetcher)).rejects.toThrow('sign-in has expired');
+  });
+
   it('keeps the account if the history cannot be deleted', async () => {
     const fetcher = vi.fn().mockResolvedValue(json(401, { error: 'Permission denied' }));
     await expect(deleteAccount(session, fetcher)).rejects.toBeInstanceOf(AccountError);

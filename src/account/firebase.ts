@@ -33,6 +33,12 @@ const AUTH_MESSAGES: Record<string, string> = {
   TOO_MANY_ATTEMPTS_TRY_LATER: 'Too many attempts. Wait a few minutes and try again.',
 };
 
+// Sign-ins last an hour; after that the database and Auth reject the token.
+const EXPIRED_MESSAGE = 'Your sign-in has expired. Choose Cancel and sign in again.';
+for (const code of ['TOKEN_EXPIRED', 'INVALID_ID_TOKEN', 'CREDENTIAL_TOO_OLD_LOGIN_AGAIN']) {
+  AUTH_MESSAGES[code] = EXPIRED_MESSAGE;
+}
+
 const GENERIC_MESSAGE = 'Something went wrong. Check your connection and try again.';
 
 /** Maps a Firebase Auth error code (e.g. "TOO_MANY_ATTEMPTS_TRY_LATER : ...") to a readable message. */
@@ -49,6 +55,7 @@ async function request(fetcher: typeof fetch, url: string, init: RequestInit): P
     throw new AccountError(GENERIC_MESSAGE);
   }
   const body: unknown = await response.json().catch(() => null);
+  if (response.status === 401) throw new AccountError(EXPIRED_MESSAGE);
   if (!response.ok) {
     const code = (body as { error?: { message?: string } } | null)?.error?.message;
     throw new AccountError(authErrorMessage(code));
