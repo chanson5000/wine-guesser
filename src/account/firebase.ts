@@ -1,7 +1,7 @@
 // Talks to the Deductive Wine Taster mobile app's Firebase project through its REST APIs, so the
 // account deletion page needs no Firebase SDK. Deletion mirrors the app's Profile > Delete Account:
-// tasting history first (the database only lets a signed-in user remove their own records), then
-// the account itself.
+// the user's database records first (the database only lets a signed-in user remove their own
+// records), then the account itself.
 
 // Firebase web API keys identify the project; they are not secrets. Access is enforced by
 // Firebase Auth and the database rules. This is the project's browser key, restricted to
@@ -74,10 +74,18 @@ export async function signIn(email: string, password: string, fetcher: typeof fe
   return { userId: body.localId, idToken: body.idToken, email: body.email ?? email };
 }
 
-/** Permanently deletes the signed-in user's tasting history, then their account. */
+// Per-user records: tasting history, and the email-verification flag the original Android app
+// kept under users/{uid}.
+const USER_DATA_PATHS = ['conclusions', 'users'];
+
+/** Permanently deletes the signed-in user's database records, then their account. */
 export async function deleteAccount(session: Session, fetcher: typeof fetch = fetch): Promise<void> {
-  const history = `${DATABASE_URL}/conclusions/${encodeURIComponent(session.userId)}.json?auth=${encodeURIComponent(session.idToken)}`;
-  await request(fetcher, history, { method: 'DELETE' });
+  const auth = encodeURIComponent(session.idToken);
+  for (const path of USER_DATA_PATHS) {
+    await request(fetcher, `${DATABASE_URL}/${path}/${encodeURIComponent(session.userId)}.json?auth=${auth}`, {
+      method: 'DELETE',
+    });
+  }
   await authRequest(fetcher, 'delete', { idToken: session.idToken });
 }
 

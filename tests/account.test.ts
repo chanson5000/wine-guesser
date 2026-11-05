@@ -35,15 +35,21 @@ describe('signIn', () => {
 });
 
 describe('deleteAccount', () => {
-  it('deletes the tasting history before the account', async () => {
-    const fetcher = vi.fn().mockResolvedValueOnce(json(200, null)).mockResolvedValueOnce(json(200, {}));
+  it('deletes the tasting history and user record before the account', async () => {
+    const fetcher = vi
+      .fn()
+      .mockResolvedValueOnce(json(200, null))
+      .mockResolvedValueOnce(json(200, null))
+      .mockResolvedValueOnce(json(200, {}));
     await deleteAccount(session, fetcher);
     const calls = fetcher.mock.calls as [string, RequestInit][];
-    expect(calls).toHaveLength(2);
+    expect(calls).toHaveLength(3);
     expect(calls[0]?.[0]).toBe('https://deductive-wine-taster.firebaseio.com/conclusions/uid%2F1.json?auth=token%26x');
     expect(calls[0]?.[1].method).toBe('DELETE');
-    expect(calls[1]?.[0]).toContain('accounts:delete?key=');
-    expect(JSON.parse(calls[1]?.[1].body as string)).toEqual({ idToken: 'token&x' });
+    expect(calls[1]?.[0]).toBe('https://deductive-wine-taster.firebaseio.com/users/uid%2F1.json?auth=token%26x');
+    expect(calls[1]?.[1].method).toBe('DELETE');
+    expect(calls[2]?.[0]).toContain('accounts:delete?key=');
+    expect(JSON.parse(calls[2]?.[1].body as string)).toEqual({ idToken: 'token&x' });
   });
 
   it('keeps the account if the history cannot be deleted', async () => {
