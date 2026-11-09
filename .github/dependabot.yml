@@ -1,0 +1,20 @@
+# Weekly dependency update PRs. Minor and patch bumps are grouped into one PR
+# per ecosystem; majors arrive individually so they can be reviewed on their own.
+# Merges to master republish GitHub Pages.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      npm-minor-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions-minor-patch:
+        update-types: [minor, patch]
